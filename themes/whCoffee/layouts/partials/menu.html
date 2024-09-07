@@ -1,0 +1,21 @@
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+{{- with index site.Menus $menuID }}
+<nav class="h-full">
+  <ul class="flex h-full items-center justify-between space-x-4">
+    {{ range . }}
+    <li id="{{ .Identifier }}" class="w-full h-full px-4 flex flex-col items-start justify-center group text-center">
+      <a class=" group-hover:text-yellow-500 transition-all duration-1000" href="{{ .URL }}" title="{{ .Name }}">
+        {{ .Name }}
+      </a>
+      <!-- Optional Highlight Effect -->
+      <div class="w-[0%] relative group-hover:w-[100%] h-[6%] top-2 items-end content-start bg-yellow-500 duration-500">
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+</nav>
+{{- else }}
+<!-- Debugging output if menuID is not found -->
+<pre>No menu found for ID: {{ $menuID }}</pre>
+{{- end }}

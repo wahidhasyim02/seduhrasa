@@ -1,0 +1,21 @@
+{{- range .menuEntries }}
+{{- $attrs := dict "href" .URL }}
+
+<li id="{{ .Identifier }}" class="w-full h-full   px-4 flex flex-col items-start justify-center group text-center">
+
+    <a class="group-hover:text-yellow-500" {{- with .Params }} {{- range $k, $v :=. }} {{- printf "%s=%q" $k $v |
+        safeHTMLAttr }} {{- end }} {{- end }}>
+        {{ .Name }}
+    </a>
+
+
+
+    <div class="w-[0%] relative group-hover:w-[100%] h-[6%] top-2 items-end content-start  bg-yellow-500 duration-500">
+    </div>
+    {{- with .Children }}
+    <ul>
+        {{- partial "inline/menu/walk.html" (dict "page" $.Page "menuEntries" .) }}
+    </ul>
+    {{- end }}
+</li>
+{{- end }}

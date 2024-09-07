@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div
+  class="mb-12 flex w-full flex-col items-center justify-start space-y-12 bg-white px-12 dark:bg-gray-900"
+>
+  <h1>{{ .Title }}</h1>
+  {{ .Content }} {{ range .Pages }}
+  <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+  {{ .Summary }} {{ end }}
+</div>
+{{ end }}

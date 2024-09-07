@@ -1,0 +1,34 @@
+{{ define "main" }}
+
+<div
+  class="flex w-full flex-col items-center justify-start space-y-12 bg-white px-12 dark:bg-gray-900"
+>
+  {{ with .Params.images }}
+  <img
+    src="{{ index . 0 }}"
+    alt="First image"
+    class="h-full w-full object-cover"
+  />
+  {{ end }}
+</div>
+<div
+  class="dark:odd:bg-xai-700/10 dark:even:bg-xai-700/5 text-xai-700 dark:text-xai-400 p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20"
+>
+  <h3 class="text-xai-400 dark:text-xai-500 text-2xl font-medium">
+    {{ .Title }}
+  </h3>
+
+  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }} {{
+  $dateHuman := .Date | time.Format ":date_long" }}
+  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+  <div class="mt-2">{{ .Content | safeHTML }}</div>
+  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+
+  <!-- Bisa juga menggunakan ini untuk memanggil tags
+  {{ with .Params.tags }}
+  {{ range . }}
+  <a class="bg-blue-500 rounded-full text-white" href="/tags/{{ . | urlize }}">{{ . }}</a>
+  {{ end }}
+  {{ end }}-->
+</div>
+{{ end }}

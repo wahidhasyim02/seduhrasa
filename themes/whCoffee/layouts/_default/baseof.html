@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="{{ or site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body
+  class="max-h-screen max-w-full bg-white bg-cover bg-no-repeat font-sans text-gray-600 transition-colors duration-500 dark:bg-gray-950 dark:text-gray-400">
+  <header class="fixed left-16 right-0 top-0 z-1000 w-full rounded-tl-3xl bg-white dark:bg-gray-900">
+    {{ partial "header.html" . }}
+  </header>
+  <main class="relative left-16 top-16 h-[calc(100vh-86px)] w-[calc(100vw-4rem)] overflow-y-scroll">
+    {{ partial "navleft.html" . }} {{ block "main" . }}{{ end }}
+  </main>
+  <footer class="fixed bottom-0 left-16 w-full bg-white py-2 pl-12 dark:bg-gray-900 rounded-bl-3xl">
+    <hr class="h-[1px] w-[80%] border border-gray-200 dark:border-gray-900" />
+
+    {{ partial "footer.html" . }}
+  </footer>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const elements = document.querySelectorAll(".fadeup");
+      elements.forEach((element) => {
+        element.classList.remove("opacity-0");
+        element.classList.remove("translate-y-10");
+        element.classList.remove("-translate-y-10");
+        element.classList.remove("translate-x-10");
+        element.classList.remove("-translate-x-10");
+        element.classList.add("opacity-100");
+        element.classList.add("translate-y-0");
+        element.classList.add("translate-x-0");
+      });
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const images = document.querySelectorAll('.carousel-image');
+      let currentIndex = 0;
+
+      function changeImage() {
+        if (images.length > 0) {
+          images.forEach((img, index) => {
+            img.style.display = index === currentIndex ? 'block' : 'none';
+          });
+          currentIndex = (currentIndex + 1) % images.length;
+        }
+      }
+
+      // Ganti gambar setiap 4 detik (4000 ms)
+      setInterval(changeImage, 4000);
+
+      // Setel gambar awal
+      changeImage();
+    });
+
+
+
+
+  </script>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const testimonials = document.querySelectorAll('.testimonial-item');
+      let currentIndex = 0;
+      const totalItems = testimonials.length;
+      const itemsPerBatch = 2;  // Menampilkan 3 testimonial sekaligus
+      const intervalTime = 5000; // 5 detik
+
+      function showTestimonials(startIndex) {
+        // Sembunyikan semua testimonial
+        testimonials.forEach(item => item.classList.add('hidden'));
+
+        // Tampilkan 3 testimonial mulai dari startIndex
+        for (let i = 0; i < itemsPerBatch; i++) {
+          const index = (startIndex + i) % totalItems; // Menghindari index di luar batas
+          testimonials[index].classList.remove('hidden');
+        }
+      }
+
+      function nextTestimonials() {
+        currentIndex = (currentIndex + itemsPerBatch) % totalItems;
+        showTestimonials(currentIndex);
+      }
+
+      // Tampilkan 3 testimonial pertama
+      showTestimonials(currentIndex);
+
+      // Mulai interval untuk mengganti testimonial setiap 5 detik
+      setInterval(nextTestimonials, intervalTime);
+    });
+  </script>
+
+
+
+
+</body>
+
+</html>

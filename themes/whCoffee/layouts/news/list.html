@@ -1,0 +1,104 @@
+{{ define "main" }}
+<div
+  class="flex w-full flex-col items-center justify-start space-y-12 bg-white px-12 dark:bg-gray-900"
+>
+  <!--<h3 class="font-medium text-xl text-xai-400">{{ .Title }}</h3>
+     <div class="bg-red-600"> {{ .Content }}</div>-->
+  <div
+    class="w-full flex-row items-center justify-center space-y-2 text-center"
+  >
+    {{ if eq .Section "news" }}
+    <!-- Bagian ini hanya akan muncul di halaman /posts/ -->
+    <h1 class="text-4xl font-black">Our {{ .Section | title }}</h1>
+    <p>
+      Get the latest updates from <span class="font-bold">{{ site.Title}}</span>
+    </p>
+    {{ else if eq .Section "tags"}}
+    <!-- Bagian ini hanya akan muncul di halaman /tags/ -->
+    <h1 class="text-4xl font-black">{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+    {{ else }}
+    <!-- Bagian ini akan muncul di halaman section lain (selain /posts/ dan /tags/) -->
+    <h1 class="text-4xl font-black">{{ .Title }}</h1>
+    {{ end }}
+
+    <div class="relative h-[300px] w-full overflow-hidden rounded-lg">
+      {{ with .Params.images }}
+      <img
+        src="{{ index . 0 }}"
+        alt="First image"
+        class="h-full w-full object-cover"
+      />
+      {{ else }}
+      <img
+        src="/images/banner.png"
+        alt="Banner"
+        class="h-full w-full object-cover"
+      />
+      {{ end }}
+    </div>
+    <div class="text-left">
+      <a href="{{ .RelPermalink }}">
+        <h3 class="text-xl font-medium">{{ .Title }}</h3>
+      </a>
+
+      {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }} {{
+      $dateHuman := .Date | time.Format ":date_long" }}
+      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+      <!-- <div class=""> {{ .Content }}</div>-->
+    </div>
+  </div>
+</div>
+
+{{ range .Paginator.Pages }}
+<div
+  class="dark:odd:bg-xai-700/10 dark:even:bg-xai-700/5 flex w-full flex-row rounded-xl backdrop-blur-md odd:bg-white/10 even:bg-white/20"
+>
+  <div class="flex-1 justify-center p-4">
+    <a
+      href="{{ .RelPermalink }}"
+      class="relative float-start mr-4 h-28 w-40 overflow-hidden hover:animate-pulse"
+    >
+      {{ with .Params.images }}
+      <img
+        src="{{ index . 0 }}"
+        alt="First image"
+        class="h-full w-full rounded-md object-cover"
+      />
+      {{ end }}
+    </a>
+    <h2 class="text-xai-500 hover:text-lightblue-300 text-lg">
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    </h2>
+    <p class="text-xai-800 dark:text-xai-400 overflow-ellipsis">
+      {{ .Summary }}
+    </p>
+
+    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }} {{
+    $dateHuman := .Date | time.Format ":date_long" }}
+    <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+    <!-- <div class=""> {{ .Content }}</div>-->
+  </div>
+</div>
+
+{{ end }} {{ if .Paginator.HasPrev }}
+<a class="absolute left-6 top-[55%]" href="{{ .Paginator.Prev.URL }}">
+  <div
+    class="hover:bg-xai-200 dark:bg-xai-500/10 dark:hover:bg-xai-800 flex h-20 w-20 items-center justify-center rounded-full bg-white/30 shadow-md"
+  >
+    <span class="material-symbols-rounded flex items-center justify-center">
+      arrow_back_ios
+    </span>
+  </div>
+</a>
+{{ end }} {{ if .Paginator.HasNext }}
+<a class="absolute right-6 top-[55%]" href="{{ .Paginator.Next.URL }}">
+  <div
+    class="hover:bg-xai-200 dark:bg-xai-500/10 dark:hover:bg-xai-800 flex h-20 w-20 items-center justify-center rounded-full bg-white/30 shadow-md"
+  >
+    <span class="material-symbols-rounded flex items-center justify-center">
+      arrow_forward_ios
+    </span>
+  </div>
+</a>
+{{ end }} {{ end }}
