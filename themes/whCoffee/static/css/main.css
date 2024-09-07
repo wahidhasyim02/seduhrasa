@@ -804,6 +804,10 @@ video {
   height: 360px !important;
 }
 
+.h-\[400px\] {
+  height: 400px !important;
+}
+
 .h-\[6\%\] {
   height: 6% !important;
 }
@@ -859,6 +863,10 @@ video {
 
 .w-\[40\%\] {
   width: 40% !important;
+}
+
+.w-\[60\%\] {
+  width: 60% !important;
 }
 
 .w-\[65\%\] {
@@ -1180,6 +1188,10 @@ video {
 .bg-gray-200 {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity)) !important;
+}
+
+.bg-gray-900\/20 {
+  background-color: rgb(17 24 39 / 0.2) !important;
 }
 
 .bg-red-600 {
@@ -1560,6 +1572,12 @@ video {
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia) !important;
 }
 
+.backdrop-blur-xl {
+  --tw-backdrop-blur: blur(24px) !important;
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia) !important;
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia) !important;
+}
+
 .transition {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter !important;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter !important;
@@ -1576,6 +1594,12 @@ video {
 
 .transition-colors {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 150ms !important;
+}
+
+.transition-opacity {
+  transition-property: opacity !important;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
   transition-duration: 150ms !important;
 }
@@ -1788,6 +1812,10 @@ video {
     background-color: rgb(3 7 18 / var(--tw-bg-opacity)) !important;
   }
 
+  .dark\:bg-white\/20 {
+    background-color: rgb(255 255 255 / 0.2) !important;
+  }
+
   .dark\:text-gray-300 {
     --tw-text-opacity: 1 !important;
     color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
@@ -1834,14 +1862,14 @@ video {
     background-color: rgb(234 179 8 / var(--tw-bg-opacity)) !important;
   }
 
-  .dark\:hover\:text-gray-950:hover {
-    --tw-text-opacity: 1 !important;
-    color: rgb(3 7 18 / var(--tw-text-opacity)) !important;
-  }
-
   .dark\:hover\:text-gray-400:hover {
     --tw-text-opacity: 1 !important;
     color: rgb(156 163 175 / var(--tw-text-opacity)) !important;
+  }
+
+  .dark\:hover\:text-gray-950:hover {
+    --tw-text-opacity: 1 !important;
+    color: rgb(3 7 18 / var(--tw-text-opacity)) !important;
   }
 
   .group:hover .dark\:group-hover\:bg-gray-800\/60 {

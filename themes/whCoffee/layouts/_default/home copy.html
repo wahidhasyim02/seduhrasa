@@ -81,7 +81,7 @@
       <div
         class="ring-yellow-400 group  hover:ring-1 hover:delay-100 duration-1000 w-full flex-1 items-center justify-center rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
         <a href="{{ .RelPermalink }}"
-          class="relative float-start mr-4 h-28 w-40 overflow-hidden opacity-50 group-hover:opacity-100 ">
+          class="relative float-start mr-4 h-28 w-40 overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -130,7 +130,8 @@
       {{ range $hotdrink }}
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
-        <a href="{{ .RelPermalink }}" class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
+        <a href="{{ .RelPermalink }}"
+          class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -155,7 +156,8 @@
       {{ range $cooldrink }}
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
-        <a href="{{ .RelPermalink }}" class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
+        <a href="{{ .RelPermalink }}"
+          class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -180,7 +182,8 @@
       {{ range $food }}
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
-        <a href="{{ .RelPermalink }}" class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
+        <a href="{{ .RelPermalink }}"
+          class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -222,7 +225,8 @@
 
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
-        <a href="{{ .RelPermalink }}" class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
+        <a href="{{ .RelPermalink }}"
+          class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -260,7 +264,8 @@
 
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
-        <a href="{{ .RelPermalink }}" class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
+        <a href="{{ .RelPermalink }}"
+          class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -293,7 +298,8 @@
 
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
-        <a href="{{ .RelPermalink }}" class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
+        <a href="{{ .RelPermalink }}"
+          class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -380,7 +386,7 @@
 <div
   class="flex flex-row rounded-xl odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5 backdrop-blur-md ">
   <div class="p-4 flex-1 justify-center">
-    <a href="{{ .RelPermalink }}" class="w-40 h-28 overflow-hidden  opacity-50 group-hover:opacity-100   relative float-start mr-4">
+    <a href="{{ .RelPermalink }}" class="w-40 h-28 overflow-hidden  opacity-50 group-hover:opacity-100 transition-opacity duration-1000   relative float-start mr-4">
       {{ with .Params.images }}
       <img src="{{ index . 0 }}" alt="First image" class="w-full h-full rounded-md object-cover" />
       {{ end }}

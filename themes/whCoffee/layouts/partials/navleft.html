@@ -22,7 +22,7 @@
   <ul class="flex flex-col space-y-2">
     {{ range .Site.Menus.socialmedia }}
     <li class="group px-2 py-2">
-      <a href="{{ .URL }}" title="{{ .Name }}">
+      <a href="{{ .URL }}" title="{{ .Name }}" target="_blank">
         {{ with .Params.svg }}
         <!-- Gunakan SVG jika ada -->
         <span class="group-hover:text-yellow-500 transition-all duration-1000">{{ . | safeHTML }}</span>

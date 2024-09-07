@@ -45,7 +45,8 @@
     <div id="slider"
       class="fadeup flex h-full w-1/2 translate-x-10 overflow-hidden transform flex-col items-center justify-center opacity-0 transition duration-1000">
 
-      <div class="flex h-full w-full items-center rounded-3xl shadow-lg justify-center  bg-white dark:bg-gray-900 ">
+      <div
+        class="flex h-full w-full items-center rounded-3xl shadow-lg justify-center dark:bg-white/20 bg-gray-900/20 backdrop-blur-xl ">
 
         <div
           class="flex overflow-hidden rounded-3xl max-w-full hover:max-w-full [&:hover>div]:w-[10%] [&>div:hover]:w-[70%]">
@@ -129,7 +130,7 @@
       <div
         class="ring-yellow-400 group  hover:ring-1 hover:delay-100 duration-1000 w-full flex-1 items-center justify-center rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
         <a href="{{ .RelPermalink }}"
-          class="relative float-start mr-4 h-28 w-40 overflow-hidden opacity-50 group-hover:opacity-100 ">
+          class="relative float-start mr-4 h-28 w-40 overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -179,7 +180,8 @@
       {{ range $hotdrink }}
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
-        <a href="{{ .RelPermalink }}" class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
+        <a href="{{ .RelPermalink }}"
+          class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -205,7 +207,8 @@
       {{ range $cooldrink }}
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
-        <a href="{{ .RelPermalink }}" class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
+        <a href="{{ .RelPermalink }}"
+          class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -230,7 +233,8 @@
       {{ range $food }}
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
-        <a href="{{ .RelPermalink }}" class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
+        <a href="{{ .RelPermalink }}"
+          class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -273,7 +277,8 @@
 
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
-        <a href="{{ .RelPermalink }}" class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
+        <a href="{{ .RelPermalink }}"
+          class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -312,7 +317,8 @@
 
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
-        <a href="{{ .RelPermalink }}" class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
+        <a href="{{ .RelPermalink }}"
+          class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -345,7 +351,8 @@
 
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
-        <a href="{{ .RelPermalink }}" class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
+        <a href="{{ .RelPermalink }}"
+          class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -389,7 +396,7 @@
       <div
         class="testimonial-item group items-center flex pt-12 px-3 justify-around w-full h-full rounded-xl  backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
         <div
-          class="p-2 shadow-xl bg-white opacity-50 group-hover:opacity-100 absolute -top-16 dark:bg-gray-800 rounded-full flex items-center justify-center overflow-hidden">
+          class="p-2 shadow-xl bg-white opacity-50 group-hover:opacity-100 transition-opacity duration-1000 absolute -top-16 dark:bg-gray-800 rounded-full flex items-center justify-center overflow-hidden">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-40 w-40 rounded-full object-cover" />
           {{ end }}
@@ -470,6 +477,72 @@
     </button>
   </div>
 
+  <div id="location"
+    class="fadeup relative w-[90%]  bg-white shadow-2xl shadow-black/5  space-y-20 flex  translate-y-10 transform flex-col items-center justify-center rounded-xl p-2 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0  odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
+    <div class="mb-2 text-center">
+      <h3 class="text-3xl font-bold">Our Store Location</h3>
+      <h4 class="text-lg">Find Us Here</h4>
+    </div>
+    <div id="location-wrapper"
+      class="flex flex-row   gap-x-2  w-full h-full justify-between items-center content-center rounded-xl">
+
+
+
+
+      <div
+        class="group items-center flex pt-12 px-3 justify-around w-full h-full rounded-xl backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
+
+
+        {{ $location := site.GetPage "location/location.md" }}
+        <div class="flex flex-col">
+          <h1>{{ $location.Params.title }}</h1>
+          <p><strong>Address:</strong> {{ $location.Params.location.address }}, {{ $location.Params.location.city }}, {{
+            $location.Params.location.postal_code }}, {{ $location.Params.location.country }}</p>
+          <p><strong>Phone:</strong> <a href="tel:{{ $location.Params.location.phone }}">{{
+              $location.Params.location.phone }}</a></p>
+          <p><strong>Email:</strong> <a href="mailto:{{ $location.Params.location.email }}">{{
+              $location.Params.location.email }}</a></p>
+          <p><strong>Coordinates:</strong> Latitude: {{ $location.Params.location.latitude }}, Longitude: {{
+            $location.Params.location.longitude }}</p>
+        </div>
+
+
+        <div id="map" class="w-[60%] h-[400px]">
+          <img src="/images/googlemaps.png" class="h-full w-full" alt="">
+        </div> <!-- Div untuk Google Maps -->
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+
+  <div id="locatioooon"
+    class="fadeup relative bg-white shadow-2xl shadow-black/5 space-y-6 flex w-[85%] transform flex-col items-center justify-center rounded-xl p-4 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 odd:bg-white/10 even:bg-white/20 hover:-translate-y-4 hover:ring-1 hover:delay-0 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5 opacity-100 translate-y-0 translate-x-0"
+    data-carousel="slide">
+    <div class="mb-2 text-center">
+      <h3 class="text-3xl font-bold">Our Location</h3>
+      <h4 class="text-lg">Capturing Every Moment</h4>
+      <p class="text-center text-gray-600 dark:text-gray-600">Take a glimpse into SeduhRasa through our photo gallery.
+        From live music events to history discussions, every
+        moment in our café is filled with meaning. See how we serve coffee and food that not only delights but also
+        tells a story.
+      </p>
+    </div>
+
+    <!-- Carousel wrapper -->
+    <div class="relative w-full bg-cover h-56 overflow-hidden rounded-lg md:h-96">
+      {{ $locationPage := .Site.GetPage "location/location.md" }}
+      {{ range $locationPage.Params.location }}
+      <div class="hidden duration-700 ease-in-out" data-carousel-item>
+        <h1>{{ .address }}</h1>
+
+      </div>
+      {{ end }}
+    </div>
+  </div>
 
 
 
