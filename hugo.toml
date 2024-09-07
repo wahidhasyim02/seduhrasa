@@ -1,0 +1,99 @@
+baseURL = 'https://seduhrasa.org/'
+languageCode = 'en-us'
+title = 'SeduhRasa'
+theme = 'whCoffee'
+summaryLength = '18'
+
+[params]
+description = "{{ .Title }} is where timeless coffee moments meet vibrant cultural experiences, offering a blend of traditional ambiance, quality brews, and engaging events."
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+
+[menu]
+    [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+    [[menu.main]]
+    name = "About"
+    url = "#about"
+    weight = 2
+    
+    [[menu.main]]
+    name = "News"
+    url = "/news"
+    weight = 3
+      
+    [[menu.main]]
+    name = "Products"
+    url = "/products"
+    weight = 4
+                  
+    [[menu.left]]
+    name = "Hot Drink"
+    url = "/products/hotdrink"
+    weight = 1
+    [menu.left.params]
+    icon = "coffee" 
+            
+    [[menu.left]]
+    name = "Cool Drink"
+    url = "/products/cooldrink"
+    weight = 2
+    [menu.left.params]
+    svg = '<svg xmlns="http://www.w3.org/2000/svg" width="1.6em" height="1.6em" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M13.815 3.579a1 1 0 0 0-1.63-1.158l-1 1.409a1 1 0 0 0-.098.17H7.5A1.5 1.5 0 0 0 6 5.5V7l.003.084A1.5 1.5 0 0 0 5 8.5V10a1 1 0 0 0 .995 1l.92 9.2a2 2 0 0 0 1.99 1.8h6.19a2 2 0 0 0 1.99-1.8l.92-9.2A1 1 0 0 0 19 10V8.5a1.5 1.5 0 0 0-1.003-1.416L18 7V5.5A1.5 1.5 0 0 0 16.5 4h-2.983zM8 7V6h8v1z"/></g></svg>'
+
+
+    [[menu.left]]
+    name = "Foods"
+    url = "/products/foods"
+    weight = 3
+    [menu.left.params]
+    svg = '<svg xmlns="http://www.w3.org/2000/svg" width="1.6em" height="1.6em" viewBox="0 0 256 256"><path fill="currentColor" d="M224 104h-8.37a88 88 0 0 0-175.26 0H32a8 8 0 0 0-8 8a104.35 104.35 0 0 0 56 92.28V208a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-3.72A104.35 104.35 0 0 0 232 112a8 8 0 0 0-8-8m-50.52-47.77q2.75 2.25 5.27 4.75a87.92 87.92 0 0 0-49.15 43h-29.5A72.26 72.26 0 0 1 168 56c1.83 0 3.66.09 5.48.23M148.12 104a71.84 71.84 0 0 1 41.27-29.57A71.45 71.45 0 0 1 199.54 104ZM128 40a72 72 0 0 1 19 2.57A88.36 88.36 0 0 0 83.33 104H56.46A72.08 72.08 0 0 1 128 40"/></svg>'
+
+    [[menu.left]]
+    name = "Discount"
+    url = "/promotions"
+    weight = 4
+    [menu.left.params]
+    icon = "sell"
+
+    [[menu.left]]
+    name = "Galleryalery"
+    url = "/gallery"
+    weight = 5
+    [menu.left.params]
+    icon = "image"
+
+    [[menu.socialmedia]]
+    name = "facebook"
+    url = "https://facebook.com"
+    weight = 1
+    [menu.socialmedia.params] 
+    svg = '<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentColor" d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z"/></svg>'
+
+    [[menu.socialmedia]]
+    name = "instagram"
+    url = "https://instagram.com"
+    weight = 2
+    [menu.socialmedia.params] 
+    svg = '<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="currentColor" d="M13.028 2c1.125.003 1.696.009 2.189.023l.194.007c.224.008.445.018.712.03c1.064.05 1.79.218 2.427.465c.66.254 1.216.598 1.772 1.153a4.9 4.9 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428c.012.266.022.487.03.712l.006.194c.015.492.021 1.063.023 2.188l.001.746v1.31a79 79 0 0 1-.023 2.188l-.006.194c-.008.225-.018.446-.03.712c-.05 1.065-.22 1.79-.466 2.428a4.9 4.9 0 0 1-1.153 1.772a4.9 4.9 0 0 1-1.772 1.153c-.637.247-1.363.415-2.427.465l-.712.03l-.194.006c-.493.014-1.064.021-2.189.023l-.746.001h-1.309a78 78 0 0 1-2.189-.023l-.194-.006a63 63 0 0 1-.712-.031c-1.064-.05-1.79-.218-2.428-.465a4.9 4.9 0 0 1-1.771-1.153a4.9 4.9 0 0 1-1.154-1.772c-.247-.637-.415-1.363-.465-2.428l-.03-.712l-.005-.194A79 79 0 0 1 2 13.028v-2.056a79 79 0 0 1 .022-2.188l.007-.194c.008-.225.018-.446.03-.712c.05-1.065.218-1.79.465-2.428A4.9 4.9 0 0 1 3.68 3.678a4.9 4.9 0 0 1 1.77-1.153c.638-.247 1.363-.415 2.428-.465c.266-.012.488-.022.712-.03l.194-.006a79 79 0 0 1 2.188-.023zM12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10m0 2a3 3 0 1 1 .001 6a3 3 0 0 1 0-6m5.25-3.5a1.25 1.25 0 0 0 0 2.5a1.25 1.25 0 0 0 0-2.5"/></svg>'
+
+    [[menu.socialmedia]]
+    name = "x"
+    url = "https://x.com"
+    weight = 3
+    [menu.socialmedia.params] 
+    svg = '<svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24"><path fill="currentColor" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584l-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>'
+
+    [[menu.setting]]
+    name = "Setting"
+    url = "/"
+    weight = 1
+    [menu.setting.params]
+    icon = "settings"
+
+
