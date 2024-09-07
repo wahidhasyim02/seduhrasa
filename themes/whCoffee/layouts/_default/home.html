@@ -15,7 +15,7 @@
 
 
 
-<div class="flex w-full pb-32 flex-col items-center justify-start space-y-12 bg-white px-12 dark:bg-gray-900">
+<div class="flex w-full pb-32 flex-col items-center justify-start space-y-12 bg-gray-200 px-12 dark:bg-gray-900">
   <div class="flex w-full flex-row content-center items-center justify-between space-x-8 pt-14">
     <div class="flex w-1/2 -translate-x-10 transform flex-col space-y-4 fadeup opacity-0 transition duration-1000">
       <h2 class="text-[48px] font-light uppercase leading-none">
@@ -33,7 +33,7 @@
       </p>
 
       <a href="/products"
-        class="text-lightblue-300 dark:text-lightblue-400 group flex w-fit items-center rounded-full bg-white px-4 py-2 text-center text-lg font-bold uppercase shadow-lg hover:text-gray-950 dark:bg-gray-800 dark:hover:bg-yellow-500 dark:hover:text-gray-950">
+        class="text-lightblue-300 dark:text-lightblue-400 group flex w-fit items-center rounded-full bg-white px-4 py-2 text-center text-lg font-bold uppercase shadow-lg hover:text-gray-950 dark:bg-gray-800  hover:bg-yellow-500 dark:hover:bg-yellow-500 dark:hover:text-gray-950">
         Explore Our Coffee Selection
         <span class="material-symbols-outlined transition group-hover:translate-x-1">
           chevron_right
@@ -42,15 +42,13 @@
     </div>
 
 
-    <div
+    <div id="slider"
       class="fadeup flex h-full w-1/2 translate-x-10 overflow-hidden transform flex-col items-center justify-center opacity-0 transition duration-1000">
 
+      <div class="flex h-full w-full items-center rounded-3xl shadow-lg justify-center  bg-white dark:bg-gray-900 ">
 
-
-
-      <div class="flex h-full w-full items-center justify-center  bg-white dark:bg-gray-900 ">
-
-        <div class="flex overflow-hidden  max-w-full hover:max-w-full [&:hover>div]:w-[10%] [&>div:hover]:w-[70%]">
+        <div
+          class="flex overflow-hidden rounded-3xl max-w-full hover:max-w-full [&:hover>div]:w-[10%] [&>div:hover]:w-[70%]">
           {{ range first 4 (sort (where .Site.RegularPages "Section" "news") "Date" "desc") }}
 
           <!-- Link di luar range .Params.images -->
@@ -95,7 +93,7 @@
 
 
   <div id="aboutus"
-    class="fadeup relative flex w-[65%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 opacity-0 ring-yellow-400 backdrop-blur-md transition duration-1000 odd:bg-white/10 even:bg-white/20 hover:-translate-y-4 hover:ring-1 hover:delay-0 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
+    class="fadeup px-12  bg-white shadow-2xl shadow-black/5 relative flex w-[65%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 opacity-0 ring-yellow-400 backdrop-blur-md transition duration-1000 odd:bg-white/10 even:bg-white/20 hover:-translate-y-4 hover:ring-1 hover:delay-0 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
     <a href="#aboutus" class="mb-2 text-center">
       <h3 class="text-3xl font-bold">About Us</h3>
 
@@ -118,7 +116,7 @@
   </div>
 
   <div id="news"
-    class="fadeup relative flex w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 backdrop-blur-md transition delay-1000 duration-1000 odd:bg-white/10 even:bg-white/20  ring-yellow-400 hover:-translate-y-4 hover:ring-1 hover:delay-0 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
+    class="fadeup relative   bg-white shadow-2xl shadow-black/5  flex w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 backdrop-blur-md transition delay-1000 duration-1000 odd:bg-white/10 even:bg-white/20  ring-yellow-400 hover:-translate-y-4 hover:ring-1 hover:delay-0 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
     <a href="/news" class="mb-2 text-center">
       <h3 class="text-3xl font-bold">News</h3>
 
@@ -131,7 +129,7 @@
       <div
         class="ring-yellow-400 group  hover:ring-1 hover:delay-100 duration-1000 w-full flex-1 items-center justify-center rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
         <a href="{{ .RelPermalink }}"
-          class="relative float-start mr-4 h-28 w-40 overflow-hidden group-hover:animate-pulse">
+          class="relative float-start mr-4 h-28 w-40 overflow-hidden opacity-50 group-hover:opacity-100 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -160,13 +158,14 @@
 
 
   <div id="products"
-    class="fadeup relative flex w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 odd:bg-white/10 even:bg-white/20 hover:-translate-y-4 hover:ring-1 hover:delay-0 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
+    class="fadeup relative  bg-white shadow-2xl shadow-black/5  flex w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 odd:bg-white/10 even:bg-white/20 hover:-translate-y-4 hover:ring-1 hover:delay-0 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
     <a href="/products" class="mb-2 text-center">
       <h3 class="text-3xl font-bold">Our Products</h3>
 
       <h4 class="text-lg">The Flavors We Offer</h4>
 
-      <p> We proudly serve a variety of premium products, from selected robusta and arabica coffee beans to refreshing
+      <p class="text-center text-gray-600 dark:text-gray-600"> We proudly serve a variety of premium products, from
+        selected robusta and arabica coffee beans to refreshing
         cold drinks. In addition to coffee, we also offer a range of dishes. Each meal is carefully crafted to
         complement the coffee and create a delightful dining experience.
       </p>
@@ -180,7 +179,7 @@
       {{ range $hotdrink }}
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
-        <a href="{{ .RelPermalink }}" class="relative  h-60 w-full overflow-hidden group-hover:animate-pulse">
+        <a href="{{ .RelPermalink }}" class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -206,7 +205,7 @@
       {{ range $cooldrink }}
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
-        <a href="{{ .RelPermalink }}" class="relative  h-60 w-full overflow-hidden group-hover:animate-pulse">
+        <a href="{{ .RelPermalink }}" class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -231,7 +230,7 @@
       {{ range $food }}
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
-        <a href="{{ .RelPermalink }}" class="relative  h-60 w-full overflow-hidden group-hover:animate-pulse">
+        <a href="{{ .RelPermalink }}" class="relative  h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -256,11 +255,12 @@
 
 
   <div id="promotions"
-    class="fadeup relative flex w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 odd:bg-white/10 even:bg-white/20 hover:-translate-y-4 hover:ring-1 hover:delay-0 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
+    class="fadeup relative   bg-white shadow-2xl shadow-black/5  flex w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 odd:bg-white/10 even:bg-white/20 hover:-translate-y-4 hover:ring-1 hover:delay-0 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
     <a href="/products" class="mb-2 text-center">
       <h3 class="text-3xl font-bold">Our Promotions</h3>
       <h4 class="text-lg">Enjoy Our Special Offers!</h4>
-      <p>Don’t miss out on the exciting promotions we offer every week. Take advantage of exclusive discounts on your
+      <p class="text-center text-gray-600 dark:text-gray-600">Don’t miss out on the exciting promotions we offer every
+        week. Take advantage of exclusive discounts on your
         favorite coffee and food. Keep an eye on our promotions page to stay updated on the latest deals.</p>
     </a>
 
@@ -273,7 +273,7 @@
 
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
-        <a href="{{ .RelPermalink }}" class="relative h-60 w-full overflow-hidden group-hover:animate-pulse">
+        <a href="{{ .RelPermalink }}" class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -312,7 +312,7 @@
 
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
-        <a href="{{ .RelPermalink }}" class="relative h-60 w-full overflow-hidden group-hover:animate-pulse">
+        <a href="{{ .RelPermalink }}" class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -345,7 +345,7 @@
 
       <div
         class="ring-yellow-400 hover:ring-1 hover:delay-100 group duration-1000 w-full flex-1 flex flex-col items-start justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
-        <a href="{{ .RelPermalink }}" class="relative h-60 w-full overflow-hidden group-hover:animate-pulse">
+        <a href="{{ .RelPermalink }}" class="relative h-60 w-full overflow-hidden opacity-50 group-hover:opacity-100 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
@@ -377,7 +377,7 @@
 
 
   <div id="testimonial"
-    class="relative space-y-20 flex w-auto translate-y-10 transform flex-col items-center justify-center rounded-xl p-2 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
+    class="fadeup relative  bg-white shadow-2xl shadow-black/5  space-y-20 flex w-auto translate-y-10 transform flex-col items-center justify-center rounded-xl p-2 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0  odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
     <div class="mb-2 text-center">
       <h3 class="text-3xl font-bold">Customer Testimonials</h3>
       <h4 class="text-lg">What People Are Saying About <span class="font-bold text-yellow-500">{{ .Site.Title }}</span>
@@ -387,9 +387,9 @@
       class="flex flex-row   gap-x-2  w-full h-[300px] justify-between items-center content-center rounded-xl">
       {{ range first 6 (shuffle (where .Site.RegularPages "Section" "testimonials")) }}
       <div
-        class="testimonial-item items-center flex pt-12 px-3 justify-around w-full h-full rounded-xl  backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
+        class="testimonial-item group items-center flex pt-12 px-3 justify-around w-full h-full rounded-xl  backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
         <div
-          class="p-2 shadow-xl bg-white absolute -top-16 dark:bg-gray-800 rounded-full flex items-center justify-center overflow-hidden">
+          class="p-2 shadow-xl bg-white opacity-50 group-hover:opacity-100 absolute -top-16 dark:bg-gray-800 rounded-full flex items-center justify-center overflow-hidden">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-40 w-40 rounded-full object-cover" />
           {{ end }}
@@ -401,7 +401,7 @@
               d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
               fill="currentColor" />
           </svg>
-          <blockquote class="text-gray-800 dark:text-gray-300 w-full font-thin relative -top-4 mb-6">
+          <blockquote class="text-gray-600 dark:text-gray-600 w-full font-light relative -top-4 mb-6">
             {{ .Content }}
           </blockquote>
           <figcaption class="flex items-center justify-center space-x-3">
@@ -418,43 +418,32 @@
   </div>
 
 
+  <div id="gallery"
+    class="fadeup relative  bg-white shadow-2xl shadow-black/5  space-y-6 flex w-[85%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 odd:bg-white/10 even:bg-white/20 hover:-translate-y-4 hover:ring-1 hover:delay-0 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5"
+    data-carousel="slide">
+    <div class="mb-2 text-center">
+      <h3 class="text-3xl font-bold">Our Gallery</h3>
+      <h4 class="text-lg">Capturing Every Moment</h4>
+      <p class="text-center text-gray-600 dark:text-gray-600">Take a glimpse into SeduhRasa through our photo gallery.
+        From live music events to history discussions, every
+        moment in our café is filled with meaning. See how we serve coffee and food that not only delights but also
+        tells a story.
 
-
-
-
-
-  <div id="gallery" class="relative w-full" data-carousel="slide">
+      </p>
+    </div>
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-      <!-- Item 1 -->
+    <div class="relative w-full bg-cover h-56 overflow-hidden rounded-lg md:h-96">
+      {{ $galleryPage := .Site.GetPage "gallery/gallery.md" }}
+      {{ range $galleryPage.Params.images }}
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-          class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+        <img src="{{ .src }}"
+          class="absolute block w-full h-auto object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
       </div>
-      <!-- Item 2 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-        <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-          class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-      </div>
-      <!-- Item 3 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-          class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-      </div>
-      <!-- Item 4 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
-          class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-      </div>
-      <!-- Item 5 -->
-      <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
-          class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
-      </div>
+      {{ end }}
     </div>
     <!-- Slider controls -->
     <button type="button"
-      class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      class="absolute top-16 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
       data-carousel-prev>
       <span
         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
@@ -467,7 +456,7 @@
       </span>
     </button>
     <button type="button"
-      class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+      class="absolute top-16 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
       data-carousel-next>
       <span
         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
