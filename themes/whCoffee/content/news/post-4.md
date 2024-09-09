@@ -5,6 +5,7 @@ draft = false
 tags = ['tutorial']
 images = ["/images/caraseduh.jpg"]
 category = 'news'
+type = "news"
 +++
 
 Want to take a bit of the SeduhRasa experience home with you? Read our blog for tips on brewing the perfect traditional coffee, straight from our coffee experts.

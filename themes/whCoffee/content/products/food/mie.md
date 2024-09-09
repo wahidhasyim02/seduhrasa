@@ -8,6 +8,7 @@ images = ["/images/gacoan.jpg"]
 draft = false
 tags = ['food']
 category = ['products','food']
+type = "food"
 +++
 
 This is the full content of Product Item 2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum mci, autem

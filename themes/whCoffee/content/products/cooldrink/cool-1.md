@@ -8,6 +8,7 @@ images = ["/images/lemon.jpg"]
 draft = false
 tags = ['cooldrink','ice']
 category = ['products','cooldrink']
+type = "cooldrink"
 +++
 
 This is the full content of Product Item 2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum mci, autem
