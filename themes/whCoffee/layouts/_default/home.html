@@ -19,23 +19,21 @@
   class="flex w-full pb-32 flex-col items-center justify-start space-y-12 bg-gray-200 px-4 md:px-12 dark:bg-gray-900">
 
   <div
-    class="flex border w-full flex-col md:flex-row content-center items-center justify-between space-y-0  md:space-y-12 md:space-x-8 border md:pt-14">
+    class="flex  w-full flex-col md:flex-row content-center items-center justify-between space-y-0  md:space-y-12 md:space-x-8 pt-4 md:pt-14">
     <div
-      class="fadeup flex order-2 md:order-1 w-full md:w-1/2 -translate-x-10 transform flex-col space-y-4  opacity-0 transition duration-1000 pt-8 md:pt-0">
-      <h2 class="text-[48px] font-light uppercase leading-none">
-        Relive the Memories
+      class="fadeup flex order-2 md:order-1 w-full md:w-1/2 -translate-x-10 transform flex-col space-x-0 space-y-2 md:space-y-2  opacity-0 transition duration-1000 pt-8 md:pt-0">
+      <h2 class="text-[38px] md:text-[46px] leading-[3rem]  font-light uppercase md:leading-none ">Relive the
+        Memories at
       </h2>
-      <h1 class="text-[48px] font-light uppercase leading-none">
-        at
-        <span class="text-[64px] font-bold text-yellow-500">{{ .Site.Title }}</span>
-      </h1>
+      <h2 class="text-[54px] md:text-[64px]  leading-normal md:leading-none font-bold uppercase text-yellow-500">
+        {{ .Site.Title
+        }}</h2>
       <p class="border-l border-yellow-500 pl-2 text-gray-600 dark:text-gray-600">
         Step into a classic atmosphere that takes you back in time. Here, casual
         conversations are paired with our finest coffee, creating unforgettable
         moments. Every cup of coffee we serve tells a story, and every event we
         host adds deeper meaning to your experience.
       </p>
-
       <a href="/products"
         class="group flex w-fit items-center rounded-full px-4 py-2 text-center text-lg font-bold uppercase shadow-lg  text-gray-950 hover:text-gray-950  bg-yellow-500 dark:bg-yellow-600 hover:bg-yellow-600 dark:hover:bg-yellow-500">
         Explore Our Coffee Selection
@@ -86,7 +84,7 @@
 
 
   <div id="aboutus"
-    class="fadeup relative px-12 bg-white/40 dark:bg-gray-700/10  shadow-2xl  shadow-black/5  flex w-[65%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 opacity-0 ring-yellow-400 backdrop-blur-md transition duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0">
+    class="fadeup relative px-4 md:px-12 bg-white/40 dark:bg-gray-700/10  shadow-2xl  shadow-black/5  flex  md:w-[65%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 opacity-0 ring-yellow-400 backdrop-blur-md transition duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0">
     <a href="#aboutus" class="mb-2 text-center">
       <h3 class="text-3xl font-bold">About Us</h3>
 
@@ -109,7 +107,7 @@
   </div>
 
   <div id="news"
-    class="fadeup relative bg-white/40 dark:bg-gray-700/10  shadow-2xlshadow-black/5  flex w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 backdrop-blur-md transition delay-1000 duration-1000  ring-yellow-400 hover:-translate-y-4 hover:ring-1 hover:delay-0">
+    class="fadeup relative bg-white/40 dark:bg-gray-700/10  shadow-2xl shadow-black/5  flex md:w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 backdrop-blur-md transition delay-1000 duration-1000  ring-yellow-400 hover:-translate-y-4 hover:ring-1 hover:delay-0">
     <a href="/news" class="mb-2 text-center">
       <h3 class="text-3xl font-bold">News</h3>
 
@@ -120,14 +118,14 @@
       {{ range first 3 (sort (where .Site.RegularPages "Section" "news") "Date"
       "desc") }}
       <div
-        class="ring-yellow-400 group  hover:ring-1 hover:delay-100 duration-1000 w-full flex-1 items-center justify-center rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
+        class="ring-yellow-400 group flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4  hover:ring-1 hover:delay-100 duration-1000 w-full  md:items-start md:justify-start rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
         <a href="{{ .RelPermalink }}"
-          class="relative float-start mr-4 h-28 w-40 overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
+          class="relative h-44 md:h-32 w-full md:w-[20%] overflow-hidden opacity-50 group-hover:opacity-100 transition-opacity duration-1000 ">
           {{ with .Params.images }}
           <img src="{{ index . 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
           {{ end }}
         </a>
-        <div class="flex flex-col">
+        <div class="flex flex-col md:w-[80%]">
           <h2 class="text-lg text-gray-500">
             <a href="{{ .RelPermalink }}" class="group-hover:text-yellow-500">{{ .LinkTitle }}</a>
           </h2>
@@ -139,7 +137,7 @@
           {{ $dateHuman := .Date | time.Format ":date_long" }}
           <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
         </div>
-        <!-- <div class=""> {{ .Content }}</div>-->
+
       </div>
       {{ end }}
     </div>

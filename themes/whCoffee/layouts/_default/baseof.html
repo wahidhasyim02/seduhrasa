@@ -7,13 +7,13 @@
 
 <body
   class="max-h-screen max-w-full bg-white bg-cover bg-no-repeat font-poppins text-gray-600 transition-colors duration-500 dark:bg-gray-950 dark:text-gray-400">
-  <header class="fixed left-16 right-0 top-0 z-1000 w-full rounded-tl-3xl bg-gray-200 dark:bg-gray-900">
+  <header class="fixed left-16 right-0 top-0 z-1000 max-w-full rounded-tl-3xl bg-gray-200 dark:bg-gray-900">
     {{ partial "header.html" . }}
   </header>
   <main class="relative left-16 top-16 h-[calc(100vh-86px)] w-[calc(100vw-4rem)] overflow-y-scroll">
     {{ partial "navleft.html" . }} {{ block "main" . }}{{ end }}
   </main>
-  <footer class="fixed bottom-0 left-16 w-full bg-gray-200 py-2 pl-12 dark:bg-gray-900 rounded-bl-3xl">
+  <footer class="fixed bottom-0 left-16 max-w-full bg-gray-200 py-2 pl-12 dark:bg-gray-900 rounded-bl-3xl">
     <hr class="h-[1px] w-[80%] border border-gray-300 dark:border-gray-900" />
 
     {{ partial "footer.html" . }}
