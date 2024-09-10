@@ -6,7 +6,7 @@
       <a href="{{ .URL }}" title="{{ .Name }}">
         {{ with .Params.svg }}
         <!-- Gunakan SVG jika ada -->
-        <span class="group-hover:text-yellow-500 transition-colors duration-1000">{{ . | safeHTML
+        <span class="group-hover:text-yellow-500">{{ . | safeHTML
           }}</span>
         {{ else }}
         <!-- Gunakan ikon jika SVG tidak ada -->
