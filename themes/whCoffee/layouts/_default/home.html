@@ -16,16 +16,16 @@
 
 
 <div id="main"
-  class="flex w-full pb-12 flex-col items-center justify-start space-y-6 md:space-y-12 bg-gray-200 px-4 md:px-12 dark:bg-gray-900">
+  class="flex w-full pb-12 flex-col items-center justify-start space-y-6 md:space-y-12 bg-gray-200 px-2 md:px-12 dark:bg-gray-900">
 
-  <div
+  <div id="jumbotron"
     class="flex  w-full flex-col md:flex-row content-center items-center justify-between space-y-0  md:space-y-12 md:space-x-8 pt-4 md:pt-14">
     <div
       class="fadeup flex order-2 md:order-1 w-full md:w-1/2 -translate-x-12 transform flex-col space-x-0 space-y-2 md:space-y-2  opacity-0 transition duration-1000 pt-8 md:pt-0">
       <h2 class="text-[38px] md:text-[42px] leading-[3rem]  font-light uppercase md:leading-none ">Relive the
         Memories at
       </h2>
-      <h2 class="text-[54px] md:text-[84px]  leading-normal md:leading-none font-bold uppercase text-yellow-500">
+      <h2 class="text-[48px] md:text-[84px]  leading-none md:leading-none font-bold uppercase text-yellow-500">
         {{ .Site.Title
         }}</h2>
       <p class="border-l border-yellow-500 pl-2 text-gray-600 dark:text-gray-600">
@@ -43,7 +43,7 @@
       </a>
     </div>
 
-    <div id="jumbotron"
+    <div
       class="fadeup flex order-1 md:order-2 translate-x-12  transform  opacity-0 transition duration-1000 min-h-full w-full md:w-1/2 items-center justify-center overflow-hidden rounded-3xl bg-gray-800">
       <div class="mx-auto max-w-full">
         <div class="flex [&:hover>div]:w-[10%] [&>div:hover]:w-[70%] ">
@@ -84,7 +84,7 @@
 
 
   <div id="aboutus"
-    class="fadeup relative px-4 md:px-12 bg-white/40 dark:bg-gray-700/10  shadow-2xl  shadow-black/5  flex  w-auto md:w-[65%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 opacity-0 ring-yellow-400 backdrop-blur-md transition duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0">
+    class="fadeup relative px-2 md:px-12 bg-white/40 dark:bg-gray-700/10  shadow-2xl  shadow-black/5  flex  w-auto md:w-[65%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 opacity-0 ring-yellow-400 backdrop-blur-md transition duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0">
     <a href="#aboutus" class="mb-2 text-center">
       <h3 class="text-3xl font-bold">About Us</h3>
 
@@ -107,7 +107,7 @@
   </div>
 
   <div id="news"
-    class="fadeup relative bg-white/40 dark:bg-gray-700/10  shadow-2xl shadow-black/5  flex w-auto md:w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 backdrop-blur-md transition delay-1000 duration-1000  ring-yellow-400 hover:-translate-y-4 hover:ring-1 hover:delay-0">
+    class="fadeup relative bg-white/40 dark:bg-gray-700/10  shadow-2xl shadow-black/5  flex w-auto md:w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-2 md:p-4 backdrop-blur-md transition delay-1000 duration-1000  ring-yellow-400 hover:-translate-y-4 hover:ring-1 hover:delay-0">
     <a href="/news" class="mb-2 text-center">
       <h3 class="text-3xl font-bold">News</h3>
 
@@ -146,7 +146,7 @@
 
 
   <div id="products"
-    class="fadeup relative   bg-white/40 dark:bg-gray-700/10  shadow-2xl  shadow-black/5  flex  w-auto md:w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0">
+    class="fadeup relative   bg-white/40 dark:bg-gray-700/10  shadow-2xl  shadow-black/5  flex  w-auto md:w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-2 md:p-4 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0">
     <a href="/products" class="mb-2 text-center">
       <h3 class="text-3xl font-bold">Our Products</h3>
 
@@ -246,7 +246,7 @@
 
 
   <div id="promotions"
-    class="fadeup relative bg-white/40 dark:bg-gray-700/10  shadow-2xlshadow-black/5  flex w-auto md:w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 odd:bg-white/10 even:bg-white/20 hover:-translate-y-4 hover:ring-1 hover:delay-0 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
+    class="fadeup relative bg-white/40 dark:bg-gray-700/10  shadow-2xlshadow-black/5  flex w-auto md:w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-2 md:p-4 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 odd:bg-white/10 even:bg-white/20 hover:-translate-y-4 hover:ring-1 hover:delay-0 dark:odd:bg-gray-700/10 dark:even:bg-gray-700/5">
     <a href="/products" class="mb-2 text-center">
       <h3 class="text-3xl font-bold">Our Promotions</h3>
       <h4 class="text-lg">Enjoy Our Special Offers!</h4>
@@ -412,7 +412,7 @@
   </div>
 
   <div id="gallery"
-    class="fadeup relative   bg-white/40 dark:bg-gray-700/10  shadow-2xl  shadow-black/5  space-y-6 flex w-fit h-fit translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0">
+    class="fadeup relative   bg-white/40 dark:bg-gray-700/10  shadow-2xl  shadow-black/5  space-y-6 flex w-fit h-fit translate-y-10 transform flex-col items-center justify-center rounded-xl p-2 md:p-4 ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0">
     <div class="mb-2 text-center">
       <h3 class="text-3xl font-bold">Our Gallery</h3>
       <h4 class="text-lg">Capturing Every Moment</h4>
@@ -454,7 +454,7 @@
 
 
   <div id="location"
-    class="fadeup relative  bg-white/40 dark:bg-gray-700/10  shadow-2xl  shadow-black/5 space-y-6 flex w-auto md:w-[85%] transform flex-col items-center justify-center rounded-xl p-4 backdrop-blur-md transition delay-1000 duration-1000hover:-translate-y-4 hover:ring-1  ring-yellow-400  hover:delay-0 opacity-100 translate-y-0 translate-x-0">
+    class="fadeup relative  bg-white/40 dark:bg-gray-700/10  shadow-2xl  shadow-black/5 space-y-6 flex w-auto md:w-[85%] transform flex-col items-center justify-center rounded-xl p-2 md:p-4 backdrop-blur-md transition delay-1000 duration-1000hover:-translate-y-4 hover:ring-1  ring-yellow-400  hover:delay-0 opacity-100 translate-y-0 translate-x-0">
     <div class="mb-2 text-center">
       <h3 class="text-3xl font-bold">Our Location</h3>
       <h4 class="text-lg">Capturing Every Moment</h4>
@@ -500,7 +500,7 @@
   </div>
 
   <div id="contactus"
-    class="fadeup relative  bg-white/40 dark:bg-gray-700/10  shadow-2xl  shadow-black/5 space-y-6 flex w-auto md:w-[85%] transform flex-col items-center justify-center rounded-xl p-4 backdrop-blur-md transition delay-1000 duration-1000hover:-translate-y-4 hover:ring-1  ring-yellow-400  hover:delay-0 opacity-100 translate-y-0 translate-x-0">
+    class="fadeup relative  bg-white/40 dark:bg-gray-700/10  shadow-2xl  shadow-black/5 space-y-6 flex w-auto md:w-[85%] transform flex-col items-center justify-center rounded-xl p-2 md:p-4 backdrop-blur-md transition delay-1000 duration-1000hover:-translate-y-4 hover:ring-1  ring-yellow-400  hover:delay-0 opacity-100 translate-y-0 translate-x-0">
     <div class="mb-2 text-center">
       <h3 class="text-3xl font-bold">Contact Us</h3>
       <h4 class="text-lg">Want to Learn More?</h4>
