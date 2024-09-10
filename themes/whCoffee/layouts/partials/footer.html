@@ -1,1 +1,93 @@
 &copy; Copyright {{ now.Year }}. All rights reserved.
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const images = document.querySelectorAll('.carousel-image');
+        let currentIndex = 0;
+
+        function changeImage() {
+            if (images.length > 0) {
+                images.forEach((img, index) => {
+                    img.style.display = index === currentIndex ? 'block' : 'none';
+                });
+                currentIndex = (currentIndex + 1) % images.length;
+            }
+        }
+
+        // Ganti gambar setiap 4 detik (4000 ms)
+        setInterval(changeImage, 4000);
+
+        // Setel gambar awal
+        changeImage();
+    });
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const testimonials = document.querySelectorAll('.testimonial-item');
+        let currentIndex = 0;
+        const totalItems = testimonials.length;
+        const itemsPerBatch = 2;  // Menampilkan 3 testimonial sekaligus
+        const intervalTime = 5000; // 5 detik
+
+        function showTestimonials(startIndex) {
+            // Sembunyikan semua testimonial
+            testimonials.forEach(item => item.classList.add('hidden'));
+
+            // Tampilkan 3 testimonial mulai dari startIndex
+            for (let i = 0; i < itemsPerBatch; i++) {
+                const index = (startIndex + i) % totalItems; // Menghindari index di luar batas
+                testimonials[index].classList.remove('hidden');
+            }
+        }
+
+        function nextTestimonials() {
+            currentIndex = (currentIndex + itemsPerBatch) % totalItems;
+            showTestimonials(currentIndex);
+        }
+
+        // Tampilkan 3 testimonial pertama
+        showTestimonials(currentIndex);
+
+        // Mulai interval untuk mengganti testimonial setiap 5 detik
+        setInterval(nextTestimonials, intervalTime);
+    });
+
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const iconMenu = document.getElementById('icon_menu');
+        const popupMenu = document.getElementById('popupmenu');
+
+        // Function to toggle popup menu visibility
+        function togglePopupMenu(event) {
+            // Stop the click event from propagating to the document body
+            event.stopPropagation();
+
+            // Toggle the 'flex' and 'hidden' classes
+            popupMenu.classList.toggle('flex');
+            popupMenu.classList.toggle('hidden');
+        }
+
+        // Function to hide the popup menu
+        function hidePopupMenu() {
+            if (popupMenu.classList.contains('flex')) {
+                popupMenu.classList.remove('flex');
+                popupMenu.classList.add('hidden');
+            }
+        }
+
+        // Show popup menu when the icon_menu is clicked
+        iconMenu.addEventListener('click', togglePopupMenu);
+
+        // Hide popup menu when clicking anywhere on the page or inside popupmenu
+        document.addEventListener('click', hidePopupMenu);
+
+        // Prevent the popupmenu from closing when clicked inside the popupmenu itself
+        popupMenu.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+    });
+</script>

@@ -1,0 +1,54 @@
+<script>
+    // Dark Mode dan Fadeup
+    document.addEventListener('DOMContentLoaded', function () {
+        // Dark Mode
+        var toggleDarkMode = document.getElementById('toggle_dark');
+        var textDarkMode = document.getElementById('text_darkmode');
+
+        // Fungsi untuk mengatur tema
+        function setTheme(isDarkMode) {
+            if (isDarkMode) {
+                document.documentElement.classList.add('dark');
+                textDarkMode.textContent = 'light_mode';
+            } else {
+                document.documentElement.classList.remove('dark');
+                textDarkMode.textContent = 'dark_mode';
+            }
+        }
+
+        // Memeriksa preferensi tema yang disimpan di localStorage
+        var isDarkMode = localStorage.getItem('darkMode') === 'true';
+        setTheme(isDarkMode);
+
+        // Pastikan toggleDarkMode ada sebelum menambahkan event listener
+        if (toggleDarkMode) {
+            toggleDarkMode.addEventListener('click', function () {
+                var isDark = document.documentElement.classList.toggle('dark');
+                setTheme(isDark);
+                localStorage.setItem('darkMode', isDark ? 'true' : 'false'); // Simpan status ke localStorage
+            });
+        }
+
+        // Fadeup Animations
+        const elements = document.querySelectorAll(".fadeup");
+        elements.forEach((element) => {
+            element.classList.remove("opacity-0");
+            element.classList.remove("translate-y-10");
+            element.classList.remove("-translate-y-10");
+            element.classList.remove("translate-x-12");
+            element.classList.remove("-translate-x-12");
+            element.classList.add("opacity-100");
+            element.classList.add("translate-y-0");
+            element.classList.add("translate-x-0");
+        });
+    });
+
+    // Memeriksa preferensi tema yang disimpan di local storage dan menerapkan sebelum halaman selesai dimuat
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.documentElement.classList.add('dark');
+        document.getElementById('text_darkmode').textContent = 'light_mode'; // Ubah teks ke light_mode jika dark mode aktif
+    } else {
+        document.documentElement.classList.remove('dark');
+        document.getElementById('text_darkmode').textContent = 'dark_mode'; // Ubah teks ke dark_mode jika dark mode tidak aktif
+    }
+</script>

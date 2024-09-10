@@ -65,6 +65,16 @@ module.exports = {
           "Segoe UI Symbol",
           "Noto Color Emoji",
         ],
+        noto: [
+          "Noto Sans",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji",
+        ],
         dosis: ["Dosis"],
         serif: ["Noto Serif", "ui-serif", "serif"],
       },
@@ -100,4 +110,5 @@ module.exports = {
     },
   },
   plugins: [],
+  darkMode: "class",
 };

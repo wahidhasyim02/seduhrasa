@@ -34,8 +34,14 @@ tag = "tags"
     weight = 4
 
     [[menu.iconmenu]]
-    identifier = "icon_menu"
+    identifier = "toggle_dark"
     weight = 1
+    [menu.iconmenu.params]
+    icon = "dark_mode" 
+
+     [[menu.iconmenu]]
+    identifier = "icon_menu"
+    weight = 2
     [menu.iconmenu.params]
     icon = "widgets" 
 

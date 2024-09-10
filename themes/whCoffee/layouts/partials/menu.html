@@ -2,7 +2,7 @@
 {{- $menuIcon := index site.Menus "iconmenu" }}
 
 <nav class="h-full">
-  <ul class="flex h-full items-center  justify-start md:justify-between md:space-x-4">
+  <ul class="flex h-full items-center  justify-start md:justify-between space-x-0  md:space-x-4">
     <!-- First <li> for menu.main -->
     {{- if $menuMain }}
     {{ range $menuMain }}
@@ -21,19 +21,34 @@
     {{ end }}
     {{- end }}
 
-    <!-- Second <li> for menu.iconmenu -->
+    <!-- First <li> for toggle_dark -->
     {{- if $menuIcon }}
     {{ range $menuIcon }}
+    {{ if eq .Identifier "toggle_dark" }}
     <li id="{{ .Identifier }}"
-      class="w-full h-full px-4 flex md:hidden flex-col items-start justify-center group text-center">
-      <div class="group-hover:text-yellow-500 flex transition-all duration-1000" href="{{ .URL }}"
-        title="{{ .Params.icon }}">
-        <span class="material-symbols-rounded text-3xl">{{ .Params.icon }}</span>
+      class="w-full h-full cursor-pointer px-1 md:px-4 flex flex-col items-start justify-center group text-center">
+      <div class="group-hover:text-yellow-500 flex transition-all duration-1000" title="{{ .Params.icon }}">
+        <span id="text_darkmode" class="material-symbols-rounded  flex text-3xl">{{ .Params.icon }}</span>
       </div>
-
     </li>
     {{ end }}
+    {{ end }}
     {{- end }}
+
+    <!-- Second <li> for icon_menu (visible only on mobile) -->
+    {{- if $menuIcon }}
+    {{ range $menuIcon }}
+    {{ if eq .Identifier "icon_menu" }}
+    <li id="{{ .Identifier }}"
+      class="w-full h-full cursor-pointer px-1 md:px-4 flex flex-col items-start justify-center group text-center md:hidden">
+      <div class="group-hover:text-yellow-500 flex transition-all duration-1000" title="{{ .Params.icon }}">
+        <span class="material-symbols-rounded flex text-3xl">{{ .Params.icon }}</span>
+      </div>
+    </li>
+    {{ end }}
+    {{ end }}
+    {{- end }}
+
   </ul>
 
 
