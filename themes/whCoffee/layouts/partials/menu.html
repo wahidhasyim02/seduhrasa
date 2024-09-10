@@ -1,21 +1,70 @@
-{{- $page := .page }}
-{{- $menuID := .menuID }}
-{{- with index site.Menus $menuID }}
+{{- $menuMain := index site.Menus "main" }}
+{{- $menuIcon := index site.Menus "iconmenu" }}
+
 <nav class="h-full">
-  <ul class="flex h-full items-center justify-between space-x-4">
-    {{ range . }}
-    <li id="{{ .Identifier }}" class="w-full h-full px-4 flex flex-col items-start justify-center group text-center">
-      <a class=" group-hover:text-yellow-500 transition-all duration-1000" href="{{ .URL }}" title="{{ .Name }}">
+  <ul class="flex h-full items-center  justify-start md:justify-between md:space-x-4">
+    <!-- First <li> for menu.main -->
+    {{- if $menuMain }}
+    {{ range $menuMain }}
+    <li id="{{ .Identifier }}"
+      class="w-full h-full px-4 hidden md:flex flex-col items-start justify-center group text-center">
+      {{ if .Name }}
+      <a class="group-hover:text-yellow-500 transition-all duration-1000" href="{{ .URL }}" title="{{ .Name }}">
         {{ .Name }}
       </a>
+      {{ end }}
+
       <!-- Optional Highlight Effect -->
       <div class="w-[0%] relative group-hover:w-[100%] h-[6%] top-2 items-end content-start bg-yellow-500 duration-500">
       </div>
     </li>
     {{ end }}
+    {{- end }}
+
+    <!-- Second <li> for menu.iconmenu -->
+    {{- if $menuIcon }}
+    {{ range $menuIcon }}
+    <li id="{{ .Identifier }}"
+      class="w-full h-full px-4 flex md:hidden flex-col items-start justify-center group text-center">
+      <div class="group-hover:text-yellow-500 flex transition-all duration-1000" href="{{ .URL }}"
+        title="{{ .Params.icon }}">
+        <span class="material-symbols-rounded text-3xl">{{ .Params.icon }}</span>
+      </div>
+
+    </li>
+    {{ end }}
+    {{- end }}
   </ul>
+
+
+
+
+
+
+  <div id="popupmenu"
+    class="absolute  hidden  top-16 right-20 shadow-md p-2 backdrop-blur-md rounded-md bg-gray-200/90 dark:bg-gray-800/90   ">
+    <ul class="flex h-full w-full items-center flex-col  justify-start md:justify-center md:space-y-2">
+      <!-- First <li> for menu.main -->
+      {{- if $menuMain }}
+      {{ range $menuMain }}
+      <li id="{{ .Identifier }}"
+        class="w-full h-full  py-2 px-10 flex flex-col items-start justify-center group text-center">
+        {{ if .Name }}
+        <a class="group-hover:text-yellow-500 transition-all duration-1000" href="{{ .URL }}" title="{{ .Name }}">
+          {{ .Name }}
+        </a>
+        {{ end }}
+
+
+      </li>
+      {{ end }}
+      {{- end }}
+
+
+    </ul>
+
+  </div>
+
+
+
 </nav>
-{{- else }}
-<!-- Debugging output if menuID is not found -->
-<pre>No menu found for ID: {{ $menuID }}</pre>
-{{- end }}

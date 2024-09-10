@@ -14,6 +14,7 @@ tag = "tags"
 [menu]
     [[menu.main]]
     name = "Home"
+    identifier = "home"
     url = "/"
     weight = 1
 
@@ -31,6 +32,13 @@ tag = "tags"
     name = "Products"
     url = "/products"
     weight = 4
+
+    [[menu.iconmenu]]
+    identifier = "icon_menu"
+    weight = 1
+    [menu.iconmenu.params]
+    icon = "widgets" 
+
                   
     [[menu.left]]
     name = "Hot Drink"

@@ -6,15 +6,15 @@
 </head>
 
 <body
-  class="max-h-screen max-w-full bg-white bg-cover bg-no-repeat font-poppins text-gray-600 transition-colors duration-500 dark:bg-gray-950 dark:text-gray-400">
-  <header class="fixed left-16 right-0 top-0 z-1000 max-w-full rounded-tl-3xl bg-gray-200 dark:bg-gray-900">
+  class="max-h-screen w-full bg-white bg-cover bg-no-repeat font-poppins text-gray-600 transition-colors duration-500 dark:bg-gray-950 dark:text-gray-400">
+  <header class="fixed left-16 right-0 top-0 z-1000 w-full rounded-tl-3xl bg-gray-200 dark:bg-gray-900">
     {{ partial "header.html" . }}
   </header>
-  <main class="relative left-16 top-16 h-[calc(100vh-86px)] w-[calc(100vw-4rem)] overflow-y-scroll">
+  <main class="relative left-16 top-16 h-[calc(100vh-86px)] w-[calc(100%-4rem)] overflow-x-hidden overflow-y-scroll">
     {{ partial "navleft.html" . }} {{ block "main" . }}{{ end }}
   </main>
-  <footer class="fixed bottom-0 left-16 max-w-full bg-gray-200 py-2 pl-12 dark:bg-gray-900 rounded-bl-3xl">
-    <hr class="h-[1px] w-[80%] border border-gray-300 dark:border-gray-900" />
+  <footer class="fixed bottom-0 left-16 w-full bg-gray-200 py-2 pl-4 md:pl-12 dark:bg-gray-900 rounded-bl-3xl">
+    <hr class="h-[1px] w-[80%] border text-center text-sm md:text-base border-gray-300 dark:border-gray-900" />
 
     {{ partial "footer.html" . }}
   </footer>
@@ -26,8 +26,8 @@
         element.classList.remove("opacity-0");
         element.classList.remove("translate-y-10");
         element.classList.remove("-translate-y-10");
-        element.classList.remove("translate-x-10");
-        element.classList.remove("-translate-x-10");
+        element.classList.remove("translate-x-12");
+        element.classList.remove("-translate-x-12");
         element.classList.add("opacity-100");
         element.classList.add("translate-y-0");
         element.classList.add("translate-x-0");
@@ -124,6 +124,41 @@
     });
   </script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const iconMenu = document.getElementById('icon_menu');
+      const popupMenu = document.getElementById('popupmenu');
+
+      // Function to toggle popup menu visibility
+      function togglePopupMenu(event) {
+        // Stop the click event from propagating to the document body
+        event.stopPropagation();
+
+        // Toggle the 'flex' and 'hidden' classes
+        popupMenu.classList.toggle('flex');
+        popupMenu.classList.toggle('hidden');
+      }
+
+      // Function to hide the popup menu
+      function hidePopupMenu() {
+        if (popupMenu.classList.contains('flex')) {
+          popupMenu.classList.remove('flex');
+          popupMenu.classList.add('hidden');
+        }
+      }
+
+      // Show popup menu when the icon_menu is clicked
+      iconMenu.addEventListener('click', togglePopupMenu);
+
+      // Hide popup menu when clicking anywhere on the page or inside popupmenu
+      document.addEventListener('click', hidePopupMenu);
+
+      // Prevent the popupmenu from closing when clicked inside the popupmenu itself
+      popupMenu.addEventListener('click', function (event) {
+        event.stopPropagation();
+      });
+    });
+  </script>
 
   <!--
   <script>
