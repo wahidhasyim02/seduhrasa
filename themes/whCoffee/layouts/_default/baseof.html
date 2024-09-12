@@ -21,6 +21,34 @@
     {{ partial "footer.html" . }}
   </footer>
 
+  <script>
+    // Get all draggable elements
+    const draggables = document.querySelectorAll('[id^="draggable-box-"]');
+
+    // Add dragstart event listener to all draggable elements
+    draggables.forEach(draggable => {
+      draggable.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', e.target.id);
+      });
+    });
+
+    // Get the drop zone
+    const dropZone = document.querySelector('.drop-zone');
+
+    // Prevent default behavior to allow dropping
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+    });
+
+    // Handle drop event
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const id = e.dataTransfer.getData('text'); // Get the ID of the dragged element
+      const draggableElement = document.getElementById(id); // Find the dragged element by ID
+      dropZone.appendChild(draggableElement); // Append the dragged element to the drop zone
+    });
+
+  </script>
 
 
 </body>
