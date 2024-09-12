@@ -6,6 +6,8 @@ tags = ['discusion']
 images = ["/images/bincang.jpg"]
 category = 'news'
 type = "news"
+author = "Yoru"
+author_photo = "/images/yoru.webp"
 +++
 
 Join us for an engaging discussion about Indonesia’s path to independence, led by local historians. The event will also feature inspirational poetry readings on the theme of struggle. Don’t miss out!

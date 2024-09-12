@@ -15,8 +15,8 @@
 
 
 
-<div id="main"
-  class="flex w-full flex-col items-center justify-start space-y-6 md:space-y-12 bg-gray-200  px-4 sm:px-6 lg:px-10 xl:px-12  pb-12  dark:bg-gray-900">
+<div
+  class="flex w-full h-fit flex-col items-center justify-start space-y-6 md:space-y-12 bg-gray-200  px-4 sm:px-6 lg:px-10 xl:px-12  pb-12  dark:bg-gray-900">
 
   <div id="jumbotron"
     class="flex flex-1 w-full h-auto flex-col lg:flex-row items-center justify-center py-0 lg:py-4 gap-y-4 lg:gap-y-8 lg:space-x-8">
@@ -83,36 +83,28 @@
 
   </div>
 
-
+  {{ $aboutPage := .Site.GetPage "about/about.md" }}
   <div id="aboutus"
     class="fadeup relative px-2 lg:px-12 bg-white dark:bg-gray-900 shadow-2xl  shadow-black/5  flex  w-auto xl:w-[85%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-4 opacity-0 ring-gray-100 dark:ring-gray-800 ring-1  hover:ring-yellow-400 backdrop-blur-md transition duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0">
     <a href="#aboutus" class="mb-2 text-center">
-      <h3 class="text-3xl font-bold">About Us</h3>
-
-      <h4 class="text-lg">Bringing Back the Charm of Vintage Coffeehouses</h4>
+      <h3 class="text-3xl font-bold">{{ $aboutPage.Params.title }}</h3>
+      <h4 class="text-lg">{{ $aboutPage.Params.subtitle }}</h4>
     </a>
 
-    <p class="text-center text-gray-600 dark:text-gray-600">
-      <span class="font-bold text-yellow-500">{{ .Site.Title }}</span> was
-      founded with a mission to serve Indonesia’s finest coffee while recreating
-      the cozy, welcoming ambiance of vintage coffeehouses. We believe coffee is
-      more than just a drink—it’s a way to strengthen relationships, share
-      stories, and enjoy life’s meaningful little moments. <br /><br />
-      Beyond coffee, we also offer refreshing cold beverages and dishes made
-      from high-quality local ingredients, bringing you authentic flavors that
-      satisfy. Our café is also a cultural hub, regularly hosting activities
-      such as book reviews, reading sessions, history seminars, poetry readings,
-      and live music. SeduhRasa is not just a place to hang out; it's a
-      community space where knowledge and culture thrive.
-    </p>
+    <div class="text-center text-gray-600 dark:text-gray-600">
+      {{ $aboutPage.Content }}
+    </div>
+
+
   </div>
 
+  {{ $newsPage := .Site.GetPage "news/_index.md" }}
   <div id="news"
     class="fadeup drop-zone relative bg-white dark:bg-gray-900 shadow-2xl shadow-black/5  flex w-auto xl:w-[90%] translate-y-10 transform flex-col items-center justify-center rounded-xl p-2 xl:p-4 backdrop-blur-md transition delay-1000 duration-1000  ring-gray-100 dark:ring-gray-800 ring-1  hover:ring-yellow-400 hover:-translate-y-4 hover:ring-1 hover:delay-0">
     <a href="/news" class="mb-2 text-center">
-      <h3 class="text-3xl font-bold">News</h3>
+      <h3 class="text-3xl font-bold">{{ $newsPage.Params.title }}</h3>
 
-      <h4 class="text-lg">Bringing Back the Tradition of Coffee Culture</h4>
+      <h4 class="text-lg">{{ $newsPage.Params.subtitle }}</h4>
     </a>
 
     <div class="flex w-full flex-col space-y-4  rounded-xl">
@@ -145,19 +137,16 @@
   </div>
 
 
-
+  {{ $productsPage := .Site.GetPage "products/_index.md" }}
   <div id="products"
     class="fadeup relative   bg-white dark:bg-gray-900 shadow-2xl  shadow-black/5  flex  w-auto  translate-y-10 transform flex-col items-center justify-center rounded-xl p-2 xl:p-4 ring-gray-100 dark:ring-gray-800 ring-1  hover:ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0">
     <a href="/products" class="mb-2 text-center">
-      <h3 class="text-3xl font-bold">Our Products</h3>
+      <h3 class="text-3xl font-bold">{{ $productsPage.Params.title }}</h3>
 
-      <h4 class="text-lg">The Flavors We Offer</h4>
+      <h4 class="text-lg">{{ $productsPage.Params.subtitle }}</h4>
 
-      <p class="text-center text-gray-600 dark:text-gray-600"> We proudly serve a variety of premium products, from
-        selected robusta and arabica coffee beans to refreshing
-        cold drinks. In addition to coffee, we also offer a range of dishes. Each meal is carefully crafted to
-        complement the coffee and create a delightful dining experience.
-      </p>
+      <div class="text-center text-gray-600 dark:text-gray-600"> {{ $productsPage.Content }}
+      </div>
     </a>
 
     <div class="flex w-full h-auto flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4 rounded-xl">
@@ -244,16 +233,15 @@
     </div>
   </div>
 
-
-
+  {{ $promotionsPage := .Site.GetPage "products/_promotions.md" }}
   <div id="promotions"
     class="fadeup relative   bg-white dark:bg-gray-900 shadow-2xl  shadow-black/5  flex  w-auto  translate-y-10 transform flex-col items-center justify-center rounded-xl p-2 xl:p-4 ring-gray-100 dark:ring-gray-800 ring-1  hover:ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0">
     <a href="/products" class="mb-2 text-center">
-      <h3 class="text-3xl font-bold">Our Promotions</h3>
-      <h4 class="text-lg">Enjoy Our Special Offers!</h4>
-      <p class="text-center text-gray-600 dark:text-gray-600">Don’t miss out on the exciting promotions we offer every
-        week. Take advantage of exclusive discounts on your
-        favorite coffee and food. Keep an eye on our promotions page to stay updated on the latest deals.</p>
+      <h3 class="text-3xl font-bold">{{ $promotionsPage.Params.title }} </h3>
+      <h4 class="text-lg">{{ $promotionsPage.Params.subtitle }}</h4>
+      <div class="text-center text-gray-600 dark:text-gray-600">
+        {{ $promotionsPage.Content }}
+      </div>
     </a>
 
     <div class="flex w-full flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4 rounded-xl">
@@ -370,12 +358,13 @@
   </div>
 
 
-
+  {{ $testimonialsPage := .Site.GetPage "testimonials/_index.md" }}
   <div id="testimonial"
     class="fadeup relative   bg-white dark:bg-gray-900 shadow-2xl  shadow-black/5  space-y-20 flex w-auto translate-y-10 transform flex-col items-center justify-center rounded-xl p-2 ring-gray-100 dark:ring-gray-800 ring-1  hover:ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0 ">
     <div class="mb-2 text-center">
-      <h3 class="text-3xl font-bold">Customer Testimonials</h3>
-      <h4 class="text-lg">What People Are Saying About <span class="font-bold text-yellow-500">{{ .Site.Title }}</span>
+      <h3 class="text-3xl font-bold">{{ $testimonialsPage.Params.title }}</h3>
+      <h4 class="text-lg">{{ $testimonialsPage.Params.subtitle }} <span class="font-bold text-yellow-500">{{ .Site.Title
+          }}</span>
       </h4>
     </div>
     <div id="testimonial-wrapper"
@@ -412,17 +401,15 @@
     </div>
   </div>
 
+  {{ $galleryPage := .Site.GetPage "gallery/_index.md" }}
   <div id="gallery"
     class="fadeup relative   bg-white dark:bg-gray-900 shadow-2xl  shadow-black/5  space-y-6 flex w-fit h-fit translate-y-10 transform flex-col items-center justify-center rounded-xl p-2 xl:p-4 ring-gray-100 dark:ring-gray-800 ring-1  hover:ring-yellow-400 backdrop-blur-md transition delay-1000 duration-1000 hover:-translate-y-4 hover:ring-1 hover:delay-0">
     <div class="mb-2 text-center">
-      <h3 class="text-3xl font-bold">Our Gallery</h3>
-      <h4 class="text-lg">Capturing Every Moment</h4>
-      <p class="text-center text-gray-600 dark:text-gray-600">Take a glimpse into SeduhRasa through our photo gallery.
-        From live music events to history discussions, every
-        moment in our café is filled with meaning. See how we serve coffee and food that not only delights but also
-        tells a story.
-
-      </p>
+      <h3 class="text-3xl font-bold">{{ $galleryPage.Params.title }}</h3>
+      <h4 class="text-lg">{{ $galleryPage.Params.subtitle }}</h4>
+      <div class="text-center text-gray-600 dark:text-gray-600">
+        {{ $galleryPage.Content }}
+      </div>
     </div>
     <!-- Carousel wrapper -->
 
@@ -453,23 +440,21 @@
 
   </div>
 
-
+  {{ $locationPage := .Site.GetPage "location/_index.md" }}
   <div id="location"
     class="fadeup relative  bg-white dark:bg-gray-900 shadow-2xl  shadow-black/5 space-y-6 flex w-auto   transform flex-col items-center justify-center rounded-xl p-2 xl:p-4 backdrop-blur-md transition delay-1000 duration-1000 hover:-translate-y-4 hover:ring-1  ring-gray-100 dark:ring-gray-800 ring-1  hover:ring-yellow-400  hover:delay-0 opacity-100 translate-y-0 translate-x-0">
     <div class="mb-2 text-center">
-      <h3 class="text-3xl font-bold">Our Location</h3>
-      <h4 class="text-lg">Capturing Every Moment</h4>
-      <p class="text-center text-gray-600 dark:text-gray-600">Take a glimpse into SeduhRasa through our photo gallery.
-        From live music events to history discussions, every
-        moment in our café is filled with meaning. See how we serve coffee and food that not only delights but also
-        tells a story.
-      </p>
+      <h3 class="text-3xl font-bold">{{ $locationPage.Params.title }}</h3>
+      <h4 class="text-lg">{{ $locationPage.Params.subtitle}}</h4>
+      <div class="text-center text-gray-600 dark:text-gray-600">
+        {{ $locationPage.Content }}
+      </div>
     </div>
 
 
     <div id=""
       class="flex flex-row   gap-x-2  w-full h-full lg:h-[350px] justify-between items-center content-center rounded-xl">
-      {{ $locationPage := .Site.GetPage "location/location.md" }}
+
       <div
         class="group items-start flex flex-col  lg:flex-row space-y-4 lg:space-y-0 space-x-0 lg:space-x-12 p-2   w-full h-full rounded-xl  backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
 
@@ -499,17 +484,14 @@
 
 
   </div>
-
+  {{ $contactPage := .Site.GetPage "contact/_index.html" }}
   <div id="contactus"
     class="fadeup relative  bg-white dark:bg-gray-900 shadow-2xl  shadow-black/5 space-y-6 flex w-auto  transform flex-col items-center justify-center rounded-xl p-2 xl:p-4 backdrop-blur-md transition delay-1000 duration-1000 hover:-translate-y-4 hover:ring-1  ring-gray-100 dark:ring-gray-800 ring-1  hover:ring-yellow-400  hover:delay-0 opacity-100 translate-y-0 translate-x-0">
     <div class="mb-2 text-center">
-      <h3 class="text-3xl font-bold">Contact Us</h3>
-      <h4 class="text-lg">Want to Learn More?</h4>
-      <p class="text-center text-gray-600 dark:text-gray-600">We’re happy to answer any questions or hear feedback from
-        our loyal customers. Reach out to us via phone, email, or visit us in person. We’re also active on social media,
-        so don’t hesitate to connect with us there.
-
-      </p>
+      <h3 class="text-3xl font-bold">{{ $contactPage.Params.title }}</h3>
+      <h4 class="text-lg">{{ $contactPage.Params.subtitle }}</h4>
+      <div class="text-center text-gray-600 dark:text-gray-600">{{ $contactPage.Content }}
+      </div>
     </div>
 
 
