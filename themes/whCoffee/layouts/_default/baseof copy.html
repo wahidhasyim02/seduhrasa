@@ -14,10 +14,8 @@
 
   </header>
   <main
-    class="relative left-12  bg-gray-200  dark:bg-gray-900 md:left-16 top-16 h-[calc(100vh-86px)] w-[calc(100%-3rem)] md:w-[calc(100%-4rem)] overflow-x-hidden overflow-y-auto overflow-style overscroll-none">
-    <div class="bar-of-progress  z-1500" id="progress-bar">
-      <div class="glow"></div>
-    </div>
+    class="relative left-12 md:left-16 top-16 h-[calc(100vh-86px)] w-[calc(100%-3rem)] md:w-[calc(100%-4rem)] overflow-x-hidden overflow-y-auto overscroll-none">
+
     {{ partial "navleft.html" . }} {{ block "main" . }}{{ end }}
   </main>
   <footer

@@ -1,4 +1,16 @@
 <script>
+
+
+
+
+
+    // Memeriksa preferensi tema yang disimpan di localStorage dan menerapkannya secepat mungkin
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+
     // Dark Mode dan Fadeup
     document.addEventListener('DOMContentLoaded', function () {
         // Dark Mode
@@ -29,6 +41,26 @@
             });
         }
 
+
+
+
+        // Function to start the progress bar animation
+        function startProgressBar() {
+            const progressBar = document.getElementById('progress-bar');
+            progressBar.classList.add('finished');
+
+            // Remove the 'finished' class and add 'hidden' class after animation
+            setTimeout(() => {
+                progressBar.classList.remove('finished');
+                progressBar.classList.add('hidden');
+            }, 2400); // Adjust time based on the duration of your animation
+        }
+
+        // Call the function to start the animation after 1 second
+        setTimeout(startProgressBar, 0);
+
+
+
         // Fadeup Animations
         const elements = document.querySelectorAll(".fadeup");
         elements.forEach((element) => {
@@ -43,12 +75,6 @@
         });
     });
 
-    // Memeriksa preferensi tema yang disimpan di local storage dan menerapkan sebelum halaman selesai dimuat
-    if (localStorage.getItem('darkMode') === 'true') {
-        document.documentElement.classList.add('dark');
-        document.getElementById('text_darkmode').textContent = 'light_mode'; // Ubah teks ke light_mode jika dark mode aktif
-    } else {
-        document.documentElement.classList.remove('dark');
-        document.getElementById('text_darkmode').textContent = 'dark_mode'; // Ubah teks ke dark_mode jika dark mode tidak aktif
-    }
+
+
 </script>
