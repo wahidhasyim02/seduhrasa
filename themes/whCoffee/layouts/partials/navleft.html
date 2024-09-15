@@ -1,51 +1,69 @@
 <nav
-  class="flex fixed  left-0 top-0  h-full w-18 md:w-28 pl-[2px] md:pl-[10px] flex-col items-start justify-center space-y-6">
+  class="fixed left-0 top-0 flex h-full w-18 flex-col items-start justify-center space-y-6 pl-[2px] md:w-28 md:pl-[10px]"
+>
   <ul class="flex flex-col space-y-2">
     {{ range .Site.Menus.left }}
     <li class="group px-2 py-2">
       <a href="{{ .URL }}" title="{{ .Name }}">
         {{ with .Params.svg }}
         <!-- Gunakan SVG jika ada -->
-        <span class="group-hover:text-yellow-500 transition-colors duration-1000">{{ . | safeHTML
-          }}</span>
+        <span
+          class="transition-colors duration-1000 group-hover:text-yellow-500"
+          >{{ . | safeHTML }}</span
+        >
         {{ else }}
         <!-- Gunakan ikon jika SVG tidak ada -->
-        <span class="material-symbols-rounded  group-hover:text-yellow-500 transition-all duration-1000">{{
-          .Params.icon
-          }}</span>
+        <span
+          class="material-symbols-rounded transition-all duration-1000 group-hover:text-yellow-500"
+          >{{ .Params.icon }}</span
+        >
         {{ end }}
       </a>
     </li>
     {{ end }}
   </ul>
-  <hr class="h-[1px] w-[40%] border border-gray-200 dark:border-gray-900" />
+  <hr
+    class="h-[1px] w-[40%] border border-gray-300 transition-colors duration-1000 dark:border-gray-900"
+  />
   <ul class="flex flex-col space-y-2">
     {{ range .Site.Menus.socialmedia }}
     <li class="group px-2 py-2">
       <a href="{{ .URL }}" title="{{ .Name }}" target="_blank">
         {{ with .Params.svg }}
         <!-- Gunakan SVG jika ada -->
-        <span class="group-hover:text-yellow-500 transition-all duration-1000">{{ . | safeHTML }}</span>
+        <span class="transition-all duration-1000 group-hover:text-yellow-500"
+          >{{ . | safeHTML }}</span
+        >
         {{ else }}
         <!-- Gunakan ikon jika SVG tidak ada -->
-        <span class="material-icons group-hover:text-yellow-500 transition-all duration-1000">{{ .Params.icon }}</span>
+        <span
+          class="material-icons transition-all duration-1000 group-hover:text-yellow-500"
+          >{{ .Params.icon }}</span
+        >
         {{ end }}
       </a>
     </li>
     {{ end }}
   </ul>
 
-  <hr class="h-[1px] w-[40%] border border-gray-200 dark:border-gray-900" />
+  <hr
+    class="h-[1px] w-[40%] border border-gray-300 transition-colors duration-1000 dark:border-gray-900"
+  />
   <ul class="flex flex-col space-y-2">
     {{ range .Site.Menus.setting }}
     <li class="group px-2 py-2">
       <a href="{{ .URL }}" title="{{ .Name }}">
         {{ with .Params.svg }}
         <!-- Gunakan SVG jika ada -->
-        <span class=" group-hover:text-yellow-500 transition-all duration-1000">{{ . | safeHTML }}</span>
+        <span class="transition-all duration-1000 group-hover:text-yellow-500"
+          >{{ . | safeHTML }}</span
+        >
         {{ else }}
         <!-- Gunakan ikon jika SVG tidak ada -->
-        <span class="material-icons group-hover:text-yellow-500 transition-all duration-1000">{{ .Params.icon }}</span>
+        <span
+          class="material-icons transition-all duration-1000 group-hover:text-yellow-500"
+          >{{ .Params.icon }}</span
+        >
         {{ end }}
       </a>
     </li>

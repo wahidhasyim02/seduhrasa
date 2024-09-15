@@ -1283,14 +1283,14 @@ input[type="checkbox"]:checked:focus {
   border-left-width: calc(2px * calc(1 - var(--tw-divide-x-reverse))) !important;
 }
 
+.divide-gray-400 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1 !important;
+  border-color: rgb(156 163 175 / var(--tw-divide-opacity)) !important;
+}
+
 .divide-gray-500 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1 !important;
   border-color: rgb(107 114 128 / var(--tw-divide-opacity)) !important;
-}
-
-.divide-gray-600 > :not([hidden]) ~ :not([hidden]) {
-  --tw-divide-opacity: 1 !important;
-  border-color: rgb(75 85 99 / var(--tw-divide-opacity)) !important;
 }
 
 .overflow-hidden {
@@ -1353,11 +1353,6 @@ input[type="checkbox"]:checked:focus {
   border-left-width: 1px !important;
 }
 
-.border-gray-200 {
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity)) !important;
-}
-
 .border-gray-300 {
   --tw-border-opacity: 1 !important;
   border-color: rgb(209 213 219 / var(--tw-border-opacity)) !important;
@@ -1366,11 +1361,6 @@ input[type="checkbox"]:checked:focus {
 .border-gray-400 {
   --tw-border-opacity: 1 !important;
   border-color: rgb(156 163 175 / var(--tw-border-opacity)) !important;
-}
-
-.border-gray-500 {
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(107 114 128 / var(--tw-border-opacity)) !important;
 }
 
 .border-transparent {
@@ -1807,9 +1797,9 @@ input[type="checkbox"]:checked:focus {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
 }
 
-.ring-gray-100 {
+.ring-gray-300 {
   --tw-ring-opacity: 1 !important;
-  --tw-ring-color: rgb(243 244 246 / var(--tw-ring-opacity)) !important;
+  --tw-ring-color: rgb(209 213 219 / var(--tw-ring-opacity)) !important;
 }
 
 .ring-yellow-400 {
@@ -1915,6 +1905,10 @@ input[type="checkbox"]:checked:focus {
   background-color: rgb(255 255 255 / 0.1) !important;
 }
 
+.odd\:bg-white\/20:nth-child(odd) {
+  background-color: rgb(255 255 255 / 0.2) !important;
+}
+
 .odd\:from-green-500\/20:nth-child(odd) {
   --tw-gradient-from: rgb(34 197 94 / 0.2) var(--tw-gradient-from-position) !important;
   --tw-gradient-to: rgb(34 197 94 / 0) var(--tw-gradient-to-position) !important;
@@ -1937,6 +1931,10 @@ input[type="checkbox"]:checked:focus {
 
 .even\:to-black:nth-child(even) {
   --tw-gradient-to: #000 var(--tw-gradient-to-position) !important;
+}
+
+.even\:odd\:bg-white\/30:nth-child(odd):nth-child(even) {
+  background-color: rgb(255 255 255 / 0.3) !important;
 }
 
 .hover\:max-w-full:hover {
@@ -2228,6 +2226,11 @@ input[type="checkbox"]:checked:focus {
 .dark\:hover\:text-gray-950:hover:is(.dark *) {
   --tw-text-opacity: 1 !important;
   color: rgb(3 7 18 / var(--tw-text-opacity)) !important;
+}
+
+.hover\:dark\:ring-yellow-400:is(.dark *):hover {
+  --tw-ring-opacity: 1 !important;
+  --tw-ring-color: rgb(250 204 21 / var(--tw-ring-opacity)) !important;
 }
 
 @media (min-width: 640px) {

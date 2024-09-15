@@ -1,85 +1,94 @@
-{{- $menuMain := index site.Menus "main" }}
-{{- $menuIcon := index site.Menus "iconmenu" }}
+{{- $menuMain := index site.Menus "main" }} {{- $menuIcon := index site.Menus
+"iconmenu" }}
 
 <nav class="h-full">
-  <ul class="flex h-full items-center  justify-start lg:justify-between space-x-0  md:space-x-4">
+  <ul
+    class="flex h-full items-center justify-start space-x-0 md:space-x-4 lg:justify-between"
+  >
     <!-- First <li> for menu.main -->
-    {{- if $menuMain }}
-    {{ range $menuMain }}
-    <li id="{{ .Identifier }}"
-      class="w-full h-full px-4 hidden sm:flex md:flex flex-col items-start justify-center group text-center">
+    {{- if $menuMain }} {{ range $menuMain }}
+    <li
+      id="{{ .Identifier }}"
+      class="group hidden h-full w-full flex-col items-start justify-center px-4 text-center sm:flex md:flex"
+    >
       {{ if .Name }}
-      <a class="group-hover:text-yellow-500 transition-all duration-1000" href="{{ .URL }}" title="{{ .Name }}">
+      <a
+        class="transition-all duration-1000 group-hover:text-yellow-500"
+        href="{{ .URL }}"
+        title="{{ .Name }}"
+      >
         {{ .Name }}
       </a>
       {{ end }}
 
       <!-- Optional Highlight Effect -->
-      <div class="w-[0%] relative group-hover:w-[100%] h-[6%] top-2 items-end content-start bg-yellow-500 duration-500">
-      </div>
+      <div
+        class="relative top-2 h-[6%] w-[0%] content-start items-end bg-yellow-500 duration-500 group-hover:w-[100%]"
+      ></div>
     </li>
-    {{ end }}
-    {{- end }}
+    {{ end }} {{- end }}
 
     <!-- First <li> for toggle_dark -->
-    {{- if $menuIcon }}
-    {{ range $menuIcon }}
-    {{ if eq .Identifier "toggle_dark" }}
-    <li id="{{ .Identifier }}"
-      class="w-full h-full cursor-pointer px-1 sm:px-2 md:px-4 flex flex-col items-start justify-center group text-center">
-      <div class="group-hover:text-yellow-500 flex transition-all duration-1000" title="{{ .Params.icon }}">
-        <span id="text_darkmode" class="material-symbols-rounded  flex text-3xl">{{ .Params.icon }}</span>
+    {{- if $menuIcon }} {{ range $menuIcon }} {{ if eq .Identifier "toggle_dark"
+    }}
+    <li
+      id="{{ .Identifier }}"
+      class="group flex h-full w-full cursor-pointer flex-col items-start justify-center px-1 text-center sm:px-2 md:px-4"
+    >
+      <div
+        class="flex transition-all duration-1000 group-hover:text-yellow-500"
+        title="{{ .Params.icon }}"
+      >
+        <span id="text_darkmode" class="material-symbols-rounded flex text-3xl"
+          >{{ .Params.icon }}</span
+        >
       </div>
     </li>
-    {{ end }}
-    {{ end }}
-    {{- end }}
+    {{ end }} {{ end }} {{- end }}
 
     <!-- Second <li> for icon_menu (visible only on mobile) -->
-    {{- if $menuIcon }}
-    {{ range $menuIcon }}
-    {{ if eq .Identifier "icon_menu" }}
-    <li id="{{ .Identifier }}"
-      class="w-full h-full cursor-pointer px-2  md:px-4 flex sm:hidden md:hidden flex-col items-start justify-center group text-center ">
-      <div class="group-hover:text-yellow-500 flex transition-all duration-1000" title="{{ .Params.icon }}">
-        <span class="material-symbols-rounded flex text-3xl">{{ .Params.icon }}</span>
+    {{- if $menuIcon }} {{ range $menuIcon }} {{ if eq .Identifier "icon_menu"
+    }}
+    <li
+      id="{{ .Identifier }}"
+      class="group flex h-full w-full cursor-pointer flex-col items-start justify-center px-2 text-center sm:hidden md:hidden md:px-4"
+    >
+      <div
+        class="flex transition-all duration-1000 group-hover:text-yellow-500"
+        title="{{ .Params.icon }}"
+      >
+        <span class="material-symbols-rounded flex text-3xl"
+          >{{ .Params.icon }}</span
+        >
       </div>
     </li>
-    {{ end }}
-    {{ end }}
-    {{- end }}
-
+    {{ end }} {{ end }} {{- end }}
   </ul>
 
-
-
-
-
-
-  <div id="popupmenu"
-    class="absolute  hidden  top-16 right-20 shadow-md p-2 backdrop-blur-md rounded-md bg-gray-200/90 dark:bg-gray-800/90   ">
-    <ul class="flex h-full w-full items-center flex-col  justify-start md:justify-center md:space-y-2">
+  <div
+    id="popupmenu"
+    class="absolute right-20 top-16 hidden rounded-md bg-gray-200/90 p-2 shadow-md backdrop-blur-md dark:bg-gray-800/90"
+  >
+    <ul
+      class="flex h-full w-full flex-col items-center justify-start md:justify-center md:space-y-2"
+    >
       <!-- First <li> for menu.main -->
-      {{- if $menuMain }}
-      {{ range $menuMain }}
-      <li id="{{ .Identifier }}"
-        class="w-full h-full  py-2 px-10 flex flex-col items-start justify-center group text-center">
+      {{- if $menuMain }} {{ range $menuMain }}
+      <li
+        id="{{ .Identifier }}"
+        class="group flex h-full w-full flex-col items-start justify-center px-10 py-2 text-center"
+      >
         {{ if .Name }}
-        <a class="group-hover:text-yellow-500 transition-all duration-1000" href="{{ .URL }}" title="{{ .Name }}">
+        <a
+          class="transition-all duration-1000 group-hover:text-yellow-500"
+          href="{{ .URL }}"
+          title="{{ .Name }}"
+        >
           {{ .Name }}
         </a>
         {{ end }}
-
-
       </li>
-      {{ end }}
-      {{- end }}
-
-
+      {{ end }} {{- end }}
     </ul>
-
   </div>
-
-
-
 </nav>

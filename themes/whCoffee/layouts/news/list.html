@@ -1,9 +1,11 @@
 {{ define "main" }}
 
 <div
-  class="flex w-full h-fit flex-col items-center justify-start space-y-6 md:space-y-12 bg-gray-200 px-4 sm:px-6 lg:px-10 xl:px-12 pb-12 dark:bg-gray-900">
-
-  <div class="w-full flex flex-col items-center justify-center space-y-2 text-center">
+  class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-gray-200 px-4 pb-12 transition-colors duration-1000 dark:bg-gray-900 sm:px-6 md:space-y-12 lg:px-10 xl:px-12"
+>
+  <div
+    class="flex w-full flex-col items-center justify-center space-y-2 text-center"
+  >
     {{ if eq .Section "news" }}
     <!-- Bagian ini hanya akan muncul di halaman /posts/ -->
     <h1 class="text-4xl font-black">Our {{ .Section | title }}</h1>
@@ -15,9 +17,7 @@
     <p>{{ .Params.description }}</p>
     {{ end }}
 
-    <div>
-      {{ .Content }}
-    </div>
+    <div>{{ .Content }}</div>
 
     {{ else if eq .Section "tags" }}
     <!-- Bagian ini hanya akan muncul di halaman /tags/ -->
@@ -35,48 +35,63 @@
     <p>{{ .Params.description }}</p>
     {{ end }}
 
-    <div>
-      {{ .Content }}
-    </div>
+    <div>{{ .Content }}</div>
     {{ end }}
-
   </div>
 
   <div class="flex flex-col gap-y-4">
     {{ range .Paginator.Pages }}
     <div
-      class="flex w-full flex-row items-center p-4 rounded-xl backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
-
-      <a href="{{ .RelPermalink }}" class="relative mr-6 h-full w-[70%] overflow-hidden">
+      class="flex w-full flex-row items-center rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30"
+    >
+      <a
+        href="{{ .RelPermalink }}"
+        class="relative mr-6 h-full w-[70%] overflow-hidden"
+      >
         {{ if .Params.images }}
-        <img src="{{ index .Params.images 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
+        <img
+          src="{{ index .Params.images 0 }}"
+          alt="First image"
+          class="h-full w-full rounded-md object-cover"
+        />
         {{ else }}
-        <img src="/images/default.jpg" alt="Default image" class="h-full w-full rounded-md object-cover" />
+        <img
+          src="/images/default.jpg"
+          alt="Default image"
+          class="h-full w-full rounded-md object-cover"
+        />
         {{ end }}
       </a>
-      <div class="w-[30%] group">
-        <h2 class="text-gray-600 group-hover:text-yellow-500 text-lg">
+      <div class="group w-[30%]">
+        <h2 class="text-lg text-gray-600 group-hover:text-yellow-500">
           <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
         </h2>
-        <div class="flex items-center justify-start space-x-2"><img src="{{ .Params.author_photo }}"
-            class="w-6 h-6 rounded-full object-cover" alt="{{ .Params.author }}">
-          <div class="text-gray-600 text-sm flex  divide-x divide-gray-600">
-            <div class="text-gray-800 dark:text-gray-400 pr-2"> {{ .Params.author }} </div>
-            {{ $dateMachine := .Date |
-            time.Format "2006-01-02T15:04:05-07:00" }} {{
-            $dateHuman := .Date | time.Format ":date_long" }}
-            <time class="pl-2" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+        <div class="flex items-center justify-start space-x-2">
+          <img
+            src="{{ .Params.author_photo }}"
+            class="h-6 w-6 rounded-full object-cover"
+            alt="{{ .Params.author }}"
+          />
+          <div
+            class="flex divide-x divide-gray-500 text-sm text-gray-600 dark:divide-gray-700"
+          >
+            <div class="pr-2 text-gray-800 dark:text-gray-400">
+              {{ .Params.author }}
+            </div>
+            {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00"
+            }} {{ $dateHuman := .Date | time.Format ":date_long" }}
+            <time class="pl-2" datetime="{{ $dateMachine }}"
+              >{{ $dateHuman }}</time
+            >
           </div>
         </div>
 
-        <p class="text-gray-800 dark:text-gray-400 overflow-ellipsis">
+        <p class="overflow-ellipsis text-gray-800 dark:text-gray-400">
           {{ .Summary }}
         </p>
       </div>
-
     </div>
     {{ end }}
   </div>
-
 </div>
 {{ end }}

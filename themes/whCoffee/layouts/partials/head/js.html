@@ -1,80 +1,67 @@
 <script>
+  // Memeriksa preferensi tema yang disimpan di localStorage dan menerapkannya secepat mungkin
+  if (localStorage.getItem("darkMode") === "true") {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
 
+  // Dark Mode dan Fadeup
+  document.addEventListener("DOMContentLoaded", function () {
+    // Dark Mode
+    var toggleDarkMode = document.getElementById("toggle_dark");
+    var textDarkMode = document.getElementById("text_darkmode");
 
-
-
-
-    // Memeriksa preferensi tema yang disimpan di localStorage dan menerapkannya secepat mungkin
-    if (localStorage.getItem('darkMode') === 'true') {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
+    // Fungsi untuk mengatur tema
+    function setTheme(isDarkMode) {
+      if (isDarkMode) {
+        document.documentElement.classList.add("dark");
+        textDarkMode.textContent = "light_mode";
+      } else {
+        document.documentElement.classList.remove("dark");
+        textDarkMode.textContent = "dark_mode";
+      }
     }
 
-    // Dark Mode dan Fadeup
-    document.addEventListener('DOMContentLoaded', function () {
-        // Dark Mode
-        var toggleDarkMode = document.getElementById('toggle_dark');
-        var textDarkMode = document.getElementById('text_darkmode');
+    // Memeriksa preferensi tema yang disimpan di localStorage
+    var isDarkMode = localStorage.getItem("darkMode") === "true";
+    setTheme(isDarkMode);
 
-        // Fungsi untuk mengatur tema
-        function setTheme(isDarkMode) {
-            if (isDarkMode) {
-                document.documentElement.classList.add('dark');
-                textDarkMode.textContent = 'light_mode';
-            } else {
-                document.documentElement.classList.remove('dark');
-                textDarkMode.textContent = 'dark_mode';
-            }
-        }
+    // Pastikan toggleDarkMode ada sebelum menambahkan event listener
+    if (toggleDarkMode) {
+      toggleDarkMode.addEventListener("click", function () {
+        var isDark = document.documentElement.classList.toggle("dark");
+        setTheme(isDark);
+        localStorage.setItem("darkMode", isDark ? "true" : "false"); // Simpan status ke localStorage
+      });
+    }
 
-        // Memeriksa preferensi tema yang disimpan di localStorage
-        var isDarkMode = localStorage.getItem('darkMode') === 'true';
-        setTheme(isDarkMode);
+    // Function to start the progress bar animation
+    function startProgressBar() {
+      const progressBar = document.getElementById("progress-bar");
+      progressBar.classList.add("finished");
 
-        // Pastikan toggleDarkMode ada sebelum menambahkan event listener
-        if (toggleDarkMode) {
-            toggleDarkMode.addEventListener('click', function () {
-                var isDark = document.documentElement.classList.toggle('dark');
-                setTheme(isDark);
-                localStorage.setItem('darkMode', isDark ? 'true' : 'false'); // Simpan status ke localStorage
-            });
-        }
+      // Remove the 'finished' class and add 'hidden' class after animation
+      setTimeout(() => {
+        progressBar.classList.remove("finished");
+        progressBar.classList.add("hidden");
+      }, 2400); // Adjust time based on the duration of your animation
+    }
 
+    // Call the function to start the animation after 1 second
+    setTimeout(startProgressBar, 0);
 
-
-
-        // Function to start the progress bar animation
-        function startProgressBar() {
-            const progressBar = document.getElementById('progress-bar');
-            progressBar.classList.add('finished');
-
-            // Remove the 'finished' class and add 'hidden' class after animation
-            setTimeout(() => {
-                progressBar.classList.remove('finished');
-                progressBar.classList.add('hidden');
-            }, 2400); // Adjust time based on the duration of your animation
-        }
-
-        // Call the function to start the animation after 1 second
-        setTimeout(startProgressBar, 0);
-
-
-
-        // Fadeup Animations
-        const elements = document.querySelectorAll(".fadeup");
-        elements.forEach((element) => {
-            element.classList.remove("opacity-0");
-            element.classList.remove("translate-y-10");
-            element.classList.remove("-translate-y-10");
-            element.classList.remove("translate-x-12");
-            element.classList.remove("-translate-x-12");
-            element.classList.add("opacity-100");
-            element.classList.add("translate-y-0");
-            element.classList.add("translate-x-0");
-        });
+    // Fadeup Animations
+    const elements = document.querySelectorAll(".fadeup");
+    elements.forEach((element) => {
+      element.classList.remove("opacity-0");
+      element.classList.remove("translate-y-10");
+      element.classList.remove("-translate-y-10");
+      element.classList.remove("translate-x-12");
+      element.classList.remove("-translate-x-12");
+      element.classList.add("opacity-100");
+      element.classList.add("translate-y-0");
+      element.classList.add("translate-x-0");
     });
-
-
-
+  });
 </script>
