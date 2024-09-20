@@ -66,17 +66,5 @@
   });
 
 
-  // Memulai animasi setelah halaman dimuat
-  window.addEventListener('load', function () {
-    const svgx = document.getElementById('svg-x');
-    const svgcentang = document.getElementById('svg-centang');
-    svgx.classList.add('active');
-    svgcentang.classList.add('active');
-    // Setelah stroke membesar, tambahkan rotasi
-    setTimeout(function () {
-      svgx.classList.add('rotated');
-    }, 1000); // 0.5s untuk lingkaran merah + 0.5s untuk stroke membesar
-  });
-
 
 </script>

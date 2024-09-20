@@ -111,3 +111,7 @@ tag = "tags"
     icon = "settings"
 
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

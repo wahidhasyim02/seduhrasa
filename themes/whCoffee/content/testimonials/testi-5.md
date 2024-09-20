@@ -1,10 +1,10 @@
 +++
 title = 'Testimonial 5'
-name = 'John Haris'
+name = 'Gojo Satoru'
 job = 'Coffee Lover'
 date = 2024-02-19T10:00:00-08:00
 draft = false
-images = ["/images/john.jpg"]
+images = ["/images/gojo.jpg"]
 categories = ['testimonials']
 +++
 

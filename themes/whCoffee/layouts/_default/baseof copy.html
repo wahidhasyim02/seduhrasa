@@ -1,61 +1,54 @@
 <!doctype html>
-<html
-  lang="{{ or site.Language.LanguageCode }}"
-  dir="{{ or site.Language.LanguageDirection `ltr` }}"
->
-  <head>
-    {{ partial "head.html" . }}
-  </head>
+<html lang="{{ or site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
 
-  <body
-    class="max-h-screen w-full bg-white bg-cover bg-no-repeat font-noto text-gray-600 transition-colors duration-500 dark:bg-gray-950 dark:text-gray-400"
-  >
-    <header
-      class="fixed left-12 right-0 top-0 z-1000 w-full rounded-tl-3xl bg-gray-200 dark:bg-gray-900 md:left-16"
-    >
-      {{ partial "header.html" . }}
-    </header>
-    <main
-      class="relative left-12 top-16 h-[calc(100vh-86px)] w-[calc(100%-3rem)] overflow-y-auto overflow-x-hidden overscroll-none md:left-16 md:w-[calc(100%-4rem)]"
-    >
-      {{ partial "navleft.html" . }} {{ block "main" . }}{{ end }}
-    </main>
-    <footer
-      class="fixed bottom-0 left-12 w-full rounded-bl-3xl bg-gray-200 py-2 pl-4 dark:bg-gray-900 md:left-16 md:pl-12"
-    >
-      <hr
-        class="h-[1px] w-[80%] border border-gray-400 text-center text-sm dark:border-gray-900 md:text-base"
-      />
+<head>
+  {{ partial "head.html" . }}
+</head>
 
-      {{ partial "footer.html" . }}
-    </footer>
+<body
+  class="max-h-screen w-full bg-white bg-cover bg-no-repeat font-noto text-neutral-600 transition-colors duration-500 dark:bg-neutral-950 dark:text-neutral-400">
+  <header
+    class="fixed left-12 right-0 top-0 z-1000 w-full rounded-tl-3xl bg-neutral-200 dark:bg-neutral-900 md:left-16">
+    {{ partial "header.html" . }}
+  </header>
+  <main
+    class="relative left-12 top-16 h-[calc(100vh-86px)] w-[calc(100%-3rem)] overflow-y-auto overflow-x-hidden overscroll-none md:left-16 md:w-[calc(100%-4rem)]">
+    {{ partial "navleft.html" . }} {{ block "main" . }}{{ end }}
+  </main>
+  <footer
+    class="fixed bottom-0 left-12 w-full rounded-bl-3xl bg-neutral-200 py-2 pl-4 dark:bg-neutral-900 md:left-16 md:pl-12">
+    <hr class="h-[1px] w-[80%] border border-neutral-400 text-center text-sm dark:border-neutral-900 md:text-base" />
 
-    <script>
-      // Get all draggable elements
-      const draggables = document.querySelectorAll('[id^="draggable-box-"]');
+    {{ partial "footer.html" . }}
+  </footer>
 
-      // Add dragstart event listener to all draggable elements
-      draggables.forEach((draggable) => {
-        draggable.addEventListener("dragstart", (e) => {
-          e.dataTransfer.setData("text/plain", e.target.id);
-        });
+  <script>
+    // Get all draggable elements
+    const draggables = document.querySelectorAll('[id^="draggable-box-"]');
+
+    // Add dragstart event listener to all draggable elements
+    draggables.forEach((draggable) => {
+      draggable.addEventListener("dragstart", (e) => {
+        e.dataTransfer.setData("text/plain", e.target.id);
       });
+    });
 
-      // Get the drop zone
-      const dropZone = document.querySelector(".drop-zone");
+    // Get the drop zone
+    const dropZone = document.querySelector(".drop-zone");
 
-      // Prevent default behavior to allow dropping
-      dropZone.addEventListener("dragover", (e) => {
-        e.preventDefault();
-      });
+    // Prevent default behavior to allow dropping
+    dropZone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+    });
 
-      // Handle drop event
-      dropZone.addEventListener("drop", (e) => {
-        e.preventDefault();
-        const id = e.dataTransfer.getData("text"); // Get the ID of the dragged element
-        const draggableElement = document.getElementById(id); // Find the dragged element by ID
-        dropZone.appendChild(draggableElement); // Append the dragged element to the drop zone
-      });
-    </script>
-  </body>
+    // Handle drop event
+    dropZone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      const id = e.dataTransfer.getData("text"); // Get the ID of the dragged element
+      const draggableElement = document.getElementById(id); // Find the dragged element by ID
+      dropZone.appendChild(draggableElement); // Append the dragged element to the drop zone
+    });
+  </script>
+</body>
+
 </html>

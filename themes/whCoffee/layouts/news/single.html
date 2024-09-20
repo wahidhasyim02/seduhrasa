@@ -1,58 +1,45 @@
 {{ define "main" }}
 
 <div
-  class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-gray-200 px-4 pb-12 transition-colors duration-1000 dark:bg-gray-900 sm:px-6 md:space-y-12 lg:px-10 xl:px-12"
->
+  class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-neutral-200 px-4 pb-12 transition-colors duration-1000 dark:bg-neutral-900 sm:px-6 md:space-y-12 lg:px-10 xl:px-12">
   <div class="p-4">
     <!-- Menampilkan gambar jika ada -->
     {{ if .Params.images }} {{ with index .Params.images 0 }}
     <!-- Menampilkan gambar pertama jika ada beberapa gambar -->
-    <img
-      src="{{ . }}"
-      alt="img-{{ $.Title }}"
-      class="h-[400px] w-full object-cover"
-    />
+    <img src="{{ . }}" alt="img-{{ $.Title }}" class="h-[200px] sm:h-[300px] md:h-[600px] w-full object-cover" />
     {{ else }}
     <!-- Jika array gambar tidak memiliki item, gambar default akan ditampilkan -->
-    <img
-      src="/images/default.jpg"
-      alt="Gambar Default"
-      class="h-full w-full object-cover"
-    />
+    <img src="/images/default.jpg" alt="Gambar Default"
+      class="h-[200px] sm:h-[300px] md:h-[600px] w-full object-cover" />
     {{ end }} {{ else }}
     <!-- Jika tidak ada gambar di Params.images, gambar default ditampilkan -->
-    <img
-      src="/images/default.jpg"
-      alt="Gambar Default"
-      class="h-full w-full object-cover"
-    />
+    <img src="/images/default.jpg" alt="Gambar Default"
+      class="h-[200px] sm:h-[300px] md:h-[600px] w-full object-cover" />
     {{ end }}
 
-    <div class="p-4 backdrop-blur-md odd:bg-white/10 dark:odd:bg-gray-800/20">
+    <div class="p-4 space-y-2 backdrop-blur-md odd:bg-white/10 dark:odd:bg-neutral-800/20">
       <h3 class="text-xai-400 dark:text-xai-500 text-2xl font-medium">
         {{ .Title }}
       </h3>
       <div class="flex items-center justify-start space-x-2">
-        <img
-          src="{{ .Params.author_photo }}"
-          class="h-6 w-6 rounded-full object-cover"
-          alt="{{ .Params.author }}"
-        />
-        <div
-          class="flex divide-x divide-gray-500 text-sm text-gray-600 dark:divide-gray-700"
-        >
-          <div class="pr-2 text-gray-800 dark:text-gray-400">
+        <img src="{{ .Params.author_photo }}"
+          class="h-8 w-8 ring-2 ring-offset-2 ring-neutral-300 dark:ring-neutral-700 bg-white dark:bg-neutral-800 rounded-full object-cover"
+          alt="{{ .Params.author }}" />
+        <div class="flex divide-x divide-neutral-500 text-sm text-neutral-600 dark:divide-neutral-700">
+          <div class="pr-2 text-neutral-800 dark:text-neutral-400">
             {{ .Params.author }}
           </div>
           {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
           {{ $dateHuman := .Date | time.Format ":date_long" }}
-          <time class="pl-2" datetime="{{ $dateMachine }}"
-            >{{ $dateHuman }}</time
-          >
+          <time class="pl-2" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
         </div>
       </div>
 
-      <div class="mt-2">{{ .Content | safeHTML }}</div>
+      <div
+        class="my-4 [&>p]:leading-10 [&>p]:indent-0 sm:[&>p]:indent-20 font-normal p-6 rounded-md border border-neutral-400 dark:border-neutral-700/40">
+        {{
+        .Content | safeHTML
+        }}</div>
 
       <div>{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
     </div>
