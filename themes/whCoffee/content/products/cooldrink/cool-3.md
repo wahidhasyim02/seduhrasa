@@ -7,7 +7,7 @@ images = ["/images/esbuah.jpg"]
 draft = false
 discount = '11%'
 tags = ['cooldrink','ice']
-category = ['products','cooldrink']
+categories = ['cooldrink']
 type = "cooldrink"
 +++
 

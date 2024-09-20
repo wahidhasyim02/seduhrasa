@@ -7,7 +7,7 @@ discount = '10%'
 images = ["/images/gacoan.jpg"]
 draft = false
 tags = ['food']
-category = ['products','food']
+categories = ['food']
 type = "food"
 +++
 

@@ -1,8 +1,9 @@
 {{ define "main" }}
 
 <div
-  class="flex w-full flex-col items-center justify-start space-y-6 bg-gray-200 px-4 pb-12 dark:bg-gray-900 sm:px-6 md:space-y-12 lg:px-10 xl:px-12"
->
+  class="flex w-full flex-col items-center justify-start space-y-6 bg-gray-200 px-4 pb-12 dark:bg-gray-900 sm:px-6 md:space-y-12 lg:px-10 xl:px-12">
+
+
   <h1>{{ .Title }}</h1>
 
   {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }} {{

@@ -7,7 +7,7 @@ images = ["/images/ketoprak.jpg"]
 draft = false
 discount = '20%'
 tags = ['food']
-category = ['products','food']
+categories = ['food']
 type = "food"
 +++
 

@@ -43,6 +43,9 @@
     </div>
 
 
+    <object type="image/svg+xml" data="/images/animated-check.svg">Deskripsi jika SVG tidak dapat dimuat</object>
+    <object type="image/svg+xml" data="/images/animated-x.svg">Deskripsi jika SVG tidak dapat dimuat</object>
+
 
 
     <div id="slider"
@@ -66,7 +69,7 @@
               src="{{ . }}" alt="" />
             {{ end }}
 
-            <a href="{{ .RelPermalink }}" class="">
+            <a href="{{ .Permalink }}" class="">
               <div
                 class=" absolute inset-0 bg-gradient-to-b w-full h-full from-yellow-500/20 to-black group-hover:bg-gradient-to-b group-hover:from-yellow-500/0 group-hover:to-black">
                 <div class="absolute inset-x-5 bottom-6">

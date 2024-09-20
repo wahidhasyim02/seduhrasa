@@ -7,7 +7,7 @@ images = ["/images/capucino.jpg"]
 draft = false
 discount = '21%'
 tags = ['capucino','hotdrink','coffee']
-category = ['products','hotdrink']
+categories = ['hotdrink']
 type = "hotdrink"
 +++
 

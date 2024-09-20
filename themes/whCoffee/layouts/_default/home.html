@@ -6,6 +6,16 @@
   <img src="{{ . }}" alt="Image" class="carousel-image h-full w-full object-cover" />
   {{ end }} {{ end }}
 </div>
+<div class="left-40 top-10 flex gap-2">
+  <!-- <object class="w-[40%] left-1/2" type="image/svg+xml" data="/images/centang.svg" width="300" height="300"></object>
+
+  <object class="w-[40%] left-1/2" type="image/svg+xml" data="/images/x.svg" width="300" height="300"></object>
+-->
+
+
+
+
+</div>
 
 <div
   class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-gray-200 px-4 pb-12 transition-colors duration-1000 dark:bg-gray-900 sm:px-6 md:space-y-12 lg:px-10 xl:px-12">
@@ -13,6 +23,9 @@
     class="flex h-auto w-full flex-1 flex-col items-center justify-center gap-y-4 py-0 lg:flex-row lg:gap-y-8 lg:space-x-8 lg:py-4">
     <div id="jumbotext"
       class="fadeup order-2 flex h-auto w-full -translate-x-12 transform flex-col content-center space-x-0 space-y-2 opacity-0 transition-all duration-1000 lg:order-1 lg:w-1/2 lg:space-y-4">
+
+
+
       <h2 class="text-[38px] font-light uppercase leading-[3rem] md:text-[42px] md:leading-none">
         Relive the Memories at
       </h2>
@@ -138,7 +151,7 @@
 
     <div class="flex h-auto w-full flex-col space-x-0 space-y-4 rounded-xl md:flex-row md:space-x-4 md:space-y-0">
       <!-- Produk Hotdrink -->
-      {{ $hotdrink := first 1 (sort (where .Site.RegularPages "Params.category"
+      {{ $hotdrink := first 1 (sort (where .Site.RegularPages "Params.categories"
       "intersect" (slice "hotdrink")) "Date" "desc") }} {{ range $hotdrink }}
       <div
         class="group flex w-full flex-1 flex-col items-start justify-start rounded-xl p-2 ring-1 ring-gray-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-gray-800 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30 hover:dark:ring-yellow-400">
@@ -162,7 +175,7 @@
       {{ end }}
 
       <!-- Produk Cooldrink -->
-      {{ $cooldrink := first 1 (sort (where .Site.RegularPages "Params.category"
+      {{ $cooldrink := first 1 (sort (where .Site.RegularPages "Params.categories"
       "intersect" (slice "cooldrink")) "Date" "desc") }} {{ range $cooldrink }}
       <div
         class="group flex w-full flex-1 flex-col items-start justify-start rounded-xl p-2 ring-1 ring-gray-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-gray-800 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30 hover:dark:ring-yellow-400">
@@ -186,7 +199,7 @@
       {{ end }}
 
       <!-- Produk Food -->
-      {{ $food := first 1 (sort (where .Site.RegularPages "Params.category"
+      {{ $food := first 1 (sort (where .Site.RegularPages "Params.categories"
       "intersect" (slice "food")) "Date" "desc") }} {{ range $food }}
       <div
         class="group flex w-full flex-1 flex-col items-start justify-start rounded-xl p-2 ring-1 ring-gray-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-gray-800 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30 hover:dark:ring-yellow-400">
@@ -211,6 +224,8 @@
     </div>
   </div>
 
+
+
   {{ $promotionsPage := .Site.GetPage "products/_promotions.md" }}
   <div id="promotions"
     class="fadeup relative flex w-auto translate-y-10 transform flex-col items-center justify-center rounded-xl bg-white p-2 shadow-2xl shadow-black/5 ring-1 ring-gray-300 backdrop-blur-md transition-all duration-1000 hover:-translate-y-4 hover:ring-1 hover:ring-yellow-400 hover:delay-0 dark:bg-gray-900 dark:ring-gray-800 hover:dark:ring-yellow-400 xl:p-4">
@@ -225,7 +240,7 @@
     <div class="flex w-full flex-col space-x-0 space-y-4 rounded-xl md:flex-row md:space-x-4 md:space-y-0">
       <!-- Produk Hotdrink dengan Diskon Tertinggi -->
       {{ $hotdrink := first 1 (sort (where (where .Site.RegularPages
-      "Params.category" "intersect" (slice "hotdrink")) "Params.discount" "ne"
+      "Params.categories" "intersect" (slice "hotdrink")) "Params.discount" "ne"
       nil) "Params.discount" "desc") }} {{ range $hotdrink }}
 
       <div
@@ -262,7 +277,7 @@
 
       <!-- Produk Cooldrink dengan Discount -->
       {{ $cooldrink := first 1 (sort (where (where .Site.RegularPages
-      "Params.category" "intersect" (slice "cooldrink")) "Params.discount" "ne"
+      "Params.categories" "intersect" (slice "cooldrink")) "Params.discount" "ne"
       nil) "Params.discount" "desc") }} {{ range $cooldrink }}
 
       <div
@@ -295,7 +310,7 @@
 
       <!-- Produk Food dengan Discount -->
       {{ $food := first 1 (sort (where (where .Site.RegularPages
-      "Params.category" "intersect" (slice "food")) "Params.discount" "ne" nil)
+      "Params.categories" "intersect" (slice "food")) "Params.discount" "ne" nil)
       "Params.discount" "desc") }} {{ range $food }}
 
       <div

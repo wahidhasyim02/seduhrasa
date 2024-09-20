@@ -7,7 +7,7 @@ images = ["/images/americano.jpg"]
 draft = false
 discount = '25%'
 tags = ['americano','hotdrink','coffee']
-category = ['products','hotdrink']
+categories = ['hotdrink']
 type = "hotdrink"
 +++
 

@@ -1,14 +1,11 @@
 {{ define "main" }}
 
 <div
-  class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-gray-200 px-4 pb-12 transition-colors duration-1000 dark:bg-gray-900 sm:px-6 md:space-y-12 lg:px-10 xl:px-12"
->
-  <div
-    class="flex w-full flex-col items-center justify-center space-y-2 text-center"
-  >
+  class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-gray-200 px-4 pb-12 transition-colors duration-1000 dark:bg-gray-900 sm:px-6 md:space-y-12 lg:px-10 xl:px-12">
+  <div class="flex w-full flex-col items-center justify-center space-y-2 text-center">
     {{ if eq .Section "news" }}
     <!-- Bagian ini hanya akan muncul di halaman /posts/ -->
-    <h1 class="text-4xl font-black">Our {{ .Section | title }}</h1>
+    <h1 class="text-4xl font-black">{{ .Section | title }}</h1>
     {{ if .Params.subtitle }}
     <p>{{ .Params.subtitle }}</p>
     {{ else if .Params.summary }}
@@ -42,24 +39,12 @@
   <div class="flex flex-col gap-y-4">
     {{ range .Paginator.Pages }}
     <div
-      class="flex w-full flex-row items-center rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30"
-    >
-      <a
-        href="{{ .RelPermalink }}"
-        class="relative mr-6 h-full w-[70%] overflow-hidden"
-      >
+      class="flex w-full flex-row items-center rounded-xl p-4 backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-gray-800/20 dark:even:bg-gray-800/30">
+      <a href="{{ .RelPermalink }}" class="relative mr-6 h-full w-[70%] overflow-hidden">
         {{ if .Params.images }}
-        <img
-          src="{{ index .Params.images 0 }}"
-          alt="First image"
-          class="h-full w-full rounded-md object-cover"
-        />
+        <img src="{{ index .Params.images 0 }}" alt="First image" class="h-full w-full rounded-md object-cover" />
         {{ else }}
-        <img
-          src="/images/default.jpg"
-          alt="Default image"
-          class="h-full w-full rounded-md object-cover"
-        />
+        <img src="/images/default.jpg" alt="Default image" class="h-full w-full rounded-md object-cover" />
         {{ end }}
       </a>
       <div class="group w-[30%]">
@@ -67,22 +52,14 @@
           <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
         </h2>
         <div class="flex items-center justify-start space-x-2">
-          <img
-            src="{{ .Params.author_photo }}"
-            class="h-6 w-6 rounded-full object-cover"
-            alt="{{ .Params.author }}"
-          />
-          <div
-            class="flex divide-x divide-gray-500 text-sm text-gray-600 dark:divide-gray-700"
-          >
+          <img src="{{ .Params.author_photo }}" class="h-6 w-6 rounded-full object-cover" alt="{{ .Params.author }}" />
+          <div class="flex divide-x divide-gray-500 text-sm text-gray-600 dark:divide-gray-700">
             <div class="pr-2 text-gray-800 dark:text-gray-400">
               {{ .Params.author }}
             </div>
             {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00"
             }} {{ $dateHuman := .Date | time.Format ":date_long" }}
-            <time class="pl-2" datetime="{{ $dateMachine }}"
-              >{{ $dateHuman }}</time
-            >
+            <time class="pl-2" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
           </div>
         </div>
 

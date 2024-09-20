@@ -710,6 +710,121 @@ input[type="checkbox"]:checked:focus {
   /* When finished, opacity is 1 */
 }
 
+/* Path 1 (Lingkaran hijau) */
+
+#svg-centang .svg-elem-1 {
+  fill: #24ff00;
+  stroke-width: 10px;
+  transform-origin: center;
+  transform: scale(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Path 2 (Tanda centang putih) */
+
+#svg-centang .svg-elem-2 {
+  stroke-dasharray: 633.4463500976562px;
+  stroke-dashoffset: 633.4463500976562px;
+  transition: stroke-dashoffset 0.5s ease-in-out 0.5s;
+  stroke-width: 100px;
+  fill: transparent;
+}
+
+/* Ketika SVG aktif, animasi mulai berjalan */
+
+#svg-centang.active .svg-elem-1 {
+  transform: scale(1);
+}
+
+#svg-centang.active .svg-elem-2 {
+  stroke-dashoffset: 0;
+}
+
+#svg-centang {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 50px auto;
+}
+
+/* Lingkaran merah */
+
+.red-circle {
+  transform-origin: center;
+  transform: scale(0);
+  /* Awalnya kecil */
+  transition: transform 0.5s ease-in-out;
+  /* Animasi membesar dalam 0.5s */
+}
+
+/* Garis stroke 1 */
+
+.stroke-1 {
+  transform-origin: center;
+  transform: scale(0);
+  /* Awalnya kecil */
+  transition: transform 0.5s ease-in-out 0.5s;
+  /* Animasi grow dalam 0.5s setelah red-circle */
+}
+
+/* Garis stroke 2 */
+
+.stroke-2 {
+  transform-origin: center;
+  transform: scale(0);
+  /* Awalnya kecil */
+  transition: transform 0.5s ease-in-out 0.5s;
+  /* Animasi grow dalam 0.5s setelah red-circle */
+}
+
+/* Rotasi garis stroke setelah membesar */
+
+.rotate-1 {
+  transition: transform 0.5s ease-in-out;
+  /* Animasi rotasi dalam 0.5s */
+  transform: scale(1) rotate(45deg);
+  /* Membesar dan rotasi 45 derajat */
+}
+
+.rotate-2 {
+  transition: transform 0.5s ease-in-out;
+  /* Animasi rotasi dalam 0.5s */
+  transform: scale(1) rotate(-45deg);
+  /* Membesar dan rotasi -45 derajat */
+}
+
+/* Ketika SVG aktif, animasi mulai */
+
+#svg-x.active .red-circle {
+  transform: scale(1);
+  /* Membesar */
+}
+
+#svg-x.active .stroke-1,
+  #svg-x.active .stroke-2 {
+  transform: scale(1);
+  /* Membesar */
+}
+
+#svg-x.rotated .stroke-1 {
+  transform: scale(1) rotate(45deg);
+  /* Rotasi stroke 1 */
+}
+
+#svg-x.rotated .stroke-2 {
+  transform: scale(1) rotate(-45deg);
+  /* Rotasi stroke 2 */
+}
+
+/* Menjaga ukuran SVG */
+
+#svg-x {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 50px auto;
+}
+
 .sr-only {
   position: absolute !important;
   width: 1px !important;
@@ -788,6 +903,10 @@ input[type="checkbox"]:checked:focus {
   left: 3rem !important;
 }
 
+.left-40 {
+  left: 10rem !important;
+}
+
 .right-0 {
   right: 0px !important;
 }
@@ -806,6 +925,10 @@ input[type="checkbox"]:checked:focus {
 
 .top-1\/2 {
   top: 50% !important;
+}
+
+.top-10 {
+  top: 2.5rem !important;
 }
 
 .top-16 {
@@ -941,6 +1064,10 @@ input[type="checkbox"]:checked:focus {
   height: 15rem !important;
 }
 
+.h-64 {
+  height: 16rem !important;
+}
+
 .h-8 {
   height: 2rem !important;
 }
@@ -986,6 +1113,10 @@ input[type="checkbox"]:checked:focus {
   max-height: 100vh !important;
 }
 
+.min-h-screen {
+  min-height: 100vh !important;
+}
+
 .\!w-fit {
   width: -moz-fit-content !important;
   width: fit-content !important;
@@ -1005,6 +1136,10 @@ input[type="checkbox"]:checked:focus {
 
 .w-6 {
   width: 1.5rem !important;
+}
+
+.w-64 {
+  width: 16rem !important;
 }
 
 .w-\[0\%\] {
@@ -1064,6 +1199,10 @@ input[type="checkbox"]:checked:focus {
   flex: 1 1 0% !important;
 }
 
+.shrink {
+  flex-shrink: 1 !important;
+}
+
 .grow {
   flex-grow: 1 !important;
 }
@@ -1115,6 +1254,16 @@ input[type="checkbox"]:checked:focus {
 
 .translate-y-10 {
   --tw-translate-y: 2.5rem !important;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
+}
+
+.rotate-1 {
+  --tw-rotate: 1deg !important;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
+}
+
+.rotate-2 {
+  --tw-rotate: 2deg !important;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
 }
 
@@ -1372,6 +1521,11 @@ input[type="checkbox"]:checked:focus {
   border-color: rgb(234 179 8 / var(--tw-border-opacity)) !important;
 }
 
+.bg-black {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity)) !important;
+}
+
 .bg-blue-400 {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(96 165 250 / var(--tw-bg-opacity)) !important;
@@ -1435,6 +1589,14 @@ input[type="checkbox"]:checked:focus {
 
 .bg-no-repeat {
   background-repeat: no-repeat !important;
+}
+
+.stroke-1 {
+  stroke-width: 1 !important;
+}
+
+.stroke-2 {
+  stroke-width: 2 !important;
 }
 
 .object-cover {
@@ -1877,6 +2039,10 @@ input[type="checkbox"]:checked:focus {
 
 .duration-\[100ms\] {
   transition-duration: 100ms !important;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .ease-out {
