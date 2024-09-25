@@ -17,20 +17,20 @@ tag = "tags"
     identifier = "home"
     url = "/"
     weight = 1
-
-    [[menu.main]]
-    name = "About"
-    url = "#about"
-    weight = 2
     
     [[menu.main]]
     name = "News"
     url = "/news"
-    weight = 3
+    weight = 2
       
     [[menu.main]]
     name = "Products"
     url = "/products"
+    weight = 3
+
+    [[menu.main]]
+    name = "Gallery"
+    url = "/gallery"
     weight = 4
 
     [[menu.iconmenu]]
@@ -74,13 +74,6 @@ tag = "tags"
     weight = 4
     [menu.left.params]
     icon = "sell"
-
-    [[menu.left]]
-    name = "Galleryalery"
-    url = "/gallery"
-    weight = 5
-    [menu.left.params]
-    icon = "image"
 
     [[menu.socialmedia]]
     name = "facebook"

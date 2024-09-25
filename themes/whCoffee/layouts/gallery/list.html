@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div
+    class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-neutral-200 px-4 pb-12 transition-colors duration-1000 dark:bg-neutral-900 sm:px-6 md:space-y-6 lg:px-10 xl:px-12">
+
+    <div class="flex w-full flex-col items-center justify-center space-y-2 text-center">
+
+        {{ $galleryPage := .Site.GetPage "gallery/_index.md" }}
+
+        <h1 class="text-4xl font-black">{{ $galleryPage.Params.title }}</h1>
+        <h4 class="text-lg">{{ $galleryPage.Params.subtitle }}</h4>
+        <div class="text-center text-neutral-600 dark:text-neutral-600">
+            {{ $galleryPage.Content }}
+        </div>
+    </div>
+    <div
+        class="relative grid h-full w-full p-1 grid-flow-row-dense grid-cols-2 gap-2 overflow-hidden rounded-lg lg:grid-cols-4 [&>*:nth-child(1)]:col-span-2 [&>*:nth-child(10)]:col-span-2 [&>*:nth-child(15)]:col-span-2 [&>*:nth-child(17)]:col-span-2 [&>*:nth-child(6)]:col-span-2 [&>*:nth-child(8)]:col-span-2 [&>*]:bg-white/10 [&>*]:backdrop-blur-md dark:[&>*]:bg-neutral-800/20">
+        {{ $news := where .Site.RegularPages "Type" "news" }}
+        {{ $cooldrink := where .Site.RegularPages "Type" "cooldrink" }}
+        {{ $hotdrink := where .Site.RegularPages "Type" "hotdrink" }}
+        {{ $food := where .Site.RegularPages "Type" "food" }}
+        {{ $combined := union $news (union $cooldrink (union $hotdrink $food)) }}
+
+        {{ range (sort $combined "Date" "desc") }}
+        <div
+            class="group h-52 w-full overflow-hidden rounded-md bg-cover p-2 ring-1 ring-neutral-300 duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
+            <a href="{{ .RelPermalink }}">
+                <img src="{{ with .Params.images }}{{ index . 0 }}{{ end }}"
+                    class="h-full w-full overflow-hidden rounded-md object-cover opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100"
+                    alt="{{ .Title }}" />
+            </a>
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+
+{{ end }}

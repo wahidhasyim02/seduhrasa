@@ -395,7 +395,7 @@
 
   {{ $galleryPage := .Site.GetPage "gallery/_index.md" }}
   <div id="gallery"
-    class="fadeup relative flex h-fit w-full translate-y-10 transform flex-col items-center justify-center space-y-6 rounded-xl bg-white p-2 shadow-2xl shadow-black/5 ring-1 ring-neutral-300 backdrop-blur-md transition-all duration-1000 hover:-translate-y-4 hover:ring-1 hover:ring-yellow-400 hover:delay-0 dark:bg-neutral-900 dark:ring-neutral-800 hover:dark:ring-yellow-400 xl:p-4">
+    class="fadeup relative flex w-auto translate-x-0 translate-y-0 transform flex-col items-center justify-center space-y-6 rounded-xl bg-white p-2 opacity-100 shadow-2xl shadow-black/5 ring-1 ring-neutral-300 backdrop-blur-md transition-all duration-1000 hover:-translate-y-4 hover:ring-1 hover:ring-yellow-400 hover:delay-0 dark:bg-neutral-900 dark:ring-neutral-800 hover:dark:ring-yellow-400 xl:p-4">
     <div class="mb-2 text-center">
       <h3 class="text-3xl font-bold">{{ $galleryPage.Params.title }}</h3>
       <h4 class="text-lg">{{ $galleryPage.Params.subtitle }}</h4>
@@ -406,7 +406,7 @@
     <!-- Carousel wrapper -->
 
     <div
-      class="relative grid h-full w-full p-2 grid-flow-row-dense grid-cols-2 gap-2 overflow-hidden rounded-lg lg:grid-cols-4 [&>*:nth-child(1)]:col-span-2 [&>*:nth-child(10)]:col-span-2 [&>*:nth-child(15)]:col-span-2 [&>*:nth-child(17)]:col-span-2 [&>*:nth-child(6)]:col-span-2 [&>*:nth-child(8)]:col-span-2 [&>*]:bg-white/10 [&>*]:backdrop-blur-md dark:[&>*]:bg-neutral-800/20">
+      class="relative grid h-full w-full  grid-flow-row-dense grid-cols-2 gap-2 overflow-hidden rounded-lg lg:grid-cols-4 [&>*:nth-child(1)]:col-span-2 [&>*:nth-child(10)]:col-span-2 [&>*:nth-child(15)]:col-span-2 [&>*:nth-child(17)]:col-span-2 [&>*:nth-child(6)]:col-span-2 [&>*:nth-child(8)]:col-span-2 [&>*]:bg-white/10 [&>*]:backdrop-blur-md dark:[&>*]:bg-neutral-800/20">
       {{ $news := where .Site.RegularPages "Type" "news" }} {{ $cooldrink :=
       where .Site.RegularPages "Type" "cooldrink" }} {{ $hotdrink := where
       .Site.RegularPages "Type" "hotdrink" }} {{ $food := where
