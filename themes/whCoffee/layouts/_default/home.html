@@ -6,16 +6,6 @@
   <img src="{{ . }}" alt="Image" class="carousel-image h-full w-full object-cover" />
   {{ end }} {{ end }}
 </div>
-<div class="left-40 top-10 flex gap-2">
-  <!-- <object class="w-[40%] left-1/2" type="image/svg+xml" data="/images/centang.svg" width="300" height="300"></object>
-
-  <object class="w-[40%] left-1/2" type="image/svg+xml" data="/images/x.svg" width="300" height="300"></object>
--->
-
-
-
-
-</div>
 
 <div
   class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-neutral-200 px-4 pb-12 transition-colors duration-1000 dark:bg-neutral-900 sm:px-6 md:space-y-12 lg:px-10 xl:px-12">
@@ -126,9 +116,25 @@
           <p class="overflow-ellipsis text-neutral-800 dark:text-neutral-400">
             {{ .Summary }}
           </p>
-          {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-          {{ $dateHuman := .Date | time.Format ":date_long" }}
-          <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+          <div class="flex divide-x divide-neutral-500 text-sm text-neutral-600 dark:divide-neutral-700">
+            <div class="pr-2 text-neutral-800 dark:text-neutral-400">
+              {{ .Params.author }}
+            </div>
+            <!-- Versi untuk desktop -->
+            <div class="hidden md:block">
+              {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05+07:00" }}
+              {{ $dateHuman := .Date | time.Format "Monday, 02 January 2006 - 03.04 PM" }}
+              <time class="pl-2" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+            </div>
+
+            <!-- Versi untuk mobile -->
+            <div class="block md:hidden">
+              {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05+07:00" }}
+              {{ $dateHuman := .Date | time.Format ":date_long" }}
+              <time class="pl-2" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+            </div>
+
+          </div>
         </div>
       </div>
 
@@ -406,7 +412,7 @@
     <!-- Carousel wrapper -->
 
     <div
-      class="relative grid h-full w-full  grid-flow-row-dense grid-cols-2 gap-2 overflow-hidden rounded-lg lg:grid-cols-4 [&>*:nth-child(1)]:col-span-2 [&>*:nth-child(10)]:col-span-2 [&>*:nth-child(15)]:col-span-2 [&>*:nth-child(17)]:col-span-2 [&>*:nth-child(6)]:col-span-2 [&>*:nth-child(8)]:col-span-2 [&>*]:bg-white/10 [&>*]:backdrop-blur-md dark:[&>*]:bg-neutral-800/20">
+      class="relative grid h-full w-full p-1 grid-flow-row-dense grid-cols-2 gap-2 overflow-hidden rounded-lg lg:grid-cols-4 [&>*:nth-child(1)]:col-span-2 [&>*:nth-child(10)]:col-span-2 [&>*:nth-child(15)]:col-span-2 [&>*:nth-child(17)]:col-span-2 [&>*:nth-child(6)]:col-span-2 [&>*:nth-child(8)]:col-span-2 [&>*]:bg-white/10 [&>*]:backdrop-blur-md dark:[&>*]:bg-neutral-800/20">
       {{ $news := where .Site.RegularPages "Type" "news" }} {{ $cooldrink :=
       where .Site.RegularPages "Type" "cooldrink" }} {{ $hotdrink := where
       .Site.RegularPages "Type" "hotdrink" }} {{ $food := where
@@ -494,7 +500,7 @@
               <span class="material-symbols-rounded">person</span>
             </span>
             <input
-              class="block w-full rounded-md border border-neutral-400 bg-neutral-100 py-2 pl-10 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800"
+              class="block w-full rounded-md border border-neutral-400  bg-neutral-100 py-2 pl-10 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800"
               placeholder="Your name" type="text" name="name" />
           </label>
 
@@ -504,14 +510,14 @@
               <span class="material-symbols-rounded">email</span>
             </span>
             <input
-              class="block w-full rounded-md border border-neutral-400 bg-neutral-100 py-2 pl-10 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800"
+              class="block w-full rounded-md border border-neutral-400  bg-neutral-100 py-2 pl-10 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800"
               placeholder="email@example.com" type="email" name="email" />
           </label>
           <label class="relative block">
             <span class="sr-only">Message</span>
 
             <textarea
-              class="block w-full rounded-md border border-neutral-400 bg-neutral-100 py-2 pl-4 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800"
+              class="block w-full rounded-md border border-neutral-400  bg-neutral-100 py-2 pl-4 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800"
               placeholder="Message..." type="text" name="message"></textarea>
           </label>
           <button

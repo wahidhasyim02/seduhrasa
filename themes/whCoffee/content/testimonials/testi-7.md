@@ -2,7 +2,7 @@
 title = 'Testimonial 7'
 name = 'Kana Sakurai'
 job = 'Book Lover'
-date = 2024-04-23T10:00:00-07:00
+date = 2024-04-23T10:00:00+07:00
 draft = false
 images = ["/images/kana.jpg"]
 categories = ['testimonials']

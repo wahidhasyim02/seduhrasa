@@ -1,6 +1,6 @@
 +++
 title = 'Ice Fruit'
-date = 2024-08-29T10:00:00-07:00
+date = 2024-08-29T10:00:00+07:00
 description = 'This is a description of Ice Fruit.'
 price = '$21'
 images = ["/images/esbuah.jpg"]

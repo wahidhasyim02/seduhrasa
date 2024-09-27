@@ -1,6 +1,6 @@
 +++
 title = 'Mie Gacoan'
-date = 2024-08-30T10:00:00-07:00
+date = 2024-08-30T10:00:00+07:00
 description = 'This is a description of Mie Gacoan.'
 price = '$23.9'
 discount = '10%'

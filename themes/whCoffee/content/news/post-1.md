@@ -1,6 +1,6 @@
 +++
 title = 'Next Event: The Art of Traditional Coffee Brewing'
-date = 2023-02-16T10:00:00-07:00
+date = 2023-02-16T08:00:00+07:00
 draft = false
 tags = ['discusion']
 images = ["/images/brewing2.jpg"]

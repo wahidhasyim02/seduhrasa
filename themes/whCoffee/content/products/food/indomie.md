@@ -1,6 +1,6 @@
 +++
 title = 'Indomie Goreng'
-date = 2024-08-24T10:00:00-07:00
+date = 2024-08-24T10:00:00+07:00
 description = 'This is a description of Indomie Goreng.'
 price = '$23.9'
 images = ["/images/indomie.jpg"]

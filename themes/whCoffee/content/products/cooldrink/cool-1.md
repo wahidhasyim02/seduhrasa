@@ -1,6 +1,6 @@
 +++
 title = 'Lemon Ice'
-date = 2024-08-26T10:00:00-07:00
+date = 2024-08-26T10:00:00+07:00
 description = 'This is a description of Lemon Ice.'
 price = '$20.39'
 discount = '14%'

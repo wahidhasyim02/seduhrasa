@@ -1,4 +1,4 @@
-&copy; Copyright {{ now.Year }}. All rights reserved.
+<div class="opacity-0 sm:opacity-100">&copy; Copyright {{ now.Year }}. All rights reserved.</div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -111,5 +111,13 @@
     const id = e.dataTransfer.getData("text"); // Get the ID of the dragged element
     const draggableElement = document.getElementById(id); // Find the dragged element by ID
     dropZone.appendChild(draggableElement); // Append the dragged element to the drop zone
+  });
+</script>
+<script>
+  window.addEventListener('resize', function () {
+    document.body.style.width = window.innerWidth + 'px';
+  });
+  window.addEventListener('load', function () {
+    document.body.offsetHeight;
   });
 </script>

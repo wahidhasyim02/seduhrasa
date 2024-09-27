@@ -1,6 +1,6 @@
 +++
 title = 'This Week’s Event: History Talk on "The Journey to Indonesian Independence"'
-date = 2023-02-15T10:00:00-07:00
+date = 2023-02-15T10:10:00+07:00
 draft = false
 tags = ['discusion']
 images = ["/images/bincang.jpg"]

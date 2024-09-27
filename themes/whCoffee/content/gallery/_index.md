@@ -1,7 +1,7 @@
 +++
 title = 'Our Gallery'
 subtitle = 'Capturing Every Moment'
-date = 2024-08-25T10:00:00-07:00
+date = 2024-08-25T10:00:00+07:00
 draft = false
 +++
 

@@ -13,7 +13,7 @@
         </div>
     </div>
     <div
-        class="relative grid h-full w-full p-1 grid-flow-row-dense grid-cols-2 gap-2 overflow-hidden rounded-lg lg:grid-cols-4 [&>*:nth-child(1)]:col-span-2 [&>*:nth-child(10)]:col-span-2 [&>*:nth-child(15)]:col-span-2 [&>*:nth-child(17)]:col-span-2 [&>*:nth-child(6)]:col-span-2 [&>*:nth-child(8)]:col-span-2 [&>*]:bg-white/10 [&>*]:backdrop-blur-md dark:[&>*]:bg-neutral-800/20">
+        class="relative grid h-full w-full p-1 grid-flow-row-dense gap-2 overflow-hidden rounded-lg grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 [&>*:nth-child(1)]:col-span-1 sm:[&>*:nth-child(1)]:col-span-2 [&>*:nth-child(10)]:col-span-1  sm:[&>*:nth-child(10)]:col-span-2 [&>*:nth-child(15)]:col-span-1 sm:[&>*:nth-child(15)]:col-span-2 [&>*:nth-child(17)]:col-span-1 sm:[&>*:nth-child(17)]:col-span-2 [&>*:nth-child(6)]:col-span-1 sm:[&>*:nth-child(6)]:col-span-2 [&>*:nth-child(8)]:col-span-1 sm:[&>*:nth-child(8)]:col-span-2 [&>*]:bg-white/10 [&>*]:backdrop-blur-md dark:[&>*]:bg-neutral-800/20">
         {{ $news := where .Site.RegularPages "Type" "news" }}
         {{ $cooldrink := where .Site.RegularPages "Type" "cooldrink" }}
         {{ $hotdrink := where .Site.RegularPages "Type" "hotdrink" }}
