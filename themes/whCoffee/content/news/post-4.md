@@ -3,11 +3,11 @@ title = 'Exploring the World of Single-Origin Coffee at SeduhRasa'
 date = 2024-04-15T22:00:00-07:40
 draft = false
 tags = ['discusion']
-images = ["/images/barista.jpg"]
+images = ["/images/barista.webp"]
 categories = ['news']
 type = "news"
 author = "Elena"
-author_photo = "/images/elena.jpg"
+author_photo = "/images/elena.webp"
 +++
 
 Unveiling the Richness of Single-Origin Coffee at SeduhRasa

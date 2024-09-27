@@ -1813,6 +1813,11 @@ input[type="checkbox"]:checked:focus {
   color: rgb(82 82 82 / var(--tw-text-opacity)) !important;
 }
 
+.text-neutral-700 {
+  --tw-text-opacity: 1 !important;
+  color: rgb(64 64 64 / var(--tw-text-opacity)) !important;
+}
+
 .text-neutral-800 {
   --tw-text-opacity: 1 !important;
   color: rgb(38 38 38 / var(--tw-text-opacity)) !important;
@@ -1856,12 +1861,12 @@ input[type="checkbox"]:checked:focus {
   opacity: 1 !important;
 }
 
-.opacity-40 {
-  opacity: 0.4 !important;
-}
-
 .opacity-50 {
   opacity: 0.5 !important;
+}
+
+.opacity-70 {
+  opacity: 0.7 !important;
 }
 
 .shadow-2xl {
@@ -2315,6 +2320,10 @@ input[type="checkbox"]:checked:focus {
 .dark\:text-neutral-600:is(.dark *) {
   --tw-text-opacity: 1 !important;
   color: rgb(82 82 82 / var(--tw-text-opacity)) !important;
+}
+
+.dark\:opacity-40:is(.dark *) {
+  opacity: 0.4 !important;
 }
 
 .dark\:ring-neutral-700:is(.dark *) {

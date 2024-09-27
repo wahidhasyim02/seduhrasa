@@ -4,7 +4,7 @@ name = 'Gojo Satoru'
 job = 'Coffee Lover'
 date = 2024-02-19T10:00:00-08:00
 draft = false
-images = ["/images/gojo.jpg"]
+images = ["/images/gojo.webp"]
 categories = ['testimonials']
 +++
 

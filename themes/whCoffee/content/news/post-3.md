@@ -3,11 +3,11 @@ title = 'How to Enjoy Traditional Coffee at SeduhRasa'
 date = 2024-01-20T09:00:00+07:00
 draft = false
 tags = ['tutorial']
-images = ["/images/caraseduh.jpg"]
+images = ["/images/caraseduh.webp"]
 categories = ['news']
 type = "news"
 author = "Alya"
-author_photo = "/images/alya.jpg"
+author_photo = "/images/alya.webp"
 +++
 
 Brew the Perfect Traditional Coffee at Home with SeduhRasa

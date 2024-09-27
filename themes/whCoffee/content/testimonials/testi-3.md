@@ -4,7 +4,7 @@ name = 'Gisel Latroska'
 job = 'History Enthusiast'
 date = 2024-02-18T10:00:00+07:00
 draft = false
-images = ["/images/gisel.jpg"]
+images = ["/images/gisel.webp"]
 categories = ['testimonials']
 +++
 

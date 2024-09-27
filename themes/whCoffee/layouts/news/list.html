@@ -1,6 +1,7 @@
 {{ define "main" }}
 
-<div class="absolute top-32 blur-3xl opacity-40 flex w-full flex-col items-center justify-center space-y-2 text-center">
+<div
+  class="absolute top-32 blur-3xl opacity-70 dark:opacity-40 flex w-full flex-col items-center justify-center space-y-2 text-center">
   {{ if eq .Section "news" }}
 
   <!-- Menampilkan item paling baru -->
@@ -12,7 +13,7 @@
       {{ if .Params.images }}
       <img src="{{ index .Params.images 0 }}" alt="First image" class="h-full w-full rounded-xl object-cover" />
       {{ else }}
-      <img src="/images/default.jpg" alt="Default image" class="h-full w-full rounded-xl object-cover" />
+      <img src="/images/default.webp" alt="Default image" class="h-full w-full rounded-xl object-cover" />
       {{ end }}
 
     </div>
@@ -32,12 +33,12 @@
     {{ if .Params.subtitle }}
     <h4 class="text-lg">{{ .Params.subtitle }}</h4>
     {{ else if .Params.summary }}
-    <p class="text-center text-neutral-500 dark:text-neutral-500">{{ .Params.summary }}</p>
+    <p class="text-center text-neutral-700 dark:text-neutral-400">{{ .Params.summary }}</p>
     {{ else if .Params.description }}
-    <p class="text-center text-neutral-500 dark:text-neutral-500">{{ .Params.description }}</p>
+    <p class="text-center text-neutral-700 dark:text-neutral-400">{{ .Params.description }}</p>
     {{ end }}
 
-    <div class="text-center text-neutral-500 dark:text-neutral-500">{{ .Content }}</div>
+    <div class="text-center text-neutral-700 dark:text-neutral-400">{{ .Content }}</div>
 
     <!-- Menampilkan item paling baru -->
     {{ $newestPost := first 1 .Paginator.Pages }}
@@ -48,7 +49,7 @@
         {{ if .Params.images }}
         <img src="{{ index .Params.images 0 }}" alt="First image" class="h-full w-full rounded-xl object-cover" />
         {{ else }}
-        <img src="/images/default.jpg" alt="Default image" class="h-full w-full rounded-xl object-cover" />
+        <img src="/images/default.webp" alt="Default image" class="h-full w-full rounded-xl object-cover" />
         {{ end }}
         <div class="absolute bottom-0 h-full w-full bg-gradient-to-b from-black/0 to-black">
           <h1
@@ -81,10 +82,10 @@
             <img src="{{ . }}" alt="img-{{ $.Title }}" class="h-full w-full  rounded object-cover" />
             {{ else }}
             <!-- Jika array gambar tidak memiliki item, gambar default akan ditampilkan -->
-            <img src="/images/default.jpg" alt="Gambar Default" class="h-full w-full rounded object-cover" />
+            <img src="/images/default.webp" alt="Gambar Default" class="h-full w-full rounded object-cover" />
             {{ end }} {{ else }}
             <!-- Jika tidak ada gambar di Params.images, gambar default ditampilkan -->
-            <img src="/images/default.jpg" alt="Gambar Default" class="h-full w-full rounded object-cover" />
+            <img src="/images/default.webp" alt="Gambar Default" class="h-full w-full rounded object-cover" />
             {{ end }}
           </a>
           <div class="w-full lg:w-[60%] h-fit md:h-[100px] group">
@@ -150,10 +151,10 @@
             {{ with index .Params.images 0 }}
             <img src="{{ . }}" alt="img-{{ $.Title }}" class="h-full w-full  rounded object-cover" />
             {{ else }}
-            <img src="/images/default.jpg" alt="Gambar Default" class="h-full w-full  rounded object-cover" />
+            <img src="/images/default.webp" alt="Gambar Default" class="h-full w-full  rounded object-cover" />
             {{ end }}
             {{ else }}
-            <img src="/images/default.jpg" alt="Gambar Default" class="h-full w-full  rounded object-cover" />
+            <img src="/images/default.webp" alt="Gambar Default" class="h-full w-full  rounded object-cover" />
             {{ end }}
 
             <!-- Badge discount di pojok kanan atas -->

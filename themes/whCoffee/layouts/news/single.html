@@ -1,18 +1,18 @@
 {{ define "main" }}
 
 
-<div class="absolute top-32 blur-3xl opacity-40 w-full">
+<div class="absolute top-32 blur-3xl opacity-70 dark:opacity-40 w-full">
   <!-- Menampilkan gambar jika ada -->
   {{ if .Params.images }}
   {{ with index .Params.images 0 }}
   <img src="{{ . }}" alt="img-{{ $.Title }}"
     class="h-[200px] sm:h-[300px] md:h-[600px] w-full rounded-lg object-cover" />
   {{ else }}
-  <img src="/images/default.jpg" alt="Gambar Default"
+  <img src="/images/default.webp" alt="Gambar Default"
     class="h-[200px] sm:h-[300px] md:h-[600px] w-full rounded-lg object-cover" />
   {{ end }}
   {{ else }}
-  <img src="/images/default.jpg" alt="Gambar Default"
+  <img src="/images/default.webp" alt="Gambar Default"
     class="h-[200px] sm:h-[300px] md:h-[600px] w-full rounded-lg object-cover" />
   {{ end }}
 </div>
@@ -29,16 +29,16 @@
     <img src="{{ . }}" alt="img-{{ $.Title }}"
       class="h-[200px] sm:h-[300px] md:h-[600px] w-full rounded-lg object-cover" />
     {{ else }}
-    <img src="/images/default.jpg" alt="Gambar Default"
+    <img src="/images/default.webp" alt="Gambar Default"
       class="h-[200px] sm:h-[300px] md:h-[600px] w-full rounded-lg object-cover" />
     {{ end }}
     {{ else }}
-    <img src="/images/default.jpg" alt="Gambar Default"
+    <img src="/images/default.webp" alt="Gambar Default"
       class="h-[200px] sm:h-[300px] md:h-[600px] w-full rounded-lg object-cover" />
     {{ end }}
 
     <div class="py-4 space-y-2 backdrop-blur-md odd:bg-white/10 dark:odd:bg-neutral-800/20">
-      <h3 class="text-neutral-400 dark:text-neutral-500 text-2xl font-medium">{{ .Title }}</h3>
+      <h3 class="text-neutral-700 dark:text-neutral-400 text-2xl font-medium">{{ .Title }}</h3>
       <div class="flex items-center justify-start space-x-2">
         <img src="{{ .Params.author_photo }}"
           class="h-8 w-8 ring-2 ring-offset-2 ring-neutral-300 dark:ring-neutral-700 bg-white dark:bg-neutral-800 rounded-full object-cover"
@@ -119,10 +119,10 @@
               {{ with index .Params.images 0 }}
               <img src="{{ . }}" alt="img-{{ $.Title }}" class="h-full w-full rounded object-cover" />
               {{ else }}
-              <img src="/images/default.jpg" alt="Gambar Default" class="h-full w-full rounded object-cover" />
+              <img src="/images/default.webp" alt="Gambar Default" class="h-full w-full rounded object-cover" />
               {{ end }}
               {{ else }}
-              <img src="/images/default.jpg" alt="Gambar Default" class="h-full w-full rounded object-cover" />
+              <img src="/images/default.webp" alt="Gambar Default" class="h-full w-full rounded object-cover" />
               {{ end }}
             </a>
             <div class="w-full lg:w-[60%] h-fit md:h-[100px]">

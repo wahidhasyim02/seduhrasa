@@ -1,13 +1,13 @@
 +++
 title = 'This Week’s Event: History Talk on "The Journey to Indonesian Independence"'
-date = 2023-02-15T10:10:00+07:00
+date = 2023-02-17T10:10:00+07:00
 draft = false
 tags = ['discusion']
-images = ["/images/bincang.jpg"]
+images = ["/images/bincang.webp"]
 categories = ['news']
 type = "news"
 author = "Yoru"
-author_photo = "/images/yoru.jpg"
+author_photo = "/images/yoru.webp"
 +++
 
 This week, we invite you to a captivating discussion that will take us back to a crucial moment in our nation's history. Our expert historians will guide us through Indonesia's journey to independence, exploring the significant events, key figures, and movements that led to our freedom from colonial rule. From the early days of resistance to the proclamation of independence in 1945, this session promises to be both informative and thought-provoking.
