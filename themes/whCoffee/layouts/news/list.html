@@ -1,18 +1,43 @@
 {{ define "main" }}
+
+<div class="absolute top-32 blur-3xl opacity-40 flex w-full flex-col items-center justify-center space-y-2 text-center">
+  {{ if eq .Section "news" }}
+
+  <!-- Menampilkan item paling baru -->
+  {{ $newestPost := first 1 .Paginator.Pages }}
+  {{ range $newestPost }}
+  <a href="{{ .RelPermalink }}" title="{{ .LinkTitle }}"
+    class="flex cursor-pointer h-[500px] w-full flex-col items-center overflow-hidden rounded-xl backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
+    <div class="relative h-full w-full overflow-hidden">
+      {{ if .Params.images }}
+      <img src="{{ index .Params.images 0 }}" alt="First image" class="h-full w-full rounded-xl object-cover" />
+      {{ else }}
+      <img src="/images/default.jpg" alt="Default image" class="h-full w-full rounded-xl object-cover" />
+      {{ end }}
+
+    </div>
+  </a>
+  {{ end }}
+  {{ end }}
+</div>
+
+
 <div
   class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-neutral-200 px-4 pb-12 transition-colors duration-1000 dark:bg-neutral-900 sm:px-6 md:space-y-6 lg:px-10 xl:px-12">
-  <div class="flex w-full flex-col items-center justify-center space-y-2 text-center">
+
+
+  <div class="flex z-10 w-full flex-col items-center justify-center space-y-2 text-center">
     {{ if eq .Section "news" }}
     <h1 class="text-4xl font-black">{{ .Section | title }}</h1>
     {{ if .Params.subtitle }}
     <h4 class="text-lg">{{ .Params.subtitle }}</h4>
     {{ else if .Params.summary }}
-    <p class="text-center text-neutral-600 dark:text-neutral-600">{{ .Params.summary }}</p>
+    <p class="text-center text-neutral-500 dark:text-neutral-500">{{ .Params.summary }}</p>
     {{ else if .Params.description }}
-    <p class="text-center text-neutral-600 dark:text-neutral-600">{{ .Params.description }}</p>
+    <p class="text-center text-neutral-500 dark:text-neutral-500">{{ .Params.description }}</p>
     {{ end }}
 
-    <div class="text-center text-neutral-600 dark:text-neutral-600">{{ .Content }}</div>
+    <div class="text-center text-neutral-500 dark:text-neutral-500">{{ .Content }}</div>
 
     <!-- Menampilkan item paling baru -->
     {{ $newestPost := first 1 .Paginator.Pages }}
@@ -34,6 +59,7 @@
       </div>
     </a>
   </div>
+
   <div
     class="my-4 flex flex-col gap-y-4 lg:flex-row font-normal p-2 sm:p-4 divide-y divide-x-0 md:divide-x md:divide-y-0  divide-neutral-400 dark:divide-neutral-800 transition-colors duration-1000  rounded-md border border-neutral-400  dark:border-neutral-700/40">
     <div

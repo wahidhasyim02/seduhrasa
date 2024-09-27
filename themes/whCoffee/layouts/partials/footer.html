@@ -121,3 +121,35 @@
     document.body.offsetHeight;
   });
 </script>
+
+
+<script>
+  // Fungsi untuk menangani perubahan pada logo
+  function handleScroll() {
+    const header = document.querySelector('header');
+    const footer = document.querySelector('footer')
+    const mainElement = document.querySelector('main');
+    const scrollTop = mainElement.scrollTop || document.body.scrollTop; // Mendapatkan scroll dari <main> atau <body>
+
+    console.log("Scroll Y:", scrollTop); // Debug: melihat posisi scroll
+
+    // Jika scroll lebih dari 10px, sembunyikan logo
+    if (scrollTop > 10) {
+      header.classList.add('bg-neutral-200', 'dark:bg-neutral-900', 'backdrop-blur-sm');
+      header.classList.remove('bg-neutral-200/0', 'dark:bg-neutral-900/0');
+      footer.classList.add('bg-neutral-200', 'dark:bg-neutral-900', 'backdrop-blur-sm');
+      footer.classList.remove('bg-neutral-200/0', 'dark:bg-neutral-900/0');
+    } else {
+      header.classList.remove('bg-neutral-200', 'dark:bg-neutral-900', 'backdrop-blur-sm');
+      header.classList.add('bg-neutral-200/0', 'dark:bg-neutral-900/0');
+      footer.classList.remove('bg-neutral-200', 'dark:bg-neutral-900', 'backdrop-blur-sm');
+      footer.classList.add('bg-neutral-200/0', 'dark:bg-neutral-900/0');
+    }
+  }
+
+  // Mendeteksi scroll pada <main>
+  document.querySelector('main').addEventListener('scroll', handleScroll);
+
+  // Mendeteksi scroll pada <body> (jika <main> tidak di-scroll)
+  window.addEventListener('scroll', handleScroll);
+</script>

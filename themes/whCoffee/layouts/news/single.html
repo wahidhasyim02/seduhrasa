@@ -1,57 +1,68 @@
 {{ define "main" }}
 
+
+<div class="absolute top-32 blur-3xl opacity-40 w-full">
+  <!-- Menampilkan gambar jika ada -->
+  {{ if .Params.images }}
+  {{ with index .Params.images 0 }}
+  <img src="{{ . }}" alt="img-{{ $.Title }}"
+    class="h-[200px] sm:h-[300px] md:h-[600px] w-full rounded-lg object-cover" />
+  {{ else }}
+  <img src="/images/default.jpg" alt="Gambar Default"
+    class="h-[200px] sm:h-[300px] md:h-[600px] w-full rounded-lg object-cover" />
+  {{ end }}
+  {{ else }}
+  <img src="/images/default.jpg" alt="Gambar Default"
+    class="h-[200px] sm:h-[300px] md:h-[600px] w-full rounded-lg object-cover" />
+  {{ end }}
+</div>
+
+
 <div
   class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-neutral-200 px-4 pb-12 transition-colors duration-1000 dark:bg-neutral-900 sm:px-6 md:space-y-12 lg:px-10 xl:px-12">
-  <div>
+
+
+  <div class="z-10">
     <!-- Menampilkan gambar jika ada -->
-    {{ if .Params.images }} {{ with index .Params.images 0 }}
-    <!-- Menampilkan gambar pertama jika ada beberapa gambar -->
+    {{ if .Params.images }}
+    {{ with index .Params.images 0 }}
     <img src="{{ . }}" alt="img-{{ $.Title }}"
       class="h-[200px] sm:h-[300px] md:h-[600px] w-full rounded-lg object-cover" />
     {{ else }}
-    <!-- Jika array gambar tidak memiliki item, gambar default akan ditampilkan -->
     <img src="/images/default.jpg" alt="Gambar Default"
       class="h-[200px] sm:h-[300px] md:h-[600px] w-full rounded-lg object-cover" />
-    {{ end }} {{ else }}
-    <!-- Jika tidak ada gambar di Params.images, gambar default ditampilkan -->
+    {{ end }}
+    {{ else }}
     <img src="/images/default.jpg" alt="Gambar Default"
       class="h-[200px] sm:h-[300px] md:h-[600px] w-full rounded-lg object-cover" />
     {{ end }}
 
     <div class="py-4 space-y-2 backdrop-blur-md odd:bg-white/10 dark:odd:bg-neutral-800/20">
-      <h3 class="text-neutral-400 dark:text-neutral-500 text-2xl font-medium">
-        {{ .Title }}
-      </h3>
+      <h3 class="text-neutral-400 dark:text-neutral-500 text-2xl font-medium">{{ .Title }}</h3>
       <div class="flex items-center justify-start space-x-2">
         <img src="{{ .Params.author_photo }}"
           class="h-8 w-8 ring-2 ring-offset-2 ring-neutral-300 dark:ring-neutral-700 bg-white dark:bg-neutral-800 rounded-full object-cover"
           alt="{{ .Params.author }}" />
         <div class="flex divide-x divide-neutral-500 text-sm text-neutral-600 dark:divide-neutral-700">
-          <div class="pr-2 text-neutral-800 dark:text-neutral-400">
-            {{ .Params.author }}
-          </div>
-          <!-- Versi untuk desktop -->
+          <div class="pr-2 text-neutral-800 dark:text-neutral-400">{{ .Params.author }}</div>
           <div class="hidden md:block">
             {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05+07:00" }}
             {{ $dateHuman := .Date | time.Format "Monday, 02 January 2006 - 03.04 PM" }}
             <time class="pl-2" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
           </div>
-
-          <!-- Versi untuk mobile -->
           <div class="block md:hidden">
             {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05+07:00" }}
             {{ $dateHuman := .Date | time.Format ":date_long" }}
             <time class="pl-2" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
           </div>
-
         </div>
       </div>
     </div>
 
     <div
-      class="my-4 flex flex-col gap-y-4 lg:flex-row font-normal p-2 sm:p-4 divide-y divide-x-0 md:divide-x md:divide-y-0  divide-neutral-400 dark:divide-neutral-800 transition-colors duration-1000  rounded-md border border-neutral-400  dark:border-neutral-700/40">
+      class="my-4 flex flex-col gap-y-4 lg:flex-row font-normal p-2 sm:p-4 divide-y divide-x-0 md:divide-x md:divide-y-0 divide-neutral-400 dark:divide-neutral-800 transition-colors duration-1000 rounded-md border border-neutral-400 dark:border-neutral-700/40">
       <div
-        class="w-full p-2 pr-4 md:w-[70%] h-fit md:h-[800px] overflow-style overflow-y-auto  overscroll-auto  [&>p]:leading-10 [&>p]:indent-0 sm:[&>p]:indent-20">
+        class="w-full p-2 pr-4 md:w-[70%] h-fit md:h-[800px] overflow-style overflow-y-auto overscroll-auto [&>p]:leading-10 [&>p]:indent-0 sm:[&>p]:indent-20">
         {{ .Content | safeHTML }}
 
         <!-- Bagian Also Read hanya akan muncul jika ada berita terkait -->
@@ -72,14 +83,12 @@
         <!-- Menampilkan bagian "Also Read" hanya jika ada berita terkait -->
         {{ if gt (len $relatedNews) 0 }}
         <div
-          class="p-4 my-4 rounded-md border border-neutral-400  dark:border-neutral-700/40 bg-white/50 dark:bg-neutral-800/50">
+          class="p-4 my-4 rounded-md border border-neutral-400 dark:border-neutral-700/40 bg-white/50 dark:bg-neutral-800/50">
           <div>Also Read:</div>
           <ul class="list-disc list-inside marker:text-yellow-500">
             {{ range $relatedNews }}
             <li>
-              <a href="{{ .RelPermalink }}" class="hover:text-yellow-500">
-                {{ .Title }}
-              </a>
+              <a href="{{ .RelPermalink }}" class="hover:text-yellow-500">{{ .Title }}</a>
             </li>
             {{ end }}
           </ul>
@@ -90,10 +99,9 @@
       </div>
 
       <div
-        class="w-full md:w-[30%] h-fit md:h-[800px] overflow-style overflow-y-auto  overscroll-auto  py-4 md:py-0 sm:ml-1 md:ml-0 pl-4">
-        <h3 class="text-neutral-400 dark:text-neutral-500 text-2xl font-medium border-l border-yellow-500 pl-2">
-          Other News
-        </h3>
+        class="w-full md:w-[30%] h-fit md:h-[800px] overflow-style overflow-y-auto overscroll-auto py-4 md:py-0 sm:ml-1 md:ml-0 pl-4">
+        <h3 class="text-neutral-400 dark:text-neutral-500 text-2xl font-medium border-l border-yellow-500 pl-2">Other
+          News</h3>
         <div class="space-y-4 p-2">
           {{ $currentPage := . }}
           <!-- Mengambil semua berita yang bukan item saat ini -->
@@ -107,26 +115,20 @@
             <a href="{{ .RelPermalink }}"
               class="w-full rounded lg:w-[40%] h-[200px] md:h-[160px] lg:h-[100px] bg-cover overflow-hidden">
               <!-- Menampilkan gambar jika ada -->
-              {{ if .Params.images }} {{ with index .Params.images 0 }}
-              <!-- Menampilkan gambar pertama jika ada beberapa gambar -->
-              <img src="{{ . }}" alt="img-{{ $.Title }}" class="h-full w-full  rounded object-cover" />
+              {{ if .Params.images }}
+              {{ with index .Params.images 0 }}
+              <img src="{{ . }}" alt="img-{{ $.Title }}" class="h-full w-full rounded object-cover" />
               {{ else }}
-              <!-- Jika array gambar tidak memiliki item, gambar default akan ditampilkan -->
               <img src="/images/default.jpg" alt="Gambar Default" class="h-full w-full rounded object-cover" />
-              {{ end }} {{ else }}
-              <!-- Jika tidak ada gambar di Params.images, gambar default ditampilkan -->
+              {{ end }}
+              {{ else }}
               <img src="/images/default.jpg" alt="Gambar Default" class="h-full w-full rounded object-cover" />
               {{ end }}
             </a>
             <div class="w-full lg:w-[60%] h-fit md:h-[100px]">
               <a href="{{ .RelPermalink }}"
                 class="text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200">
-                <!-- Menampilkan semua kata untuk ukuran mobile hingga md -->
-                <h4 class="font-semibold w-full block lg:hidden hover:text-yellow-500">
-                  {{ .Title }}
-                </h4>
-
-                <!-- Menampilkan hanya 8 kata untuk ukuran lg dan lebih besar -->
+                <h4 class="font-semibold w-full block lg:hidden hover:text-yellow-500">{{ .Title }}</h4>
                 <h4 class="font-semibold w-full hidden lg:block hover:text-yellow-500">
                   {{ $words := split .Title " " }}
                   {{ if gt (len $words) 8 }}
@@ -137,12 +139,9 @@
                   {{ .Title }}
                   {{ end }}
                 </h4>
-
               </a>
               <div class="flex divide-x divide-neutral-500 text-sm text-neutral-600 dark:divide-neutral-700">
-                <div class="pr-2 text-neutral-800 dark:text-neutral-400">
-                  {{ .Params.author }}
-                </div>
+                <div class="pr-2 text-neutral-800 dark:text-neutral-400">{{ .Params.author }}</div>
                 {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05+07:00" }}
                 {{ $dateHuman := .Date | time.Format ":date_long" }}
                 <time class="pl-2" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
@@ -157,10 +156,7 @@
       </div>
     </div>
 
-
-
-
   </div>
 </div>
-</div>
+
 {{ end }}

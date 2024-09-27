@@ -1,79 +1,140 @@
 {{ define "main" }}
 
-<div class="image-carousel absolute right-0 top-52 h-1/2 w-[70%] bg-cover opacity-10 blur-md grayscale filter">
-  {{ range first 3 (sort (where .Site.RegularPages "Section" "news") "Date"
-  "desc") }} {{ range .Params.images }}
-  <img src="{{ . }}" alt="Image" class="carousel-image h-full w-full object-cover" />
-  {{ end }} {{ end }}
+
+<div id="jumboimgbg"
+  class="fadeup w-[50%] order-1 opacity-40 absolute right-0 top-20 blur-3xl flex h-auto flex-1 translate-x-12 transform items-center justify-center overflow-hidden rounded-3xl bg-neutral-800 transition-all duration-1000 lg:order-2">
+
+  <div class="mx-auto w-full">
+
+    <div class="flex [&:hover>div]:w-[10%] [&>div:hover]:w-[70%]">
+      {{ range first 4 (sort (where .Site.RegularPages "Section" "news") "Date" "desc") }}
+
+      <div
+        class="group relative h-96 w-[70%] cursor-pointer overflow-hidden shadow-lg shadow-black/30 transition-all duration-200 odd:from-green-500/20 odd:to-black even:from-red-500/20 even:to-black odd:hover:bg-gradient-to-b odd:hover:from-green-500/0 odd:hover:to-black even:hover:bg-gradient-to-b even:hover:from-red-500/0 even:hover:to-black">
+
+        <a href="{{ .RelPermalink }}" class="opacity-100">
+          {{ range .Params.images }}
+
+          <img class="h-full object-cover transition-all group-hover:rotate-12 group-hover:scale-125" src="{{ . }}"
+            alt="" />
+          {{ end }}
+
+          <div class="absolute inset-0 h-full w-full bg-gradient-to-b">
+
+            <div class="absolute inset-x-5 bottom-6">
+
+              <div class="flex gap-3 text-white">
+
+                <h3
+                  class="border-l border-yellow-500 pl-2 text-lg font-semibold text-neutral-100 opacity-0 shadow-lg duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
+                  {{ .Params.title }}
+                </h3>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </a>
+
+      </div>
+
+      {{ end }}
+
+    </div>
+
+  </div>
+
 </div>
 
 <div
   class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-neutral-200 px-4 pb-12 transition-colors duration-1000 dark:bg-neutral-900 sm:px-6 md:space-y-12 lg:px-10 xl:px-12">
+
+
   <div id="jumbotron"
     class="flex h-auto w-full flex-1 flex-col items-center justify-center gap-y-4 py-0 lg:flex-row lg:gap-y-8 lg:space-x-8 lg:py-4">
+
     <div id="jumbotext"
       class="fadeup order-2 flex h-auto w-full -translate-x-12 transform flex-col content-center space-x-0 space-y-2 opacity-0 transition-all duration-1000 lg:order-1 lg:w-1/2 lg:space-y-4">
-
-
 
       <h2 class="text-[38px] font-light uppercase leading-[3rem] md:text-[42px] md:leading-none">
         Relive the Memories at
       </h2>
+
       <h2
         class="text-[48px] font-bold uppercase leading-none text-yellow-500 sm:text-[66px] md:leading-none xl:text-[74px]">
         {{ .Site.Title }}
       </h2>
+
       <p class="border-l border-yellow-500 pl-2 text-neutral-600 dark:text-neutral-600">
         Step into a classic atmosphere that takes you back in time. Here, casual
         conversations are paired with our finest coffee, creating unforgettable
         moments. Every cup of coffee we serve tells a story, and every event we
         host adds deeper meaning to your experience.
       </p>
+
       <a href="/products"
         class="group flex w-fit items-center rounded-full bg-yellow-500 px-4 py-2 text-center text-lg font-bold uppercase text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
         Explore Our Coffee Selection
+
         <span class="material-symbols-outlined transition-all group-hover:translate-x-1">
           chevron_right
         </span>
+
       </a>
+
     </div>
 
     <div id="jumboimg"
       class="fadeup order-1 flex h-auto flex-1 translate-x-12 transform items-center justify-center overflow-hidden rounded-3xl bg-neutral-800 opacity-0 transition-all duration-1000 lg:order-2">
-      <div class="mx-auto w-full">
-        <div class="flex [&:hover>div]:w-[10%] [&>div:hover]:w-[70%]">
-          {{ range first 4 (sort (where .Site.RegularPages "Section" "news")
-          "Date" "desc") }}
 
-          <!-- Link di luar range .Params.images -->
+      <div class="mx-auto w-full">
+
+        <div class="flex [&:hover>div]:w-[10%] [&>div:hover]:w-[70%]">
+          {{ range first 4 (sort (where .Site.RegularPages "Section" "news") "Date" "desc") }}
+
           <div
             class="group relative h-96 w-[70%] cursor-pointer overflow-hidden shadow-lg shadow-black/30 transition-all duration-200 odd:from-green-500/20 odd:to-black even:from-red-500/20 even:to-black odd:hover:bg-gradient-to-b odd:hover:from-green-500/0 odd:hover:to-black even:hover:bg-gradient-to-b even:hover:from-red-500/0 even:hover:to-black">
-            {{ range .Params.images }}
-            <img class="h-full object-cover transition-all group-hover:rotate-12 group-hover:scale-125" src="{{ . }}"
-              alt="" />
-            {{ end }}
-            <a href="{{ .RelPermalink }}" class="">
+
+            <a href="{{ .RelPermalink }}" class="opacity-100">
+              {{ range .Params.images }}
+
+              <img class="h-full object-cover transition-all group-hover:rotate-12 group-hover:scale-125" src="{{ . }}"
+                alt="" />
+              {{ end }}
+
               <div class="absolute inset-0 h-full w-full bg-gradient-to-b">
+
                 <div class="absolute inset-x-5 bottom-6">
+
                   <div class="flex gap-3 text-white">
-                    <!-- Link judul -->
+
                     <h3
                       class="border-l border-yellow-500 pl-2 text-lg font-semibold text-neutral-100 opacity-0 shadow-lg duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
                       {{ .Params.title }}
                     </h3>
+
                   </div>
+
                 </div>
-                <div class="flex justify-end gap-3 bg-blue-400 text-neutral-200">
-                  <!-- Icon SVG lainnya -->
-                </div>
+
               </div>
+
             </a>
+
           </div>
+
           {{ end }}
+
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 
   {{ $aboutPage := .Site.GetPage "about/about.md" }}
   <div id="aboutus"
@@ -476,6 +537,7 @@
       </div>
     </div>
   </div>
+
   {{ $contactPage := .Site.GetPage "contact/_index.html" }}
   <div id="contactus"
     class="fadeup relative flex w-auto translate-x-0 translate-y-0 transform flex-col items-center justify-center space-y-6 rounded-xl bg-white p-2 opacity-100 shadow-2xl shadow-black/5 ring-1 ring-neutral-300 backdrop-blur-md transition-all duration-1000 hover:-translate-y-4 hover:ring-1 hover:ring-yellow-400 hover:delay-0 dark:bg-neutral-900 dark:ring-neutral-800 hover:dark:ring-yellow-400 xl:p-4">

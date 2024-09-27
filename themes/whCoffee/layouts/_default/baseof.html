@@ -8,21 +8,26 @@
 
 <body
   class="max-h-screen w-full bg-white bg-cover bg-no-repeat font-noto text-neutral-600 transition-colors duration-1000 dark:bg-neutral-950 dark:text-neutral-400">
-  <header
-    class="fixed left-12 right-0 top-0 z-1000 w-full rounded-tl-3xl bg-neutral-200 transition-colors duration-1000 dark:bg-neutral-900 md:left-16">
+  <header id="main-header"
+    class="fixed left-12 right-0 top-0 z-1000 w-full rounded-tl-3xl bg-neutral-200/0 transition-colors duration-1000 dark:bg-neutral-900/0 md:left-16">
     {{ partial "header.html" . }}
   </header>
   <main
-    class="relative left-12 top-0 h-[calc(100vh-0px)] w-[calc(100%-3rem)] py-20 rounded-l-3xl overflow-style overflow-y-auto overflow-x-hidden overscroll-none bg-neutral-200 transition-colors duration-1000 dark:bg-neutral-900 md:left-16 md:w-[calc(100%-4rem)]">
+    class="relative left-12 top-0 h-screen w-[calc(100%-3rem)] py-20 rounded-l-3xl overflow-style overflow-y-auto overflow-x-hidden overscroll-none bg-neutral-200 transition-colors duration-1000 dark:bg-neutral-900 md:left-16 md:w-[calc(100%-4rem)]">
     <div class="bar-of-progress z-1500" id="progress-bar">
       <div class="glow"></div>
     </div>
     {{ partial "navleft.html" . }} {{ block "main" . }}{{ end }}
   </main>
-  <footer
-    class="fixed bottom-0 left-12 w-full h-10  rounded-bl-3xl bg-neutral-200 py-2 pl-4 transition-colors duration-1000 dark:bg-neutral-900 md:left-16 md:pl-12">
+  <footer id="main-footer"
+    class="fixed bottom-0 left-12 w-full h-10  rounded-bl-3xl bg-neutral-200/0 py-2 pl-4 transition-colors duration-1000 dark:bg-neutral-900/0 md:left-16 md:pl-12">
     {{ partial "footer.html" . }}
   </footer>
+
+
+
+
+
 
 
 </body>
