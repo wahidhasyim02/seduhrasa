@@ -5,10 +5,10 @@ $page := .page }} {{- $taxonomy := .taxonomy }} {{- with $page.GetTerms
 $taxonomy }} {{- $label := (index . 0).Parent.LinkTitle }}
 <div>
   <div>{{ $label }}:</div>
-  <ul>
+  <ul class="flex">
     {{- range . }}
-    <li class="p-3">
-      <a class="rounded-full border border-neutral-400  bg-neutral-300 px-4 py-1 hover:bg-neutral-300/0 hover:bg-neutral-400 dark:border-neutral-800 dark:bg-neutral-900 hover:dark:border-neutral-800/0 hover:dark:bg-neutral-800"
+    <li class="py-3 px-2">
+      <a class="rounded-full border border-neutral-400  bg-neutral-300 px-4 py-1 hover:bg-neutral-400 dark:border-neutral-800 dark:bg-neutral-900 hover:dark:border-neutral-800/0 hover:dark:bg-neutral-700"
         href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
     </li>
     {{- end }}

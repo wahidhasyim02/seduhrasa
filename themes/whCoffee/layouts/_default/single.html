@@ -1,36 +1,90 @@
 {{ define "main" }}
-<div class="product-details">
-    <h1 class="text-3xl font-bold text-blue-500">{{ .Title }}</h1>
+<div
+    class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-neutral-200 px-4 pb-12 transition-colors duration-1000 dark:bg-neutral-900 sm:px-6 md:space-y-6 lg:px-10 xl:px-12">
 
-    <div class="product-image">
-        {{ with .Params.images }}
-        <img src="{{ index . 0 }}" alt="{{ $.Title }}" class="rounded-md object-cover" />
+
+
+    <div
+        class="flex h-[550px] w-full flex-row items-start overflow-hidden rounded-xl backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
+        {{ if eq .Params.stock "Available" }}
+        <div class="h-full w-[70%] ">
+
+            {{ with .Params.images }}
+            <img src="{{ index . 0 }}" alt="{{ $.Title }}" class="h-full w-full rounded-l-md object-cover" />
+            {{ end }}
+            <div class="absolute bottom-0 h-full w-[70%] bg-gradient-to-b from-black/0 to-black">
+                <h1
+                    class="border-l absolute bottom-10 left-4 sm:left-10 border-yellow-500 pl-2 text-4xl text-left font-semibold text-neutral-100 shadow-lg duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
+                    {{ .LinkTitle }}
+                </h1>
+            </div>
+        </div>
+        <div class="product-info w-[30%] h-full z-10 p-3 space-y-2 bg-white dark:bg-neutral-800/20">
+
+            <h1 class="text-4xl font-bold">{{ .Params.price }}</h1>
+            <p class="px-1 py-0 bg-red-200 text-red-600 font-bold w-fit rounded">{{ with .Params.discount }}{{ . }}{{
+                else }}N/A{{
+                end
+                }}</p>
+
+            {{ if eq .Params.stock "Available" }}<p class="text-green-500">{{ .Params.stock }}</p>{{ else }}<p
+                class="text-red-500">{{ .Params.stock }}</p> {{ end }}
+            <p><strong>Description:</strong> {{ .Content }}</p>
+            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
+                target="noopener"
+                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                Buy
+                <p class="font-bold">
+                    {{ .Params.price }}
+                </p>
+            </a>
+            <div>{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
+
+
+        </div>
+        {{ else }}
+        <div class="h-full w-[70%] ">
+
+            {{ with .Params.images }}
+            <img src="{{ index . 0 }}" alt="{{ $.Title }}" class="h-full w-full rounded-l-md object-cover grayscale" />
+            {{ end }}
+            <div class="absolute bottom-0 h-full w-[70%] bg-gradient-to-b from-black/0 to-black">
+                <h1
+                    class="border-l absolute bottom-10 left-4 sm:left-10 border-yellow-500 pl-2 text-4xl text-left font-semibold text-neutral-100 shadow-lg duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
+                    {{ .LinkTitle }}
+                </h1>
+            </div>
+        </div>
+        <div class="product-info w-[30%] h-full z-10 p-3 space-y-2 bg-white dark:bg-neutral-800/20">
+
+            <h1 class="text-4xl font-bold">{{ .Params.price }}</h1>
+            <p class="px-1 py-0 bg-red-200 text-red-600 font-bold w-fit rounded">{{ with .Params.discount }}{{ . }}{{
+                else }}N/A{{
+                end
+                }}</p>
+
+            {{ if eq .Params.stock "Available" }}<p class="text-green-500">{{ .Params.stock }}</p>{{ else }}<p
+                class="text-red-500">{{ .Params.stock }}</p> {{ end }}
+            <p><strong>Description:</strong> {{ .Content }}</p>
+            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
+                target="noopener"
+                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed">
+                Buy
+                <p class="font-bold">
+                    {{ .Params.price }}
+                </p>
+            </a>
+            <div>{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
+
+
+        </div>
         {{ end }}
     </div>
 
-    <div class="product-info">
-        <p><strong>Description:</strong> {{ .Params.description }}</p>
-        <p><strong>Price:</strong> {{ .Params.price }}</p>
-        <p><strong>Discount:</strong> {{ with .Params.discount }}{{ . }}{{ else }}N/A{{ end }}</p>
-        <p><strong>Stock:</strong> {{ with .Params.stock }}{{ . }}{{ else }}N/A{{ end }}</p>
 
-        <div class="tags">
-            <strong>Tags:</strong>
-            {{ range .Params.tags }}
-            <span class="tag">{{ . }}</span>
-            {{ end }}
-        </div>
-
-        <div class="categories">
-            <strong>Categories:</strong>
-            {{ range .Params.categories }}
-            <span class="category">{{ . }}</span>
-            {{ end }}
-        </div>
-    </div>
 
     <div class="back-button">
-        <a href="/products" class="btn">Back to Products</a>
+        <a href="/products" class="hover:text-yellow-500">Back to Products</a>
     </div>
 </div>
 {{ end }}

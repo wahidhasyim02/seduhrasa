@@ -37,7 +37,7 @@
         <div class="text-center text-neutral-700 dark:text-neutral-400">{{ .Content }}</div>
         <div class="flex flex-col gap-y-4 w-full">
             <div
-                class="flex w-full flex-col items-center justify-center p-4 space-y-2 rounded-xl backdrop-blur-md bg-white  shadow-2xl shadow-black/5 ring-1 ring-neutral-300 transition-all duration-1000  hover:ring-1  dark:bg-neutral-900 dark:ring-neutral-800">
+                class="flex w-full flex-col items-center justify-center p-2 sm:p-4 space-y-2 rounded-xl backdrop-blur-md bg-white  shadow-2xl shadow-black/5 ring-1 ring-neutral-300 transition-all duration-1000  hover:ring-1  dark:bg-neutral-900 dark:ring-neutral-800">
                 <!-- Membuat div baru untuk judul agar terpisah -->
                 <div class="w-full text-center">
                     <!-- Ambil konten dari hotdrink/_index.md -->
@@ -47,7 +47,7 @@
                 </div>
 
                 <div
-                    class="flex w-full overflow-style-x overflow-x-auto snap-x snap-mandatory overscroll-auto gap-4 p-4 backdrop-blur-md">
+                    class="flex flex-col sm:flex-row w-full h-[500px] sm:h-fit overflow-style-y overflow-y-auto snap-y overscroll-y-auto sm:overflow-style-x sm:overflow-x-auto sm:snap-x sm:overscroll-x-auto snap-mandatory gap-y-2 sm:gap-x-4 p-2 sm:p-4 backdrop-blur-md">
                     <!-- Ambil produk terbaru dari kategori hotdrink -->
                     {{ $hotdrink := (sort (where .Site.RegularPages "Params.categories" "intersect" (slice "hotdrink"))
                     "Date" "desc") }}
@@ -57,7 +57,7 @@
 
                     {{ if eq .Params.stock "Available" }}
                     <div
-                        class="group flex-shrink-0 w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
+                        class="group  flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
                         <a href="{{ .RelPermalink }}"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             {{ with .Params.images }}
@@ -81,9 +81,9 @@
 
                             <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
                                 target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg font-bold text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
                                 Buy
-                                <p>
+                                <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
                             </a>
@@ -108,7 +108,7 @@
                     </div>
                     {{ else }}
                     <div
-                        class="group flex-shrink-0 w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
+                        class="group  flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
                         <a href="{{ .RelPermalink }}"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             {{ with .Params.images }}
@@ -132,9 +132,9 @@
 
                             <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
                                 target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg font-bold text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed">
+                                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed">
                                 Buy
-                                <p>
+                                <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
                             </a>
@@ -166,7 +166,7 @@
             </div>
 
             <div
-                class="flex w-full flex-col items-center justify-center p-4 space-y-2 rounded-xl backdrop-blur-md bg-white  shadow-2xl shadow-black/5 ring-1 ring-neutral-300 transition-all duration-1000  hover:ring-1  dark:bg-neutral-900 dark:ring-neutral-800">
+                class="flex w-full flex-col items-center justify-center p-2 sm:p-4 space-y-2 rounded-xl backdrop-blur-md bg-white  shadow-2xl shadow-black/5 ring-1 ring-neutral-300 transition-all duration-1000  hover:ring-1  dark:bg-neutral-900 dark:ring-neutral-800">
                 <!-- Membuat div baru untuk judul agar terpisah -->
                 <div class="w-full text-center">
                     <!-- Ambil konten dari cooldrink/_index.md -->
@@ -176,7 +176,7 @@
                 </div>
 
                 <div
-                    class="flex w-full overflow-style-x overflow-x-auto snap-x snap-mandatory overscroll-auto gap-4 p-4 backdrop-blur-md">
+                    class="flex flex-col sm:flex-row w-full h-[500px] sm:h-fit overflow-style-y overflow-y-auto snap-y overscroll-y-auto sm:overflow-style-x sm:overflow-x-auto sm:snap-x sm:overscroll-x-auto snap-mandatory gap-y-2 sm:gap-x-4 p-2 sm:p-4 backdrop-blur-md">
                     <!-- Ambil produk terbaru dari kategori cooldrink -->
                     {{ $cooldrink := (sort (where .Site.RegularPages "Params.categories" "intersect" (slice
                     "cooldrink"))
@@ -186,9 +186,9 @@
 
                     {{ if eq .Params.stock "Available" }}
                     <div
-                        class="group flex-shrink-0 w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
+                        class="group  flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
                         <a href="{{ .RelPermalink }}"
-                            class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
+                            class="relative h-60  w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             {{ with .Params.images }}
                             <img src="{{ index . 0 }}" alt="First image"
                                 class="h-full w-full rounded-md object-cover" />
@@ -210,9 +210,9 @@
 
                             <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
                                 target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg font-bold text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
                                 Buy
-                                <p>
+                                <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
                             </a>
@@ -237,7 +237,7 @@
                     </div>
                     {{ else }}
                     <div
-                        class="group flex-shrink-0 w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
+                        class="group  flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
                         <a href="{{ .RelPermalink }}"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             {{ with .Params.images }}
@@ -261,9 +261,9 @@
 
                             <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
                                 target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg font-bold text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed">
+                                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed">
                                 Buy
-                                <p>
+                                <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
                             </a>
@@ -297,7 +297,7 @@
             </div>
 
             <div
-                class="flex w-full flex-col items-center justify-center p-4 space-y-2 rounded-xl backdrop-blur-md bg-white  shadow-2xl shadow-black/5 ring-1 ring-neutral-300 transition-all duration-1000  hover:ring-1  dark:bg-neutral-900 dark:ring-neutral-800">
+                class="flex w-full flex-col items-center justify-center p-2 sm:p-4 space-y-2 rounded-xl backdrop-blur-md bg-white  shadow-2xl shadow-black/5 ring-1 ring-neutral-300 transition-all duration-1000  hover:ring-1  dark:bg-neutral-900 dark:ring-neutral-800">
                 <!-- Membuat div baru untuk judul agar terpisah -->
                 <div class="w-full text-center">
                     <!-- Ambil konten dari food/_index.md -->
@@ -307,7 +307,7 @@
                 </div>
 
                 <div
-                    class="flex w-full overflow-style-x overflow-x-auto snap-x snap-mandatory overscroll-auto gap-4 p-4 backdrop-blur-md">
+                    class="flex flex-col sm:flex-row w-full h-[500px] sm:h-fit overflow-style-y overflow-y-auto snap-y overscroll-y-auto sm:overflow-style-x sm:overflow-x-auto sm:snap-x sm:overscroll-x-auto snap-mandatory gap-y-2 sm:gap-x-4 p-2 sm:p-4 backdrop-blur-md">
                     <!-- Ambil produk terbaru dari kategori food -->
                     {{ $food := (sort (where .Site.RegularPages "Params.categories" "intersect" (slice "food"))
                     "Date" "desc") }}
@@ -316,7 +316,7 @@
 
                     {{ if eq .Params.stock "Available" }}
                     <div
-                        class="group flex-shrink-0 w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
+                        class="group  flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
                         <a href="{{ .RelPermalink }}"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             {{ with .Params.images }}
@@ -340,9 +340,9 @@
 
                             <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
                                 target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg font-bold text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
                                 Buy
-                                <p>
+                                <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
                             </a>
@@ -367,7 +367,7 @@
                     </div>
                     {{ else }}
                     <div
-                        class="group flex-shrink-0 w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
+                        class="group  flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
                         <a href="{{ .RelPermalink }}"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             {{ with .Params.images }}
@@ -391,9 +391,9 @@
 
                             <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
                                 target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg font-bold text-neutral-400 dark:text-neutral-700 transition-colors duration-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed">
+                                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed">
                                 Buy
-                                <p>
+                                <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
                             </a>

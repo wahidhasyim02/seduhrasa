@@ -2,7 +2,7 @@
 title = 'This Week’s Event: History Talk on "The Journey to Indonesian Independence"'
 date = 2023-02-17T10:10:00+07:00
 draft = false
-tags = ['discusion']
+tags = ['discusion','tutorial']
 images = ["/images/bincang.webp"]
 categories = ['news']
 type = "news"
