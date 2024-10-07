@@ -1,11 +1,11 @@
 +++
 title = 'Black Tea'
-date = 2024-08-22T10:00:00+07:00
+date = 2024-09-28T10:00:00+07:00
 description = 'This is a description of Black Tea.'
-price = '$23.9'
+price = '$18.9'
 images = ["/images/blacktea.webp"]
 draft = false
-discount = '26%'
+discount = '12%'
 tags = ['greentea','hotdrink','tea']
 categories = ['hotdrink']
 type = "hotdrink"

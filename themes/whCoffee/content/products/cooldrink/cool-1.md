@@ -11,6 +11,8 @@ categories = ['cooldrink']
 type = "cooldrink"
 stock = 'Available'
 free_shipping = 'Free shipping available'
+slug = "lemon-ice"
+
 +++
 
 This is the full content of Product Item 2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum mci, autem

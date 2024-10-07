@@ -220,8 +220,8 @@
 
     <div class="flex h-auto w-full flex-col space-x-0 space-y-4 rounded-xl md:flex-row md:space-x-4 md:space-y-0">
       <!-- Produk Hotdrink -->
-      {{ $hotdrink := first 1 (sort (where .Site.RegularPages "Params.categories"
-      "intersect" (slice "hotdrink")) "Date" "desc") }} {{ range $hotdrink }}
+      {{ $hotdrink := first 1 (sort (where (where .Site.RegularPages "Params.categories"
+      "intersect" (slice "hotdrink")) "Params.stock" "Available") "Date" "desc") }} {{ range $hotdrink }}
       <div
         class="group flex w-full flex-1 flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
         <a href="{{ .RelPermalink }}"
@@ -244,8 +244,8 @@
       {{ end }}
 
       <!-- Produk Cooldrink -->
-      {{ $cooldrink := first 1 (sort (where .Site.RegularPages "Params.categories"
-      "intersect" (slice "cooldrink")) "Date" "desc") }} {{ range $cooldrink }}
+      {{ $cooldrink := first 1 (sort (where (where .Site.RegularPages "Params.categories"
+      "intersect" (slice "cooldrink")) "Params.stock" "Available") "Date" "desc") }} {{ range $cooldrink }}
       <div
         class="group flex w-full flex-1 flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
         <a href="{{ .RelPermalink }}"
@@ -268,8 +268,8 @@
       {{ end }}
 
       <!-- Produk Food -->
-      {{ $food := first 1 (sort (where .Site.RegularPages "Params.categories"
-      "intersect" (slice "food")) "Date" "desc") }} {{ range $food }}
+      {{ $food := first 1 (sort (where (where .Site.RegularPages "Params.categories"
+      "intersect" (slice "food")) "Params.stock" "Available") "Date" "desc") }} {{ range $food }}
       <div
         class="group flex w-full flex-1 flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
         <a href="{{ .RelPermalink }}"
@@ -307,11 +307,10 @@
     </a>
 
     <div class="flex w-full flex-col space-x-0 space-y-4 rounded-xl md:flex-row md:space-x-4 md:space-y-0">
-      <!-- Produk Hotdrink dengan Diskon Tertinggi -->
-      {{ $hotdrink := first 1 (sort (where (where .Site.RegularPages
-      "Params.categories" "intersect" (slice "hotdrink")) "Params.discount" "ne"
-      nil) "Params.discount" "desc") }} {{ range $hotdrink }}
-
+      <!-- Produk Hotdrink dengan Diskon Tertinggi dan Stok Available -->
+      {{ $hotdrink := first 1 (sort (where (where (where .Site.RegularPages "Params.categories" "intersect" (slice
+      "hotdrink")) "Params.discount" "ne" nil) "Params.stock" "Available") "Params.discount" "desc") }}
+      {{ range $hotdrink }}
       <div
         class="group flex w-full flex-1 flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
         <a href="{{ .RelPermalink }}"
@@ -340,11 +339,10 @@
       </div>
       {{ end }}
 
-      <!-- Produk Cooldrink dengan Discount -->
-      {{ $cooldrink := first 1 (sort (where (where .Site.RegularPages
-      "Params.categories" "intersect" (slice "cooldrink")) "Params.discount" "ne"
-      nil) "Params.discount" "desc") }} {{ range $cooldrink }}
-
+      <!-- Produk Cooldrink dengan Diskon dan Stok Available -->
+      {{ $cooldrink := first 1 (sort (where (where (where .Site.RegularPages "Params.categories" "intersect" (slice
+      "cooldrink")) "Params.discount" "ne" nil) "Params.stock" "Available") "Params.discount" "desc") }}
+      {{ range $cooldrink }}
       <div
         class="group flex w-full flex-1 flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
         <a href="{{ .RelPermalink }}"
@@ -373,11 +371,10 @@
       </div>
       {{ end }}
 
-      <!-- Produk Food dengan Discount -->
-      {{ $food := first 1 (sort (where (where .Site.RegularPages
-      "Params.categories" "intersect" (slice "food")) "Params.discount" "ne" nil)
-      "Params.discount" "desc") }} {{ range $food }}
-
+      <!-- Produk Food dengan Diskon dan Stok Available -->
+      {{ $food := first 1 (sort (where (where (where .Site.RegularPages "Params.categories" "intersect" (slice "food"))
+      "Params.discount" "ne" nil) "Params.stock" "Available") "Params.discount" "desc") }}
+      {{ range $food }}
       <div
         class="group flex w-full flex-1 flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
         <a href="{{ .RelPermalink }}"
@@ -406,6 +403,8 @@
       </div>
       {{ end }}
     </div>
+
+
   </div>
 
   {{ $testimonialsPage := .Site.GetPage "testimonials/_index.md" }}

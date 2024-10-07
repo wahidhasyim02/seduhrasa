@@ -9,7 +9,7 @@ discount = '26%'
 tags = ['greentea','hotdrink','tea']
 categories = ['hotdrink']
 type = "hotdrink"
-stock = 'Unavailable'
+stock = 'Available'
 +++
 
 This is the full content of Product Item 2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum mci, autem
