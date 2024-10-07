@@ -108,3 +108,6 @@ tag = "tags"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+
+paginate = 3

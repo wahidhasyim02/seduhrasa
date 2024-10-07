@@ -9,6 +9,7 @@ discount = '11%'
 tags = ['cooldrink','ice']
 categories = ['cooldrink']
 type = "cooldrink"
+stock = 'Available'
 +++
 
 This is the full content of Product Item 3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum mci, autem

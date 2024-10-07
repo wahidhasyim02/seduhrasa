@@ -9,6 +9,8 @@ discount = '20%'
 tags = ['food']
 categories = ['food']
 type = "food"
+stock = 'Unavailable'
+free_shipping = 'Free shipping available'
 +++
 
 This is the full content of Product Item 2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum mci, autem
