@@ -1,25 +1,35 @@
 {{ define "main" }}
 <div
+    class="absolute top-20 blur-3xl opacity-70 dark:opacity-40 flex w-full h-[70%] flex-col items-center justify-center space-y-2 text-center">
+
+    {{ with .Params.images }}
+    <img src="{{ index . 0 }}" alt="{{ $.Title }}" class="h-full w-full rounded-l-md object-cover" />
+    {{ end }}
+</div>
+
+<div
     class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-neutral-200 px-4 pb-12 transition-colors duration-1000 dark:bg-neutral-900 sm:px-6 md:space-y-6 lg:px-10 xl:px-12">
 
 
-
     <div
-        class="flex h-[550px] w-full flex-row items-start overflow-hidden rounded-xl backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
+        class="flex z-10 h-[450px] w-full flex-col sm:flex-row items-start overflow-hidden rounded-xl backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
         {{ if eq .Params.stock "Available" }}
-        <div class="h-full w-[70%] ">
+        <div class="h-[full] w-full sm:w-[60%] md:w-[70%] group">
 
             {{ with .Params.images }}
-            <img src="{{ index . 0 }}" alt="{{ $.Title }}" class="h-full w-full rounded-l-md object-cover" />
+            <img src="{{ index . 0 }}" alt="{{ $.Title }}" class="h-full w-full  rounded-l-md object-cover" />
             {{ end }}
-            <div class="absolute bottom-0 h-full w-[70%] bg-gradient-to-b from-black/0 to-black">
-                <h1
-                    class="border-l absolute bottom-10 left-4 sm:left-10 border-yellow-500 pl-2 text-4xl text-left font-semibold text-neutral-100 shadow-lg duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
-                    {{ .LinkTitle }}
-                </h1>
+            <div
+                class="absolute bottom-[400px] sm:bottom-0 h-full group-hover:h-30% w-full sm:w-[60%] md:w-[70%]  bg-gradient-to-b from-black/0 to-black group-hover:opacity-50 transition-all duration-700">
+
             </div>
+            <h1
+                class="border-l absolute bottom-10 left-4 sm:left-10 border-yellow-500 pl-2 text-4xl text-left font-semibold text-neutral-100 w-full  text-shadow-md duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
+                {{ .LinkTitle }}
+            </h1>
         </div>
-        <div class="product-info w-[30%] h-full z-10 p-3 space-y-2 bg-white dark:bg-neutral-800/20">
+        <div
+            class="product-info w-full sm:w-[40%] md:w-[30%] h-full z-10 p-3 space-y-2 bg-white dark:bg-neutral-800/20">
 
             <h1 class="text-4xl font-bold">{{ .Params.price }}</h1>
             <p class="px-1 py-0 bg-red-200 text-red-600 font-bold w-fit rounded">{{ with .Params.discount }}{{ . }}{{
@@ -43,19 +53,22 @@
 
         </div>
         {{ else }}
-        <div class="h-full w-[70%] ">
+        <div class="h-full w-full sm:w-[60%] md:w-[70%] group">
 
             {{ with .Params.images }}
             <img src="{{ index . 0 }}" alt="{{ $.Title }}" class="h-full w-full rounded-l-md object-cover grayscale" />
             {{ end }}
-            <div class="absolute bottom-0 h-full w-[70%] bg-gradient-to-b from-black/0 to-black">
-                <h1
-                    class="border-l absolute bottom-10 left-4 sm:left-10 border-yellow-500 pl-2 text-4xl text-left font-semibold text-neutral-100 shadow-lg duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
-                    {{ .LinkTitle }}
-                </h1>
+            <div
+                class="absolute bottom-[400px] sm:bottom-0 h-full group-hover:h-30% w-full sm:w-[60%] md:w-[70%]  bg-gradient-to-b from-black/0 to-black group-hover:opacity-70 transition-all duration-700">
+
             </div>
+            <h1
+                class="border-l absolute bottom-10 left-4 sm:left-10 border-yellow-500 pl-2 text-4xl text-left font-semibold text-neutral-100 w-full  text-shadow-md duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
+                {{ .LinkTitle }}
+            </h1>
         </div>
-        <div class="product-info w-[30%] h-full z-10 p-3 space-y-2 bg-white dark:bg-neutral-800/20">
+        <div
+            class="product-info w-full sm:w-[40%] md:w-[30%] h-full z-10 p-3 space-y-2 bg-white dark:bg-neutral-800/20">
 
             <h1 class="text-4xl font-bold">{{ .Params.price }}</h1>
             <p class="px-1 py-0 bg-red-200 text-red-600 font-bold w-fit rounded">{{ with .Params.discount }}{{ . }}{{
@@ -83,7 +96,7 @@
 
 
 
-    <div class="back-button">
+    <div class="z-10">
         <a href="/products" class="hover:text-yellow-500">Back to Products</a>
     </div>
 </div>

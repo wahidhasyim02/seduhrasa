@@ -96,11 +96,12 @@
                         <a href="{{ .RelPermalink }}"
                             class="text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200">
                             <!-- Menampilkan semua kata untuk ukuran mobile hingga md -->
-                            <h4 class="font-semibold w-full group-hover:text-yellow-500">
+                            <h4
+                                class="font-semibold w-full group-hover:text-yellow-600 dark:group-hover:text-yellow-500">
                                 {{ .Title }}
                             </h4>
                             {{ .Summary | truncate 110 }}<a href="{{ .RelPermalink }}"
-                                class="mx-2 text-yellow-400 hover:text-yellow-500">Read
+                                class="mx-2 text-yellow-400 hover:text-yellow-600 dark:hover:text-yellow-500">Read
                                 More</a>
 
                         </a>

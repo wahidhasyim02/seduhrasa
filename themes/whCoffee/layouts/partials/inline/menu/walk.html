@@ -3,8 +3,8 @@
 
 <li id="{{ .Identifier }}" class="w-full h-full   px-4 flex flex-col items-start justify-center group text-center">
 
-    <a class="group-hover:text-yellow-500" {{- with .Params }} {{- range $k, $v :=. }} {{- printf "%s=%q" $k $v |
-        safeHTMLAttr }} {{- end }} {{- end }}>
+    <a class="group-hover:text-yellow-600 dark:group-hover:text-yellow-500" {{- with .Params }} {{- range $k, $v :=. }}
+        {{- printf "%s=%q" $k $v | safeHTMLAttr }} {{- end }} {{- end }}>
         {{ .Name }}
     </a>
 

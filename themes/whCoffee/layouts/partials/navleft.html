@@ -7,10 +7,12 @@
         <a href="{{ .URL }}" title="{{ .Name }}">
           {{ with .Params.svg }}
           <!-- Gunakan SVG jika ada -->
-          <span class="transition-colors duration-1000 group-hover:text-yellow-500">{{ . | safeHTML }}</span>
+          <span class="transition-colors duration-1000 group-hover:text-yellow-600 dark:group-hover:text-yellow-500">{{
+            . | safeHTML }}</span>
           {{ else }}
           <!-- Gunakan ikon jika SVG tidak ada -->
-          <span class="material-symbols-rounded transition-all duration-1000 group-hover:text-yellow-500">{{
+          <span
+            class="material-symbols-rounded transition-all duration-1000 group-hover:text-yellow-600 dark:group-hover:text-yellow-500">{{
             .Params.icon
             }}</span>
           {{ end }}
@@ -26,10 +28,13 @@
         <a href="{{ .URL }}" title="{{ .Name }}" target="_blank">
           {{ with .Params.svg }}
           <!-- Gunakan SVG jika ada -->
-          <span class="transition-all duration-1000 group-hover:text-yellow-500">{{ . | safeHTML }}</span>
+          <span class="transition-all duration-1000 group-hover:text-yellow-600 dark:group-hover:text-yellow-500">{{ . |
+            safeHTML }}</span>
           {{ else }}
           <!-- Gunakan ikon jika SVG tidak ada -->
-          <span class="material-icons transition-all duration-1000 group-hover:text-yellow-500">{{ .Params.icon
+          <span
+            class="material-icons transition-all duration-1000 group-hover:text-yellow-600 dark:group-hover:text-yellow-500">{{
+            .Params.icon
             }}</span>
           {{ end }}
         </a>
@@ -44,10 +49,13 @@
         <a href="{{ .URL }}" title="{{ .Name }}">
           {{ with .Params.svg }}
           <!-- Gunakan SVG jika ada -->
-          <span class="transition-all duration-1000 group-hover:text-yellow-500">{{ . | safeHTML }}</span>
+          <span class="transition-all duration-1000 group-hover:text-yellow-600 dark:group-hover:text-yellow-500">{{ . |
+            safeHTML }}</span>
           {{ else }}
           <!-- Gunakan ikon jika SVG tidak ada -->
-          <span class="material-icons transition-all duration-1000 group-hover:text-yellow-500">{{ .Params.icon
+          <span
+            class="material-icons transition-all duration-1000 group-hover:text-yellow-600 dark:group-hover:text-yellow-500">{{
+            .Params.icon
             }}</span>
           {{ end }}
         </a>

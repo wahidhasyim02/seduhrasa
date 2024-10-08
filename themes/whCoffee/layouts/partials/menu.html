@@ -8,7 +8,8 @@
     <li id="{{ .Identifier }}"
       class="group hidden h-full w-full flex-col items-start justify-center px-4 text-center sm:flex md:flex">
       {{ if .Name }}
-      <a class="transition-all duration-1000 group-hover:text-yellow-500" href="{{ .URL }}" title="{{ .Name }}">
+      <a class="transition-all duration-1000 group-hover:text-yellow-600 dark:group-hover:text-yellow-500"
+        href="{{ .URL }}" title="{{ .Name }}">
         {{ .Name }}
       </a>
       {{ end }}
@@ -24,7 +25,8 @@
     }}
     <li id="{{ .Identifier }}"
       class="group flex h-full w-full cursor-pointer flex-col items-start justify-center px-1 text-center sm:px-2 md:px-4">
-      <div class="flex transition-all duration-1000 group-hover:text-yellow-500" title="{{ .Params.icon }}">
+      <div class="flex transition-all duration-1000 group-hover:text-yellow-600 dark:group-hover:text-yellow-500"
+        title="{{ .Params.icon }}">
         <span id="text_darkmode" class="material-symbols-rounded flex text-3xl">{{ .Params.icon }}</span>
       </div>
     </li>
@@ -35,7 +37,8 @@
     }}
     <li id="{{ .Identifier }}"
       class="group flex h-full w-full cursor-pointer flex-col items-start justify-center px-2 text-center sm:hidden md:hidden md:px-4">
-      <div class="flex transition-all duration-1000 group-hover:text-yellow-500" title="{{ .Params.icon }}">
+      <div class="flex transition-all duration-1000 group-hover:text-yellow-600 dark:group-hover:text-yellow-500"
+        title="{{ .Params.icon }}">
         <span class="material-symbols-rounded flex text-3xl">{{ .Params.icon }}</span>
       </div>
     </li>
@@ -50,7 +53,8 @@
       <li id="{{ .Identifier }}"
         class="group flex h-full w-full flex-col items-start justify-center px-10 py-2 text-center">
         {{ if .Name }}
-        <a class="transition-all duration-1000 group-hover:text-yellow-500" href="{{ .URL }}" title="{{ .Name }}">
+        <a class="transition-all duration-1000 group-hover:text-yellow-600 dark:group-hover:text-yellow-500"
+          href="{{ .URL }}" title="{{ .Name }}">
           {{ .Name }}
         </a>
         {{ end }}

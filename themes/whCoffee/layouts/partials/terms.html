@@ -7,7 +7,7 @@ $taxonomy }} {{- $label := (index . 0).Parent.LinkTitle }}
   <div>{{ $label }}:</div>
   <ul class="flex">
     {{- range . }}
-    <li class="py-3 px-2">
+    <li class="py-3 px-1">
       <a class="rounded-full border border-neutral-400  bg-neutral-300 px-4 py-1 hover:bg-neutral-400 dark:border-neutral-800 dark:bg-neutral-900 hover:dark:border-neutral-800/0 hover:dark:bg-neutral-700"
         href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
     </li>

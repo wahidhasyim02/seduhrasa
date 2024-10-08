@@ -109,6 +109,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-textshadow")],
   darkMode: "class",
 };
