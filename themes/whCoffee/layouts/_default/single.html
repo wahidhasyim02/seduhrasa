@@ -53,6 +53,46 @@
 
 
         </div>
+        {{ else if eq .Params.stock "Pre-Order" }}
+        <div class="h-[full] w-full sm:w-[60%] md:w-[70%] group">
+
+            {{ with .Params.images }}
+            <img src="{{ index . 0 }}" alt="{{ $.Title }}" class="h-full w-full  rounded-l-md object-cover" />
+            {{ end }}
+            <div
+                class="absolute bottom-[400px] sm:bottom-0 h-full group-hover:h-30% w-full sm:w-[60%] md:w-[70%]  bg-gradient-to-b from-black/0 to-black group-hover:opacity-50 transition-all duration-700">
+
+            </div>
+            <h1
+                class="border-l absolute bottom-10 left-4 sm:left-10 border-yellow-500 pl-2 text-4xl text-left font-semibold text-neutral-100 w-full  text-shadow-md duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
+                {{ .LinkTitle }}
+            </h1>
+        </div>
+        <div
+            class="product-info w-full sm:w-[40%] md:w-[30%] h-full z-10 p-3 space-y-2 bg-white dark:bg-neutral-800/20">
+
+
+            <h1 class="text-4xl font-bold">{{ .Params.price }}</h1>
+            <p class="px-1 py-0 bg-red-200 text-red-600 font-bold w-fit rounded">{{ with .Params.discount }}{{ . }}{{
+                else }}N/A{{
+                end
+                }}</p>
+
+            {{ if eq .Params.stock "Available" }}<p class="text-green-500">{{ .Params.stock }}</p>{{ else }}<p
+                class="text-red-500">{{ .Params.stock }}</p> {{ end }}
+            <p><strong>Description:</strong> {{ .Content }}</p>
+            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
+                target="noopener"
+                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                {{ .Params.stock }}
+                <p class="font-bold">
+                    {{ .Params.price }}
+                </p>
+            </a>
+            <div class="hidden">{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
+
+
+        </div>
         {{ else }}
         <div class="h-full w-full sm:w-[60%] md:w-[70%] group">
 
