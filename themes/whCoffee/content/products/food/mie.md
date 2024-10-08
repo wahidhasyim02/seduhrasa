@@ -9,7 +9,7 @@ draft = false
 tags = ['food']
 categories = ['food']
 type = "food"
-stock = 'Available'
+stock = 'Pre-Order'
 free_shipping = 'Free shipping available'
 +++
 

@@ -1,0 +1,94 @@
+{{ define "main" }}
+
+<div
+    class="absolute listtag top-32 blur-3xl opacity-70 dark:opacity-40 flex w-full flex-col items-center justify-center space-y-2 text-center">
+    {{ if eq .Section "news" }}
+
+    <!-- Menampilkan item paling baru -->
+    {{ $newestPost := first 1 .Paginator.Pages }}
+    {{ range $newestPost }}
+    <a href="{{ .RelPermalink }}" title="{{ .LinkTitle }}"
+        class="flex cursor-pointer h-[500px] w-full flex-col items-center overflow-hidden rounded-xl backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
+        <div class="relative h-full w-full overflow-hidden">
+            {{ if .Params.images }}
+            <img src="{{ index .Params.images 0 }}" alt="First image" class="h-full w-full rounded-xl object-cover" />
+            {{ else }}
+            <img src="/images/default.webp" alt="Default image" class="h-full w-full rounded-xl object-cover" />
+            {{ end }}
+
+        </div>
+    </a>
+    {{ end }}
+    {{ end }}
+</div>
+
+<div
+    class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-neutral-200 px-4 pb-12 transition-colors duration-1000 dark:bg-neutral-900 sm:px-6 md:space-y-6 lg:px-10 xl:px-12">
+
+    <div class="flex z-10 w-full flex-col items-center justify-center space-y-2 text-center">
+        {{ if eq .Section "tags" }}
+        <h1 class="text-4xl font-black">Tag: {{ .Params.tag }}</h1>
+
+        <h2 class="text-2xl font-semibold mt-6">Related News:</h2>
+        {{ $relatedNews := where .Site.RegularPages "Type" "news" }}
+        {{ range $relatedNews }}
+        {{ if intersect .Params.tags (slice .Params.tag) }}
+        <div class="mb-4">
+            <a href="{{ .RelPermalink }}" class="text-neutral-600 hover:text-yellow-600">{{ .Title }}</a>
+        </div>
+        {{ end }}
+        {{ end }}
+
+        <h2 class="text-2xl font-semibold mt-6">Related Products:</h2>
+        {{ $relatedProducts := where .Site.RegularPages "Type" "products" }}
+        {{ range $relatedProducts }}
+        {{ if intersect .Params.tags (slice .Params.tag) }}
+        <div class="mb-4">
+            <a href="{{ .RelPermalink }}" class="text-neutral-600 hover:text-yellow-600">{{ .Title }}</a>
+        </div>
+        {{ end }}
+        {{ end }}
+        {{ end }}
+
+    </div>
+
+</div>
+
+
+<div
+    class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-neutral-200 px-4 pb-12 transition-colors duration-1000 dark:bg-neutral-900 sm:px-6 md:space-y-6 lg:px-10 xl:px-12">
+
+    <div class="flex z-10 w-full flex-col items-center justify-center space-y-2 text-center">
+        {{ if eq .Section "tags" }}
+        <h1 class="text-4xl font-black">Tag: {{ .Params.tag }}</h1>
+
+        <h2 class="text-2xl font-semibold mt-6">Related News:</h2>
+        {{ $relatedNews := where .Site.RegularPages "Type" "news" }}
+        {{ range $relatedNews }}
+        {{ if intersect .Params.tags (slice .Params.tag) }}
+        <div class="mb-4">
+            <a href="{{ .RelPermalink }}" class="text-neutral-600 hover:text-yellow-600">{{ .Title }}</a>
+        </div>
+        {{ end }}
+        {{ end }}
+
+        <h2 class="text-2xl font-semibold mt-6">Related Products:</h2>
+        {{ $relatedProducts := where .Site.RegularPages "Type" "products" }}
+        {{ range $relatedProducts }}
+        {{ if intersect .Params.tags (slice .Params.tag) }}
+        <div class="mb-4">
+            <a href="{{ .RelPermalink }}" class="text-neutral-600 hover:text-yellow-600">{{ .Title }}</a>
+        </div>
+        {{ end }}
+        {{ end }}
+        {{ else }}
+        <p>No related content found.</p>
+        {{ end }}
+
+    </div>
+
+</div>
+
+
+
+{{ end }}

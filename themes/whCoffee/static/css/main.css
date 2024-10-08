@@ -915,6 +915,18 @@ input[type="checkbox"]:checked:focus {
   order: 2 !important;
 }
 
+.order-first {
+  order: -9999 !important;
+}
+
+.order-last {
+  order: 9999 !important;
+}
+
+.order-none {
+  order: 0 !important;
+}
+
 .float-start {
   float: inline-start !important;
 }
@@ -938,6 +950,10 @@ input[type="checkbox"]:checked:focus {
   margin-bottom: 0.5rem !important;
 }
 
+.mb-4 {
+  margin-bottom: 1rem !important;
+}
+
 .mb-6 {
   margin-bottom: 1.5rem !important;
 }
@@ -952,6 +968,10 @@ input[type="checkbox"]:checked:focus {
 
 .mt-36 {
   margin-top: 9rem !important;
+}
+
+.mt-6 {
+  margin-top: 1.5rem !important;
 }
 
 .block {

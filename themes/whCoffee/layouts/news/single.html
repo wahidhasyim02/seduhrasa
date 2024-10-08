@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 
-<div class="absolute top-32 blur-3xl opacity-70 dark:opacity-40 w-full">
+<div class="absolute news top-32 blur-3xl opacity-70 dark:opacity-40 w-full">
   <!-- Menampilkan gambar jika ada -->
   {{ if .Params.images }}
   {{ with index .Params.images 0 }}
@@ -95,7 +95,7 @@
         </div>
         {{ end }}
 
-        <div>{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
+        <div class="">{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
       </div>
 
       <div

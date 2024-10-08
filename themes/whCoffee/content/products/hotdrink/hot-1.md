@@ -9,7 +9,7 @@ discount = '21%'
 tags = ['capucino','hotdrink','coffee']
 categories = ['hotdrink']
 type = "hotdrink"
-stock = 'Available'
+stock = 'Unavailable'
 +++
 
 This is the full content of Product Item 2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum mci, autem

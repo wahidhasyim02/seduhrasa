@@ -70,7 +70,7 @@ tag = "tags"
 
     [[menu.left]]
     name = "Discount"
-    url = "/promotions"
+    url = "/products/promotions"
     weight = 4
     [menu.left.params]
     icon = "sell"
