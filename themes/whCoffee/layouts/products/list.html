@@ -129,7 +129,7 @@
                     {{ range $preorderProducts }}
                     {{ if or (in .Params.categories "hotdrink") (in .Params.categories "food") (in .Params.categories
                     "cooldrink") }}
-                    <div class="">
+                    <div class="hidden">
                         <a href="{{ .RelPermalink }}"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             {{ with .Params.images }}
