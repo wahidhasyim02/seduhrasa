@@ -56,20 +56,9 @@
                     <!-- Ambil produk dengan diskon yang tidak kosong -->
                     {{ $allPromotions := (where .Site.RegularPages "Params.discount" "ne" "") }}
                     {{ $allPromotions = (where $allPromotions "Params.discount" "ne" "nil") }}
-                    {{ $allPromotionsWithNoDiscount := (where .Site.RegularPages "Params.discount" "in" (slice ""
-                    "nil")) }}
 
+                    <!-- Ambil produk yang tersedia -->
                     {{ $availableProducts := (where $allPromotions "Params.stock" "eq" "Available") }}
-                    {{ $preorderProducts := (where $allPromotions "Params.stock" "eq" "Pre-Order") }}
-                    {{ $notAvailableProducts := (where $allPromotions "Params.stock" "not in" (slice "Available"
-                    "Pre-Order")) }}
-
-
-
-
-
-
-
 
                     <!-- Produk yang tersedia (Available Products) -->
                     {{ range $availableProducts }}
@@ -100,12 +89,12 @@
                             {{ end }}
 
                             <!-- Tombol "Buy" -->
-                            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
-                                target="noopener"
+                            <button
+                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';"
                                 class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
                                 Buy
                                 <p class="font-bold">{{ .Params.price }}</p>
-                            </a>
+                            </button>
 
                             <!-- Tampilkan Diskon jika ada -->
                             {{ if .Params.discount }}
@@ -125,109 +114,7 @@
                     {{ end }}
                     {{ end }}
 
-                    <!-- Produk yang tersedia (Available Products) -->
-                    {{ range $preorderProducts }}
-                    {{ if or (in .Params.categories "hotdrink") (in .Params.categories "food") (in .Params.categories
-                    "cooldrink") }}
-                    <div class="hidden">
-                        <a href="{{ .RelPermalink }}"
-                            class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
-                            {{ with .Params.images }}
-                            <img src="{{ index . 0 }}" alt="First image"
-                                class="h-full w-full rounded-md object-cover" />
-                            {{ end }}
-                        </a>
-                        <div class="flex flex-col w-full items-start">
-                            <h2 class="text-lg text-neutral-500">
-                                <a href="{{ .RelPermalink }}"
-                                    class="group-hover:text-yellow-600 dark:group-hover:text-yellow-500">{{ .Title
-                                    }}</a>
-                            </h2>
-                            <p class="text-yellow-500">{{ .Params.stock }}</p>
 
-                            <!-- Tampilkan Free Shipping jika ada -->
-                            {{ if .Params.free_shipping }}
-                            <p>{{ .Params.free_shipping }}</p>
-                            {{ else }}
-                            <p class="invisible">Placeholder text</p>
-                            {{ end }}
-
-                            <!-- Tombol "Buy" -->
-                            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
-                                target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                {{ .Params.stock }}
-                                <p class="font-bold">{{ .Params.price }}</p>
-                            </a>
-
-                            <!-- Tampilkan Diskon jika ada -->
-                            {{ if .Params.discount }}
-                            <div class="absolute -top-2 right-2 flex items-center justify-center text-red-700">
-                                <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="6em" height="6em"
-                                    viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M5 21V5q0-.825.588-1.412T7 3h10q.825 0 1.413.588T19 5v16l-7-3z" />
-                                </svg>
-                                <h2
-                                    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform text-xl font-black text-white">
-                                    {{ .Params.discount }}</h2>
-                            </div>
-                            {{ end }}
-                        </div>
-                    </div>
-                    {{ end }}
-                    {{ end }}
-
-                    <!-- Produk yang tidak tersedia (Not Available Products) -->
-                    {{ range $notAvailableProducts }}
-                    {{ if or (in .Params.categories "hotdrink") (in .Params.categories "food") (in .Params.categories
-                    "cooldrink") }}
-                    <div class="hidden"> <a href="{{ .RelPermalink }}"
-                            class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
-                            {{ with .Params.images }}
-                            <img src="{{ index . 0 }}" alt="First image"
-                                class="h-full w-full rounded-md object-cover grayscale" />
-                            {{ end }}
-                        </a>
-                        <div class="flex flex-col w-full items-start">
-                            <h2 class="text-lg text-neutral-500">
-                                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                            </h2>
-                            <p class="text-red-500">{{ .Params.stock }}</p>
-
-                            <!-- Tampilkan Free Shipping jika ada -->
-                            {{ if .Params.free_shipping }}
-                            <p>{{ .Params.free_shipping }}</p>
-                            {{ else }}
-                            <p class="invisible">Placeholder text</p>
-                            {{ end }}
-
-                            <!-- Tombol "Buy" yang disable jika produk tidak tersedia -->
-                            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
-                                target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg dark:bg-neutral-800 cursor-not-allowed">
-                                Buy
-                                <p class="font-bold">{{ .Params.price }}</p>
-                            </a>
-
-                            <!-- Tampilkan Diskon jika ada -->
-                            {{ if .Params.discount }}
-                            <div
-                                class="absolute -top-2 right-2 flex items-center justify-center text-neutral-500 dark:text-neutral-800">
-                                <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="6em" height="6em"
-                                    viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M5 21V5q0-.825.588-1.412T7 3h10q.825 0 1.413.588T19 5v16l-7-3z" />
-                                </svg>
-                                <h2
-                                    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform text-xl font-black text-neutral-400 dark:text-neutral-700">
-                                    {{ .Params.discount }}</h2>
-                            </div>
-                            {{ end }}
-                        </div>
-                    </div>
-                    {{ end }}
-                    {{ end }}
 
 
                 </div>
@@ -288,14 +175,14 @@
 
                             <!-- Price and Discount -->
 
-                            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
-                                target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                            <button
+                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';"
+                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
                                 Buy
                                 <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
-                            </a>
+                            </button>
 
 
                             {{ if .Params.discount }}
@@ -341,14 +228,14 @@
 
                             <!-- Price and Discount -->
 
-                            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
-                                target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                            <button
+                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';"
+                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
                                 {{ .Params.stock }}
                                 <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
-                            </a>
+                            </button>
 
 
                             {{ if .Params.discount }}
@@ -392,14 +279,15 @@
 
                             <!-- Price and Discount -->
 
-                            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
-                                target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed">
+                            <button
+                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';"
+                                class="group  flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed"
+                                disabled>
                                 Buy
                                 <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
-                            </a>
+                            </button>
 
 
                             {{ if .Params.discount }}
@@ -478,14 +366,14 @@
 
                             <!-- Price and Discount -->
 
-                            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
-                                target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                            <button
+                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';"
+                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
                                 Buy
                                 <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
-                            </a>
+                            </button>
 
 
                             {{ if .Params.discount }}
@@ -531,14 +419,14 @@
 
                             <!-- Price and Discount -->
 
-                            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
-                                target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                            <button
+                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';"
+                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
                                 {{ .Params.stock }}
                                 <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
-                            </a>
+                            </button>
 
 
                             {{ if .Params.discount }}
@@ -582,14 +470,15 @@
 
                             <!-- Price and Discount -->
 
-                            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
-                                target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed">
+                            <button
+                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';"
+                                class="group  flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed"
+                                disabled>
                                 Buy
                                 <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
-                            </a>
+                            </button>
 
 
                             {{ if .Params.discount }}
@@ -663,14 +552,14 @@
 
                             <!-- Price and Discount -->
 
-                            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
-                                target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                            <button
+                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';"
+                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
                                 Buy
                                 <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
-                            </a>
+                            </button>
 
 
                             {{ if .Params.discount }}
@@ -716,14 +605,14 @@
 
                             <!-- Price and Discount -->
 
-                            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
-                                target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                            <button
+                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';"
+                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
                                 {{ .Params.stock }}
                                 <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
-                            </a>
+                            </button>
 
 
                             {{ if .Params.discount }}
@@ -767,14 +656,15 @@
 
                             <!-- Price and Discount -->
 
-                            <a href="https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}"
-                                target="noopener"
-                                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed">
+                            <button
+                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';"
+                                class="group  flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed"
+                                disabled>
                                 Buy
                                 <p class="font-bold">
                                     {{ .Params.price }}
                                 </p>
-                            </a>
+                            </button>
 
 
                             {{ if .Params.discount }}

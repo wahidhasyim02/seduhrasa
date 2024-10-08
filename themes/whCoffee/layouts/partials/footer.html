@@ -153,3 +153,18 @@
   // Mendeteksi scroll pada <body> (jika <main> tidak di-scroll)
   window.addEventListener('scroll', handleScroll);
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector('.linkwa').addEventListener('click', function () {
+      window.open('https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}');
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById('btn-wa').addEventListener('click', function () {
+      window.location.href = 'https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';
+    });
+  });
+</script>
