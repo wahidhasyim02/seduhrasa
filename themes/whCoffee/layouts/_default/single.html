@@ -11,131 +11,263 @@
     class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-neutral-200 px-4 pb-12 transition-colors duration-1000 dark:bg-neutral-900 sm:px-6 md:space-y-6 lg:px-10 xl:px-12">
 
 
-    <div
-        class="flex z-10 h-[450px] w-full flex-col sm:flex-row items-start overflow-hidden rounded-xl backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
-        {{ if eq .Params.stock "Available" }}
-        <div class="h-[full] w-full sm:w-[60%] md:w-[70%] group">
 
+    <div
+        class="flex z-10 h-full sm:h-[450px] w-full flex-col sm:flex-row items-start overflow-hidden rounded-xl backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
+
+
+
+
+
+
+        <div class="h-[50%] sm:h-full w-full sm:w-[60%] md:w-[70%] group">
+            {{ if eq .Params.stock "Available" }}
             {{ with .Params.images }}
-            <img src="{{ index . 0 }}" alt="{{ $.Title }}" class="h-full w-full  rounded-l-md object-cover" />
+            <img src="{{ index . 0 }}" alt="{{ $.Title }}" class="h-full sm:h-full w-full  object-cover" />
+            {{ end }}
+            {{ else if eq .Params.stock "Pre-Order" }} {{ with .Params.images }}
+            <img src="{{ index . 0 }}" alt="{{ $.Title }}" class="h-full sm:h-full w-full  object-cover" />
+            {{ end }}
+            {{ else }} {{ with .Params.images }}
+            <img src="{{ index . 0 }}" alt="{{ $.Title }}" class="h-full sm:h-full w-full  object-cover grayscale" />
+            {{ end }}
             {{ end }}
             <div
-                class="absolute bottom-[400px] sm:bottom-0 h-full group-hover:h-30% w-full sm:w-[60%] md:w-[70%]  bg-gradient-to-b from-black/0 to-black group-hover:opacity-50 transition-all duration-700">
+                class="absolute sm:bottom-0 h-full group-hover:h-30% w-full sm:w-[60%] md:w-[70%]  bg-gradient-to-b from-black/0 to-black group-hover:opacity-50 transition-all duration-700">
 
             </div>
             <h1
-                class="border-l absolute bottom-10 left-4 sm:left-10 border-yellow-500 pl-2 text-4xl text-left font-semibold text-neutral-100 w-full  text-shadow-md duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
+                class="border-l hidden sm:flex absolute sm:bottom-6 sm:left-10 border-yellow-500 pl-2 text-4xl text-left font-semibold text-neutral-100 w-full  text-shadow-md duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
                 {{ .LinkTitle }}
             </h1>
         </div>
         <div
-            class="product-info w-full sm:w-[40%] md:w-[30%] h-full z-10 p-3 space-y-2 bg-white dark:bg-neutral-800/20">
+            class="product-info w-full sm:w-[40%] md:w-[30%] h-full z-10 p-3 space-y-2 bg-white dark:bg-neutral-800/90">
 
-
+            <h1
+                class="border-l flex sm:hidden border-yellow-500 pl-2 text-3xl text-left font-semibold w-full  text-shadow-md duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
+                {{ .LinkTitle }}
+            </h1>
             <h1 class="text-4xl font-bold">{{ .Params.price }}</h1>
-            <p class="px-1 py-0 bg-red-200 text-red-600 font-bold w-fit rounded">{{ with .Params.discount }}{{ . }}{{
+            <p class="px-1 py-0 bg-pink-200 text-pink-600 font-bold w-fit rounded">{{ with .Params.discount }}{{ . }}{{
                 else }}N/A{{
                 end
                 }}</p>
-
-            {{ if eq .Params.stock "Available" }}<p class="text-green-500">{{ .Params.stock }}</p>{{ else }}<p
-                class="text-red-500">{{ .Params.stock }}</p> {{ end }}
+            {{ if eq .Params.stock "Available" }}
+            <p class="text-green-500">{{ .Params.stock }}</p>
+            {{ else if eq .Params.stock "Pre-Order" }}
+            <p class="text-yellow-500">{{ .Params.stock }}</p>
+            {{ else }}
+            <p class="text-pink-500">{{ .Params.stock }}</p>
+            {{ end }}
             <p><strong>Description:</strong> {{ .Content }}</p>
+
+
+            {{ if eq .Params.stock "Available" }}
+
             <button
-                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';"
-                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                class="btn-buy group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
                 Buy
                 <p class="font-bold">
                     {{ .Params.price }}
                 </p>
             </button>
-            <div class="hidden">{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
-
-
-        </div>
-        {{ else if eq .Params.stock "Pre-Order" }}
-        <div class="h-[full] w-full sm:w-[60%] md:w-[70%] group">
-
-            {{ with .Params.images }}
-            <img src="{{ index . 0 }}" alt="{{ $.Title }}" class="h-full w-full  rounded-l-md object-cover" />
-            {{ end }}
-            <div
-                class="absolute bottom-[400px] sm:bottom-0 h-full group-hover:h-30% w-full sm:w-[60%] md:w-[70%]  bg-gradient-to-b from-black/0 to-black group-hover:opacity-50 transition-all duration-700">
-
-            </div>
-            <h1
-                class="border-l absolute bottom-10 left-4 sm:left-10 border-yellow-500 pl-2 text-4xl text-left font-semibold text-neutral-100 w-full  text-shadow-md duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
-                {{ .LinkTitle }}
-            </h1>
-        </div>
-        <div
-            class="product-info w-full sm:w-[40%] md:w-[30%] h-full z-10 p-3 space-y-2 bg-white dark:bg-neutral-800/20">
-
-
-            <h1 class="text-4xl font-bold">{{ .Params.price }}</h1>
-            <p class="px-1 py-0 bg-red-200 text-red-600 font-bold w-fit rounded">{{ with .Params.discount }}{{ . }}{{
-                else }}N/A{{
-                end
-                }}</p>
-
-            {{ if eq .Params.stock "Available" }}<p class="text-green-500">{{ .Params.stock }}</p>{{ else }}<p
-                class="text-red-500">{{ .Params.stock }}</p> {{ end }}
-            <p><strong>Description:</strong> {{ .Content }}</p>
             <button
                 onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';"
-                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                class="group flex w-full items-center justify-between rounded-md bg-green-500 px-4 py-2 text-center text-lg text-white shadow-lg hover:bg-green-600 hover:text-white dark:bg-green-600 dark:hover:bg-green-500">
+                <span class="whitespace-nowrap overflow-hidden text-ellipsis pr-2">
+                    Order via WhatsApp
+                </span>
+                <p class="font-bold">
+                    {{ .Params.price }}
+                </p>
+            </button>
+            {{ else if eq .Params.stock "Pre-Order" }}
+            <button
+                class="btn-buy group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
                 {{ .Params.stock }}
                 <p class="font-bold">
                     {{ .Params.price }}
                 </p>
             </button>
-            <div class="hidden">{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
-
-
-        </div>
-        {{ else }}
-        <div class="h-full w-full sm:w-[60%] md:w-[70%] group">
-
-            {{ with .Params.images }}
-            <img src="{{ index . 0 }}" alt="{{ $.Title }}" class="h-full w-full rounded-l-md object-cover grayscale" />
-            {{ end }}
-            <div
-                class="absolute bottom-[400px] sm:bottom-0 h-full group-hover:h-30% w-full sm:w-[60%] md:w-[70%]  bg-gradient-to-b from-black/0 to-black group-hover:opacity-70 transition-all duration-700">
-
-            </div>
-            <h1
-                class="border-l absolute bottom-10 left-4 sm:left-10 border-yellow-500 pl-2 text-4xl text-left font-semibold text-neutral-100 w-full  text-shadow-md duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
-                {{ .LinkTitle }}
-            </h1>
-        </div>
-        <div
-            class="product-info w-full sm:w-[40%] md:w-[30%] h-full z-10 p-3 space-y-2 bg-white dark:bg-neutral-800/20">
-
-            <h1 class="text-4xl font-bold">{{ .Params.price }}</h1>
-            <p class="px-1 py-0 bg-red-200 text-red-600 font-bold w-fit rounded">{{ with .Params.discount }}{{ . }}{{
-                else }}N/A{{
-                end
-                }}</p>
-
-            {{ if eq .Params.stock "Available" }}<p class="text-green-500">{{ .Params.stock }}</p>{{ else }}<p
-                class="text-red-500">{{ .Params.stock }}</p> {{ end }}
-            <p><strong>Description:</strong> {{ .Content }}</p>
             <button
-                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg dark:bg-neutral-800 cursor-not-allowed opacity-50"
-                disabled>
-                Buy
+                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';"
+                class="group flex w-full items-center justify-between rounded-md bg-green-500 px-4 py-2 text-center text-lg text-white shadow-lg hover:bg-green-600 hover:text-white dark:bg-green-600 dark:hover:bg-green-500">
+                <span class="whitespace-nowrap overflow-hidden text-ellipsis pr-2">
+                    Order via WhatsApp
+                </span>
                 <p class="font-bold">
                     {{ .Params.price }}
                 </p>
             </button>
+            {{ else }}
+            <button
+                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';"
+                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-200 shadow-lg dark:bg-neutral-600 cursor-not-allowed"
+                disabled>
+                {{ .Params.stock }}
+                <p class="font-bold">
+                    {{ .Params.price }}
+                </p>
+            </button>
+            {{ end }}
+
 
             <div class="hidden">{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}</div>
 
 
         </div>
-        {{ end }}
+
+
+
     </div>
 
+
+    <!-- Popup Overlay -->
+    <div id="paymentPopup" class="fixed z-1000 inset-0 mx-4 p-4 hidden justify-center items-center">
+        <!-- Popup Content -->
+        <div
+            class="bg-white h-[90%] overflow-style-y overflow-y-auto overflow-x-hidden overscroll-auto dark:bg-neutral-800 p-8 rounded shadow-lg max-w-lg w-full">
+            <!-- Title -->
+            <h2 class="text-2xl font-bold mb-4">Confirm Your Payment</h2>
+
+            <!-- Product Details -->
+            <div class="mb-4">
+                <p><strong>Product: </strong>{{ .LinkTitle }}</p>
+                <p><strong>Url: </strong><span id="url">https://wahidhasyim02.github.io{{ .RelPermalink | urlize
+                        }}</span></p>
+                <p><strong>Quantity: </strong>1</p>
+                <p><strong>Total Price: </strong>{{ .Params.price }}</p>
+            </div>
+            <div class="flex flex-col gap-2">
+                <!-- Payment Methods -->
+                <label class="relative block">
+                    <span class="sr-only">Payment Methods</span>
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <span class="material-symbols-rounded">payments</span>
+                    </span>
+                    <select id="paymentMethod"
+                        class="block w-full rounded-md border border-neutral-400 bg-neutral-100 py-2 pl-10 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800">
+                        <option value="">Select Payment Method</option>
+                        <option value="bank">Bank Transfer</option>
+                        <option value="credit-card">Credit Card</option>
+                        <option value="e-wallet">E-Wallet</option>
+                    </select>
+                </label>
+
+                <div id="viabank"
+                    class="hidden w-full rounded-md border border-neutral-400 bg-neutral-200 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-700/30">
+                    <p class="text-sm mb-2">Pembayaran hanya akan dikonfirmasi di hari <strong>Senin-Jum'at</strong> jam
+                        <strong>08.00-16.00</strong>
+                    </p>
+                    <div class="h-8 p-1 bg-cover rounded-md  overflow-hidden">
+                        <img src="/images/bca.png" class="h-full object-cover" alt="">
+                    </div>
+                    <div
+                        class="flex items-center space-x-2 px-3 py-1 justify-between w-full rounded-md border border-neutral-400 dark:border-neutral-700">
+                        <h3 id="rekening-number" class="text-2xl font-semibold">000 000 001</h3>
+                        <button onclick="copyToClipboard('rekening-number')"
+                            class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Salin</button>
+                    </div>
+                    <h3>a.n. WAHID HASYIM</h3>
+                </div>
+
+                <div id="viacard"
+                    class="hidden w-full rounded-md border border-neutral-400 bg-neutral-200 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-700/30">
+                    <p class="text-sm mb-2">Pembayaran hanya akan dikonfirmasi di hari <strong>Senin-Jum'at</strong> jam
+                        <strong>08.00-16.00</strong>
+                    </p>
+                    <div class="h-8 p-1 bg-cover rounded-md  overflow-hidden">
+                        <img src="/images/card.png" class="h-full object-cover" alt="">
+                    </div>
+                    <div
+                        class="flex items-center space-x-2 px-3 py-1 justify-between w-full rounded-md border border-neutral-400 dark:border-neutral-700">
+                        <h3 id="credit-card-number" class="text-2xl font-semibold">000 001 001</h3>
+                        <button onclick="copyToClipboard('credit-card-number')"
+                            class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Salin</button>
+                    </div>
+                    <h3>a.n. WAHID HASYIM</h3>
+                </div>
+
+                <div id="viaewallet"
+                    class="hidden w-full rounded-md border border-neutral-400 bg-neutral-200 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-700/30">
+                    <p class="text-sm mb-2">Pembayaran hanya akan dikonfirmasi di hari <strong>Senin-Jum'at</strong> jam
+                        <strong>08.00-16.00</strong>
+                    </p>
+                    <div class="h-8 p-1 bg-cover rounded-md  overflow-hidden">
+                        <img src="/images/gopay.png" class="h-full object-cover" alt="">
+                    </div>
+                    <div
+                        class="flex items-center space-x-2 px-3 py-1 justify-between w-full rounded-md border border-neutral-400 dark:border-neutral-700">
+                        <h3 id="e-wallet-number" class="text-2xl font-semibold">000 002 001</h3>
+                        <button onclick="copyToClipboard('e-wallet-number')"
+                            class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Salin</button>
+                    </div>
+                    <h3>a.n. WAHID HASYIM</h3>
+                </div>
+
+
+
+                <!-- Shipping Information -->
+                <label class="relative block ">
+                    <span class="sr-only">Name</span>
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <span class="material-symbols-rounded">person</span>
+                    </span>
+                    <input id="name"
+                        class="block w-full rounded-md border border-neutral-400  bg-neutral-100 py-2 pl-10 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800"
+                        placeholder="Enter your name" type="text" name="name" />
+                </label>
+                <label class="relative block ">
+                    <span class="sr-only">Phone</span>
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <span class="material-symbols-rounded">smartphone</span>
+                    </span>
+                    <input id="phone"
+                        class="block w-full rounded-md border border-neutral-400  bg-neutral-100 py-2 pl-10 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800"
+                        placeholder="Enter your phone number" type="tel" inputmode="numeric" pattern="[0-9]*"
+                        name="phone" />
+                </label>
+                <label class="relative block ">
+                    <span class="sr-only">Address</span>
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <span class="material-symbols-rounded">location_on</span>
+                    </span>
+                    <input id="address"
+                        class="block w-full rounded-md border border-neutral-400  bg-neutral-100 py-2 pl-10 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800"
+                        placeholder="Enter your address" type="text" name="address" />
+                </label>
+                <!-- <label class="relative block">
+                    <span class="sr-only">File</span>
+                    <div>
+                        <input type="file" id="file"
+                            class="file:w-fit file:appearance-none file:items-center file:justify-between file:gap-1 file:rounded-md file:border file:border-neutral-400 file:bg-neutral-100 file:px-3 file:py-2 file:text-neutral-600 file:focus:border-sky-500 file:focus:outline-none file:focus:ring-1 file:focus:ring-sky-500 file:dark:border-neutral-700 file:dark:bg-neutral-800 dark:file:neutral-xai-400 hover:dark:file:bg-xai-700" />
+                    </div>
+
+                </label>-->
+                <label for="file" class="block text-sm font-medium text-pink-600 dark:text-pink-500">Please upload your
+                    payment proof
+                    (e.g., receipt, screenshot)</label>
+
+
+            </div>
+            <!-- Action Buttons -->
+            <div class="flex justify-end space-x-3 mt-6">
+
+                <button id="btn-cancelpay" class="group flex h-fit w-fit items-center justify-center rounded-md bg-neutral-500 px-4 py-2
+                    text-center text-lg text-white shadow-lg hover:bg-neutral-600 dark:bg-neutral-600
+                    dark:hover:bg-neutral-500">
+                    Cancel
+
+                </button>
+                <button id="btn-pay"
+                    class="group flex h-fit w-full sm:w-fit items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                    Confirm payment
+
+                </button>
+            </div>
+        </div>
+    </div>
 
 
     <div class="z-10">

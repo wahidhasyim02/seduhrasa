@@ -154,6 +154,65 @@
   window.addEventListener('scroll', handleScroll);
 </script>
 
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get the current path
+    const path = window.location.pathname;
+
+    // Select the product divs
+    const cooldrinkDiv = document.querySelector('.cooldrink');
+    const foodDiv = document.querySelector('.food');
+    const hotdrinkDiv = document.querySelector('.hotdrink');
+    const cooldrinknoDiv = document.querySelector('.cooldrinkno');
+    const foodnoDiv = document.querySelector('.foodno');
+    const hotdrinknoDiv = document.querySelector('.hotdrinkno');
+    const promonoDiv = document.querySelector('.promono');
+    const promoDiv = document.querySelector('.promohide');
+    // Check the current URL and apply classes accordingly
+    if (path.includes('/products/hotdrink/')) {
+      cooldrinkDiv.classList.add('hidden');
+      foodDiv.classList.add('hidden');
+      promoDiv.classList.add('hidden');
+      hotdrinknoDiv.classList.add('hidden');
+      hotdrinkDiv.classList.remove('hidden');
+    } else if (path.includes('/products/cooldrink/')) {
+      hotdrinkDiv.classList.add('hidden');
+      foodDiv.classList.add('hidden');
+      promoDiv.classList.add('hidden');
+      cooldrinknoDiv.classList.add('hidden');
+      cooldrinkDiv.classList.remove('hidden');
+    } else if (path.includes('/products/food/')) {
+      cooldrinkDiv.classList.add('hidden');
+      hotdrinkDiv.classList.add('hidden');
+      promoDiv.classList.add('hidden');
+      foodnoDiv.classList.add('hidden');
+      foodDiv.classList.remove('hidden');
+    } else if (path.includes('/products/promotions/')) {
+      cooldrinkDiv.classList.add('hidden');
+      hotdrinkDiv.classList.add('hidden');
+      foodDiv.classList.add('hidden');
+      promonoDiv.classList.add('hidden');
+      promoDiv.classList.remove('hidden');
+      promoDiv.classList.add('flex');
+    } else if (path.includes('/products/')) {
+      cooldrinkDiv.classList.remove('hidden');
+      foodDiv.classList.remove('hidden');
+      hotdrinkDiv.classList.remove('hidden');
+      cooldrinkDiv.classList.add('flex');
+      foodDiv.classList.add('flex');
+      hotdrinkDiv.classList.add('flex');
+      cooldrinknoDiv.classList.remove('hidden');
+      foodnoDiv.classList.remove('hidden');
+      hotdrinknoDiv.classList.remove('hidden');
+      cooldrinknoDiv.classList.add('flex');
+      foodnoDiv.classList.add('flex');
+      hotdrinknoDiv.classList.add('flex');
+      promoDiv.classList.add('hidden');
+    }
+  });
+</script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelector('.linkwa').addEventListener('click', function () {
@@ -167,4 +226,120 @@
       window.location.href = 'https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20{{ urlize .Title }}%20https://wahidhasyim02.github.io{{ .RelPermalink | urlize }}';
     });
   });
+</script>
+
+
+<script>
+  document.getElementById('paymentMethod').addEventListener('change', function () {
+    var selectedValue = this.value;
+
+    // Hide all payment method divs
+    document.getElementById('viabank').classList.add('hidden');
+    document.getElementById('viacard').classList.add('hidden');
+    document.getElementById('viaewallet').classList.add('hidden');
+
+    // Show the selected payment method
+    if (selectedValue === 'bank') {
+      document.getElementById('viabank').classList.remove('hidden');
+    } else if (selectedValue === 'credit-card') {
+      document.getElementById('viacard').classList.remove('hidden');
+    } else if (selectedValue === 'e-wallet') {
+      document.getElementById('viaewallet').classList.remove('hidden');
+    }
+  });
+</script>
+
+<script>
+  // Select all buttons with the class 'btn-buy'
+  document.querySelectorAll('.btn-buy').forEach(function (button) {
+    button.addEventListener('click', function () {
+      // Show the payment popup for each clicked button
+      document.getElementById('paymentPopup').classList.remove('hidden');
+      document.getElementById('paymentPopup').classList.add('flex');
+    });
+  });
+
+  // Close the popup when "Cancel" is clicked
+  document.getElementById('btn-cancelpay').addEventListener('click', function () {
+    document.getElementById('paymentPopup').classList.remove('flex');
+    document.getElementById('paymentPopup').classList.add('hidden');
+  });
+
+  // Handle payment confirmation
+  document.getElementById('btn-pay').addEventListener('click', function () {
+    var paymentMethod = document.getElementById('paymentMethod').value;
+    var name = document.getElementById('name').value;
+    var phone = document.getElementById('phone').value;
+    var address = document.getElementById('address').value;
+    var url = document.getElementById('url').innerText; // Get the URL text
+
+    if (!paymentMethod || !name || !phone || !address) {
+      alert('Please fill in all the details');
+      return;
+    }
+
+    // Send data via email (using mailto: - limited to opening email client)
+    var mailtoLink = `mailto:wahidhasyim46@gmail.com?subject=Payment%20Confirmation&body=Payment%20Method:%20${paymentMethod}%0AName:%20${name}%0APhone:%20${phone}%0AAddress:%20${address}%0AProduct%20URL:%20${url}%0A%0A*Please attach proof of payment in your email.*`;
+
+    window.location.href = mailtoLink;
+  });
+</script>
+
+
+<!-- Halaman List -->
+<script>
+  // Select all buttons with the class 'btn-buy'
+  document.querySelectorAll('.btn-buy').forEach(function (button) {
+    button.addEventListener('click', function () {
+      // Show the payment popup for each clicked button
+      document.getElementById('paymentPopup').classList.remove('hidden');
+      document.getElementById('paymentPopup').classList.add('flex');
+    });
+  });
+
+  // Close the popup when "Cancel" is clicked
+  document.getElementById('btn-cancelpay').addEventListener('click', function () {
+    document.getElementById('paymentPopup').classList.remove('flex');
+    document.getElementById('paymentPopup').classList.add('hidden');
+  });
+</script>
+
+
+<script>
+  // Ensure only numbers can be typed into the phone input field
+  document.getElementById('phone').addEventListener('input', function (e) {
+    this.value = this.value.replace(/[^0-9]/g, ''); // Remove any non-numeric characters
+  });
+
+  // Validate form submission
+  document.getElementById('btn-pay').addEventListener('click', function (e) {
+    var phone = document.getElementById('phone').value;
+    var errorMessage = document.getElementById('phone-error');
+
+    // Check if phone number contains only numbers
+    if (!/^\d+$/.test(phone)) {
+      errorMessage.classList.remove('hidden'); // Show error message
+      e.preventDefault(); // Prevent form submission
+    } else {
+      errorMessage.classList.add('hidden'); // Hide error message
+    }
+  });
+</script>
+
+<script>
+  function copyToClipboard(id) {
+    // Mengambil elemen berdasarkan ID yang diberikan
+    const number = document.getElementById(id).innerText;
+
+    // Membuat elemen input sementara untuk menyalin teks
+    const tempInput = document.createElement('input');
+    tempInput.value = number;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+
+    // Memberikan notifikasi setelah penyalinan
+    alert('Nomor disalin: ' + number);
+  }
 </script>

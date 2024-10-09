@@ -6,7 +6,7 @@
     document.documentElement.classList.remove("dark");
   }
 
-  // Dark Mode dan Fadeup
+  // Dark Mode dan fade
   document.addEventListener("DOMContentLoaded", function () {
     // Dark Mode
     var toggleDarkMode = document.getElementById("toggle_dark");
@@ -16,11 +16,33 @@
     function setTheme(isDarkMode) {
       if (isDarkMode) {
         document.documentElement.classList.add("dark");
-        textDarkMode.textContent = "light_mode";
+
+        // Fade out the text
+        textDarkMode.classList.add("opacity-0");
+
+        setTimeout(() => {
+          // Change the text after the fade-out transition
+          textDarkMode.textContent = "light_mode";
+
+          // Fade in the text
+          textDarkMode.classList.remove("opacity-0");
+        }, 500); // 500ms delay for fade-out before changing the text
       } else {
         document.documentElement.classList.remove("dark");
-        textDarkMode.textContent = "dark_mode";
+
+        // Fade out the text
+        textDarkMode.classList.add("opacity-0");
+
+        setTimeout(() => {
+          // Change the text after the fade-out transition
+          textDarkMode.textContent = "dark_mode";
+
+          // Fade in the text
+          textDarkMode.classList.remove("opacity-0");
+        }, 500); // 500ms delay for fade-out before changing the text
       }
+
+
     }
 
     // Memeriksa preferensi tema yang disimpan di localStorage
@@ -51,8 +73,8 @@
     // Call the function to start the animation after 1 second
     setTimeout(startProgressBar, 0);
 
-    // Fadeup Animations
-    const elements = document.querySelectorAll(".fadeup");
+    // fade Animations
+    const elements = document.querySelectorAll(".fade");
     elements.forEach((element) => {
       element.classList.remove("opacity-0");
       element.classList.remove("translate-y-10");
@@ -67,62 +89,4 @@
 
 
 
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Get the current path
-    const path = window.location.pathname;
-
-    // Select the product divs
-    const cooldrinkDiv = document.querySelector('.cooldrink');
-    const foodDiv = document.querySelector('.food');
-    const hotdrinkDiv = document.querySelector('.hotdrink');
-    const cooldrinknoDiv = document.querySelector('.cooldrinkno');
-    const foodnoDiv = document.querySelector('.foodno');
-    const hotdrinknoDiv = document.querySelector('.hotdrinkno');
-    const promonoDiv = document.querySelector('.promono');
-    const promoDiv = document.querySelector('.promohide');
-    // Check the current URL and apply classes accordingly
-    if (path.includes('/products/hotdrink/')) {
-      cooldrinkDiv.classList.add('hidden');
-      foodDiv.classList.add('hidden');
-      promoDiv.classList.add('hidden');
-      hotdrinknoDiv.classList.add('hidden');
-      hotdrinkDiv.classList.remove('hidden');
-    } else if (path.includes('/products/cooldrink/')) {
-      hotdrinkDiv.classList.add('hidden');
-      foodDiv.classList.add('hidden');
-      promoDiv.classList.add('hidden');
-      cooldrinknoDiv.classList.add('hidden');
-      cooldrinkDiv.classList.remove('hidden');
-    } else if (path.includes('/products/food/')) {
-      cooldrinkDiv.classList.add('hidden');
-      hotdrinkDiv.classList.add('hidden');
-      promoDiv.classList.add('hidden');
-      foodnoDiv.classList.add('hidden');
-      foodDiv.classList.remove('hidden');
-    } else if (path.includes('/products/promotions/')) {
-      cooldrinkDiv.classList.add('hidden');
-      hotdrinkDiv.classList.add('hidden');
-      foodDiv.classList.add('hidden');
-      promonoDiv.classList.add('hidden');
-      promoDiv.classList.remove('hidden');
-      promoDiv.classList.add('flex');
-    } else if (path.includes('/products/')) {
-      cooldrinkDiv.classList.remove('hidden');
-      foodDiv.classList.remove('hidden');
-      hotdrinkDiv.classList.remove('hidden');
-      cooldrinkDiv.classList.add('flex');
-      foodDiv.classList.add('flex');
-      hotdrinkDiv.classList.add('flex');
-      cooldrinknoDiv.classList.remove('hidden');
-      foodnoDiv.classList.remove('hidden');
-      hotdrinknoDiv.classList.remove('hidden');
-      cooldrinknoDiv.classList.add('flex');
-      foodnoDiv.classList.add('flex');
-      hotdrinknoDiv.classList.add('flex');
-      promoDiv.classList.add('hidden');
-    }
-  });
 </script>

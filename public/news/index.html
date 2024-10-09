@@ -85,11 +85,33 @@
     function setTheme(isDarkMode) {
       if (isDarkMode) {
         document.documentElement.classList.add("dark");
-        textDarkMode.textContent = "light_mode";
+
+        
+        textDarkMode.classList.add("opacity-0");
+
+        setTimeout(() => {
+          
+          textDarkMode.textContent = "light_mode";
+
+          
+          textDarkMode.classList.remove("opacity-0");
+        }, 500); 
       } else {
         document.documentElement.classList.remove("dark");
-        textDarkMode.textContent = "dark_mode";
+
+        
+        textDarkMode.classList.add("opacity-0");
+
+        setTimeout(() => {
+          
+          textDarkMode.textContent = "dark_mode";
+
+          
+          textDarkMode.classList.remove("opacity-0");
+        }, 500); 
       }
+
+
     }
 
     
@@ -121,7 +143,7 @@
     setTimeout(startProgressBar, 0);
 
     
-    const elements = document.querySelectorAll(".fadeup");
+    const elements = document.querySelectorAll(".fade");
     elements.forEach((element) => {
       element.classList.remove("opacity-0");
       element.classList.remove("translate-y-10");
@@ -137,64 +159,6 @@
 
 
 </script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    
-    const path = window.location.pathname;
-
-    
-    const cooldrinkDiv = document.querySelector('.cooldrink');
-    const foodDiv = document.querySelector('.food');
-    const hotdrinkDiv = document.querySelector('.hotdrink');
-    const cooldrinknoDiv = document.querySelector('.cooldrinkno');
-    const foodnoDiv = document.querySelector('.foodno');
-    const hotdrinknoDiv = document.querySelector('.hotdrinkno');
-    const promonoDiv = document.querySelector('.promono');
-    const promoDiv = document.querySelector('.promohide');
-    
-    if (path.includes('/products/hotdrink/')) {
-      cooldrinkDiv.classList.add('hidden');
-      foodDiv.classList.add('hidden');
-      promoDiv.classList.add('hidden');
-      hotdrinknoDiv.classList.add('hidden');
-      hotdrinkDiv.classList.remove('hidden');
-    } else if (path.includes('/products/cooldrink/')) {
-      hotdrinkDiv.classList.add('hidden');
-      foodDiv.classList.add('hidden');
-      promoDiv.classList.add('hidden');
-      cooldrinknoDiv.classList.add('hidden');
-      cooldrinkDiv.classList.remove('hidden');
-    } else if (path.includes('/products/food/')) {
-      cooldrinkDiv.classList.add('hidden');
-      hotdrinkDiv.classList.add('hidden');
-      promoDiv.classList.add('hidden');
-      foodnoDiv.classList.add('hidden');
-      foodDiv.classList.remove('hidden');
-    } else if (path.includes('/products/promotions/')) {
-      cooldrinkDiv.classList.add('hidden');
-      hotdrinkDiv.classList.add('hidden');
-      foodDiv.classList.add('hidden');
-      promonoDiv.classList.add('hidden');
-      promoDiv.classList.remove('hidden');
-      promoDiv.classList.add('flex');
-    } else if (path.includes('/products/')) {
-      cooldrinkDiv.classList.remove('hidden');
-      foodDiv.classList.remove('hidden');
-      hotdrinkDiv.classList.remove('hidden');
-      cooldrinkDiv.classList.add('flex');
-      foodDiv.classList.add('flex');
-      hotdrinkDiv.classList.add('flex');
-      cooldrinknoDiv.classList.remove('hidden');
-      foodnoDiv.classList.remove('hidden');
-      hotdrinknoDiv.classList.remove('hidden');
-      cooldrinknoDiv.classList.add('flex');
-      foodnoDiv.classList.add('flex');
-      hotdrinknoDiv.classList.add('flex');
-      promoDiv.classList.add('hidden');
-    }
-  });
-</script>
 </head>
 
 <body
@@ -202,10 +166,12 @@
   <header id="main-header"
     class="fixed left-12 right-0 top-0 z-1000 w-full rounded-tl-3xl bg-neutral-200/0 transition-colors duration-1000 dark:bg-neutral-900/0 md:left-16">
     <div
-  class="flex h-16 w-custom-width content-center items-center justify-between rounded-tl-3xl px-4 text-neutral-500 sm:px-6 lg:px-10 xl:px-12">
-  <a href="/" class="group  z-20 flex items-center space-x-2">
-    <img id="logo-seduhrasa" src="/images/favicon.png" class="h-8 w-auto" alt="logo-seduhrasa" />
-    <h1 class="hidden font-dosis text-2xl font-bold hover:text-neutral-950 dark:hover:text-neutral-400 md:flex">
+  class="fade opacity-0 transition-opacity ease-in-out duration-[4000ms] flex h-16 w-custom-width content-center items-center justify-between rounded-tl-3xl px-4 text-neutral-500 sm:px-6 lg:px-10 xl:px-12">
+  <a href="/"
+    class="fade opacity-0 transition-opacity ease-in-out duration-[4000ms]  group  z-20 flex items-center space-x-2">
+    <img href="/" id="logo-seduhrasa" src="/images/favicon.png" class="h-8 w-auto" alt="logo-seduhrasa" />
+    <h1 href="/"
+      class="hidden font-dosis text-2xl font-bold hover:text-neutral-950 dark:hover:text-neutral-400 md:flex">
       SeduhRasa
     </h1>
   </a>
@@ -277,7 +243,8 @@
       class="group flex h-full w-full cursor-pointer flex-col items-start justify-center px-1 text-center sm:px-2 md:px-4">
       <div class="flex transition-all duration-1000 group-hover:text-yellow-600 dark:group-hover:text-yellow-500"
         title="dark_mode">
-        <span id="text_darkmode" class="material-symbols-rounded flex text-3xl">dark_mode</span>
+        <span id="text_darkmode"
+          class="material-symbols-rounded flex text-3xl fade opacity-0 transition-opacity ease-in-out duration-[4000ms] ">dark_mode</span>
       </div>
     </li>
        
@@ -347,9 +314,10 @@
     <div class="bar-of-progress z-1500" id="progress-bar">
       <div class="glow"></div>
     </div>
-    <div class="fixed left-0 top-0 flex h-full w-12 flex-col items-center justify-center md:w-16">
+    <div
+  class="fade opacity-0 transition-opacity ease-in-out duration-[4000ms] fixed left-0 top-0 flex h-full w-12 flex-col items-center justify-center md:w-16">
   <nav
-    class="flex flex-col divide-y divide-neutral-400 dark:divide-neutral-800 transition-colors duration-1000  justify-center items-center">
+    class="flex flex-col divide-y divide-neutral-400 dark:divide-neutral-800 transition-colors  duration-1000  justify-center items-center">
     <ul class="flex flex-col gap-y-4 py-8">
       
       <li class="group flex items-center justify-center">
@@ -460,7 +428,6 @@
     
     
 </div>
-
 
 <div
     class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-neutral-200 px-4 pb-12 transition-colors duration-1000 dark:bg-neutral-900 sm:px-6 md:space-y-6 lg:px-10 xl:px-12">
@@ -671,7 +638,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                 
                 <div
                     class="flex flex-col gap-2 w-full h-fit items-start justify-start p-2 rounded backdrop-blur-md odd:bg-white/20 even:odd:bg-white/30 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
-                    <a href="/products/cooldrink/cool-5/" class="w-full h-[200px] md:h-[160px] lg:h-[140px] bg-cover relative">
+                    <a href="/products/cooldrink/avocadojuice/" class="w-full h-[200px] md:h-[160px] lg:h-[140px] bg-cover relative">
                         
                         
                         
@@ -680,7 +647,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                         
 
                         
-                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-red-700">
+                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-pink-700">
                             <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="4em" height="4em"
                                 viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -695,7 +662,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
 
 
                     <div class="w-full lg:w-[60%] h-fit ">
-                        <a href="/products/cooldrink/cool-5/"
+                        <a href="/products/cooldrink/avocadojuice/"
                             class="text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200">
                             <h4 class="font-semibold w-full">Avocado Juice</h4>
                         </a>
@@ -708,7 +675,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                 
                 <div
                     class="flex flex-col gap-2 w-full h-fit items-start justify-start p-2 rounded backdrop-blur-md odd:bg-white/20 even:odd:bg-white/30 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
-                    <a href="/products/cooldrink/cool-4/" class="w-full h-[200px] md:h-[160px] lg:h-[140px] bg-cover relative">
+                    <a href="/products/cooldrink/icecincau/" class="w-full h-[200px] md:h-[160px] lg:h-[140px] bg-cover relative">
                         
                         
                         
@@ -717,7 +684,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                         
 
                         
-                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-red-700">
+                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-pink-700">
                             <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="4em" height="4em"
                                 viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -732,7 +699,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
 
 
                     <div class="w-full lg:w-[60%] h-fit ">
-                        <a href="/products/cooldrink/cool-4/"
+                        <a href="/products/cooldrink/icecincau/"
                             class="text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200">
                             <h4 class="font-semibold w-full">Ice Cincau</h4>
                         </a>
@@ -754,7 +721,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                         
 
                         
-                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-red-700">
+                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-pink-700">
                             <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="4em" height="4em"
                                 viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -791,7 +758,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                         
 
                         
-                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-red-700">
+                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-pink-700">
                             <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="4em" height="4em"
                                 viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -828,7 +795,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                         
 
                         
-                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-red-700">
+                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-pink-700">
                             <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="4em" height="4em"
                                 viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -856,7 +823,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                 
                 <div
                     class="flex flex-col gap-2 w-full h-fit items-start justify-start p-2 rounded backdrop-blur-md odd:bg-white/20 even:odd:bg-white/30 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
-                    <a href="/products/cooldrink/cool-2/" class="w-full h-[200px] md:h-[160px] lg:h-[140px] bg-cover relative">
+                    <a href="/products/cooldrink/watermelonice/" class="w-full h-[200px] md:h-[160px] lg:h-[140px] bg-cover relative">
                         
                         
                         
@@ -865,7 +832,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                         
 
                         
-                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-red-700">
+                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-pink-700">
                             <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="4em" height="4em"
                                 viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -880,7 +847,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
 
 
                     <div class="w-full lg:w-[60%] h-fit ">
-                        <a href="/products/cooldrink/cool-2/"
+                        <a href="/products/cooldrink/watermelonice/"
                             class="text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200">
                             <h4 class="font-semibold w-full">Watermelon Ice</h4>
                         </a>
@@ -893,7 +860,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                 
                 <div
                     class="flex flex-col gap-2 w-full h-fit items-start justify-start p-2 rounded backdrop-blur-md odd:bg-white/20 even:odd:bg-white/30 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
-                    <a href="/products/hotdrink/hot-3/" class="w-full h-[200px] md:h-[160px] lg:h-[140px] bg-cover relative">
+                    <a href="/products/hotdrink/greentea/" class="w-full h-[200px] md:h-[160px] lg:h-[140px] bg-cover relative">
                         
                         
                         
@@ -902,7 +869,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                         
 
                         
-                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-red-700">
+                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-pink-700">
                             <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="4em" height="4em"
                                 viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -917,7 +884,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
 
 
                     <div class="w-full lg:w-[60%] h-fit ">
-                        <a href="/products/hotdrink/hot-3/"
+                        <a href="/products/hotdrink/greentea/"
                             class="text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200">
                             <h4 class="font-semibold w-full">Green Tea</h4>
                         </a>
@@ -939,7 +906,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                         
 
                         
-                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-red-700">
+                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-pink-700">
                             <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="4em" height="4em"
                                 viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -967,7 +934,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                 
                 <div
                     class="flex flex-col gap-2 w-full h-fit items-start justify-start p-2 rounded backdrop-blur-md odd:bg-white/20 even:odd:bg-white/30 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
-                    <a href="/products/hotdrink/hot-4/" class="w-full h-[200px] md:h-[160px] lg:h-[140px] bg-cover relative">
+                    <a href="/products/hotdrink/wedangjahe/" class="w-full h-[200px] md:h-[160px] lg:h-[140px] bg-cover relative">
                         
                         
                         
@@ -976,7 +943,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                         
 
                         
-                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-red-700">
+                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-pink-700">
                             <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="4em" height="4em"
                                 viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -991,7 +958,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
 
 
                     <div class="w-full lg:w-[60%] h-fit ">
-                        <a href="/products/hotdrink/hot-4/"
+                        <a href="/products/hotdrink/wedangjahe/"
                             class="text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200">
                             <h4 class="font-semibold w-full">Wedang Jahe</h4>
                         </a>
@@ -1004,7 +971,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                 
                 <div
                     class="flex flex-col gap-2 w-full h-fit items-start justify-start p-2 rounded backdrop-blur-md odd:bg-white/20 even:odd:bg-white/30 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
-                    <a href="/products/hotdrink/hot-1/" class="w-full h-[200px] md:h-[160px] lg:h-[140px] bg-cover relative">
+                    <a href="/products/hotdrink/capucino/" class="w-full h-[200px] md:h-[160px] lg:h-[140px] bg-cover relative">
                         
                         
                         
@@ -1013,7 +980,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
                         
 
                         
-                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-red-700">
+                        <div class="absolute -top-3 -right-1 flex items-center justify-center text-pink-700">
                             <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="4em" height="4em"
                                 viewBox="0 0 24 24">
                                 <path fill="currentColor"
@@ -1028,7 +995,7 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
 
 
                     <div class="w-full lg:w-[60%] h-fit ">
-                        <a href="/products/hotdrink/hot-1/"
+                        <a href="/products/hotdrink/capucino/"
                             class="text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200">
                             <h4 class="font-semibold w-full">Capucino</h4>
                         </a>
@@ -1210,6 +1177,198 @@ Craving that authentic SeduhRasa coffee experience …<a href="/news/post-3/"
 
   
   window.addEventListener('scroll', handleScroll);
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    
+    const path = window.location.pathname;
+
+    
+    const cooldrinkDiv = document.querySelector('.cooldrink');
+    const foodDiv = document.querySelector('.food');
+    const hotdrinkDiv = document.querySelector('.hotdrink');
+    const cooldrinknoDiv = document.querySelector('.cooldrinkno');
+    const foodnoDiv = document.querySelector('.foodno');
+    const hotdrinknoDiv = document.querySelector('.hotdrinkno');
+    const promonoDiv = document.querySelector('.promono');
+    const promoDiv = document.querySelector('.promohide');
+    
+    if (path.includes('/products/hotdrink/')) {
+      cooldrinkDiv.classList.add('hidden');
+      foodDiv.classList.add('hidden');
+      promoDiv.classList.add('hidden');
+      hotdrinknoDiv.classList.add('hidden');
+      hotdrinkDiv.classList.remove('hidden');
+    } else if (path.includes('/products/cooldrink/')) {
+      hotdrinkDiv.classList.add('hidden');
+      foodDiv.classList.add('hidden');
+      promoDiv.classList.add('hidden');
+      cooldrinknoDiv.classList.add('hidden');
+      cooldrinkDiv.classList.remove('hidden');
+    } else if (path.includes('/products/food/')) {
+      cooldrinkDiv.classList.add('hidden');
+      hotdrinkDiv.classList.add('hidden');
+      promoDiv.classList.add('hidden');
+      foodnoDiv.classList.add('hidden');
+      foodDiv.classList.remove('hidden');
+    } else if (path.includes('/products/promotions/')) {
+      cooldrinkDiv.classList.add('hidden');
+      hotdrinkDiv.classList.add('hidden');
+      foodDiv.classList.add('hidden');
+      promonoDiv.classList.add('hidden');
+      promoDiv.classList.remove('hidden');
+      promoDiv.classList.add('flex');
+    } else if (path.includes('/products/')) {
+      cooldrinkDiv.classList.remove('hidden');
+      foodDiv.classList.remove('hidden');
+      hotdrinkDiv.classList.remove('hidden');
+      cooldrinkDiv.classList.add('flex');
+      foodDiv.classList.add('flex');
+      hotdrinkDiv.classList.add('flex');
+      cooldrinknoDiv.classList.remove('hidden');
+      foodnoDiv.classList.remove('hidden');
+      hotdrinknoDiv.classList.remove('hidden');
+      cooldrinknoDiv.classList.add('flex');
+      foodnoDiv.classList.add('flex');
+      hotdrinknoDiv.classList.add('flex');
+      promoDiv.classList.add('hidden');
+    }
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector('.linkwa').addEventListener('click', function () {
+      window.open('https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20news%20https://wahidhasyim02.github.io\/news\/');
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById('btn-wa').addEventListener('click', function () {
+      window.location.href = 'https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20news%20https://wahidhasyim02.github.io\/news\/';
+    });
+  });
+</script>
+
+
+<script>
+  document.getElementById('paymentMethod').addEventListener('change', function () {
+    var selectedValue = this.value;
+
+    
+    document.getElementById('viabank').classList.add('hidden');
+    document.getElementById('viacard').classList.add('hidden');
+    document.getElementById('viaewallet').classList.add('hidden');
+
+    
+    if (selectedValue === 'bank') {
+      document.getElementById('viabank').classList.remove('hidden');
+    } else if (selectedValue === 'credit-card') {
+      document.getElementById('viacard').classList.remove('hidden');
+    } else if (selectedValue === 'e-wallet') {
+      document.getElementById('viaewallet').classList.remove('hidden');
+    }
+  });
+</script>
+
+
+<script>
+  
+  document.querySelectorAll('.btn-buy').forEach(function (button) {
+    button.addEventListener('click', function () {
+      
+      document.getElementById('paymentPopup').classList.remove('hidden');
+      document.getElementById('paymentPopup').classList.add('flex');
+    });
+  });
+
+  
+  document.getElementById('btn-cancelpay').addEventListener('click', function () {
+    document.getElementById('paymentPopup').classList.remove('flex');
+    document.getElementById('paymentPopup').classList.add('hidden');
+  });
+
+  
+  document.getElementById('btn-pay').addEventListener('click', function () {
+    var paymentMethod = document.getElementById('paymentMethod').value;
+    var name = document.getElementById('name').value;
+    var phone = document.getElementById('phone').value;
+    var address = document.getElementById('address').value;
+    
+    
+
+    if (!paymentMethod || !name || !phone || !address) {
+      alert('Please fill in all the details');
+      return;
+    }
+
+    
+    var mailtoLink = `mailto:wahidhasyim46@gmail.com?subject=Payment%20Confirmation&body=Payment%20Method:%20${paymentMethod}%0AName:%20${name}%0APhone:%20${phone}%0AAddress:%20${address}%0A%0A*Please attach proof of payment in your email.*`;
+
+    window.location.href = mailtoLink;
+  });
+</script>
+
+
+
+<script>
+  
+  document.querySelectorAll('.btn-buy').forEach(function (button) {
+    button.addEventListener('click', function () {
+      
+      document.getElementById('paymentPopup').classList.remove('hidden');
+      document.getElementById('paymentPopup').classList.add('flex');
+    });
+  });
+
+  
+  document.getElementById('btn-cancelpay').addEventListener('click', function () {
+    document.getElementById('paymentPopup').classList.remove('flex');
+    document.getElementById('paymentPopup').classList.add('hidden');
+  });
+</script>
+
+
+<script>
+  
+  document.getElementById('phone').addEventListener('input', function (e) {
+    this.value = this.value.replace(/[^0-9]/g, ''); 
+  });
+
+  
+  document.getElementById('btn-pay').addEventListener('click', function (e) {
+    var phone = document.getElementById('phone').value;
+    var errorMessage = document.getElementById('phone-error');
+
+    
+    if (!/^\d+$/.test(phone)) {
+      errorMessage.classList.remove('hidden'); 
+      e.preventDefault(); 
+    } else {
+      errorMessage.classList.add('hidden'); 
+    }
+  });
+</script>
+
+<script>
+  function copyToClipboard(id) {
+    
+    const number = document.getElementById(id).innerText;
+
+    
+    const tempInput = document.createElement('input');
+    tempInput.value = number;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+
+    
+    alert('Nomor disalin: ' + number);
+  }
 </script>
   </footer>
 

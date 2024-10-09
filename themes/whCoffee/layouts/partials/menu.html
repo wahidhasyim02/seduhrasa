@@ -27,7 +27,9 @@
       class="group flex h-full w-full cursor-pointer flex-col items-start justify-center px-1 text-center sm:px-2 md:px-4">
       <div class="flex transition-all duration-1000 group-hover:text-yellow-600 dark:group-hover:text-yellow-500"
         title="{{ .Params.icon }}">
-        <span id="text_darkmode" class="material-symbols-rounded flex text-3xl">{{ .Params.icon }}</span>
+        <span id="text_darkmode"
+          class="material-symbols-rounded flex text-3xl fade opacity-0 transition-opacity ease-in-out duration-[4000ms] ">{{
+          .Params.icon }}</span>
       </div>
     </li>
     {{ end }} {{ end }} {{- end }}

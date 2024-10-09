@@ -85,11 +85,33 @@
     function setTheme(isDarkMode) {
       if (isDarkMode) {
         document.documentElement.classList.add("dark");
-        textDarkMode.textContent = "light_mode";
+
+        
+        textDarkMode.classList.add("opacity-0");
+
+        setTimeout(() => {
+          
+          textDarkMode.textContent = "light_mode";
+
+          
+          textDarkMode.classList.remove("opacity-0");
+        }, 500); 
       } else {
         document.documentElement.classList.remove("dark");
-        textDarkMode.textContent = "dark_mode";
+
+        
+        textDarkMode.classList.add("opacity-0");
+
+        setTimeout(() => {
+          
+          textDarkMode.textContent = "dark_mode";
+
+          
+          textDarkMode.classList.remove("opacity-0");
+        }, 500); 
       }
+
+
     }
 
     
@@ -121,7 +143,7 @@
     setTimeout(startProgressBar, 0);
 
     
-    const elements = document.querySelectorAll(".fadeup");
+    const elements = document.querySelectorAll(".fade");
     elements.forEach((element) => {
       element.classList.remove("opacity-0");
       element.classList.remove("translate-y-10");
@@ -137,64 +159,6 @@
 
 
 </script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    
-    const path = window.location.pathname;
-
-    
-    const cooldrinkDiv = document.querySelector('.cooldrink');
-    const foodDiv = document.querySelector('.food');
-    const hotdrinkDiv = document.querySelector('.hotdrink');
-    const cooldrinknoDiv = document.querySelector('.cooldrinkno');
-    const foodnoDiv = document.querySelector('.foodno');
-    const hotdrinknoDiv = document.querySelector('.hotdrinkno');
-    const promonoDiv = document.querySelector('.promono');
-    const promoDiv = document.querySelector('.promohide');
-    
-    if (path.includes('/products/hotdrink/')) {
-      cooldrinkDiv.classList.add('hidden');
-      foodDiv.classList.add('hidden');
-      promoDiv.classList.add('hidden');
-      hotdrinknoDiv.classList.add('hidden');
-      hotdrinkDiv.classList.remove('hidden');
-    } else if (path.includes('/products/cooldrink/')) {
-      hotdrinkDiv.classList.add('hidden');
-      foodDiv.classList.add('hidden');
-      promoDiv.classList.add('hidden');
-      cooldrinknoDiv.classList.add('hidden');
-      cooldrinkDiv.classList.remove('hidden');
-    } else if (path.includes('/products/food/')) {
-      cooldrinkDiv.classList.add('hidden');
-      hotdrinkDiv.classList.add('hidden');
-      promoDiv.classList.add('hidden');
-      foodnoDiv.classList.add('hidden');
-      foodDiv.classList.remove('hidden');
-    } else if (path.includes('/products/promotions/')) {
-      cooldrinkDiv.classList.add('hidden');
-      hotdrinkDiv.classList.add('hidden');
-      foodDiv.classList.add('hidden');
-      promonoDiv.classList.add('hidden');
-      promoDiv.classList.remove('hidden');
-      promoDiv.classList.add('flex');
-    } else if (path.includes('/products/')) {
-      cooldrinkDiv.classList.remove('hidden');
-      foodDiv.classList.remove('hidden');
-      hotdrinkDiv.classList.remove('hidden');
-      cooldrinkDiv.classList.add('flex');
-      foodDiv.classList.add('flex');
-      hotdrinkDiv.classList.add('flex');
-      cooldrinknoDiv.classList.remove('hidden');
-      foodnoDiv.classList.remove('hidden');
-      hotdrinknoDiv.classList.remove('hidden');
-      cooldrinknoDiv.classList.add('flex');
-      foodnoDiv.classList.add('flex');
-      hotdrinknoDiv.classList.add('flex');
-      promoDiv.classList.add('hidden');
-    }
-  });
-</script>
 </head>
 
 <body
@@ -202,10 +166,12 @@
   <header id="main-header"
     class="fixed left-12 right-0 top-0 z-1000 w-full rounded-tl-3xl bg-neutral-200/0 transition-colors duration-1000 dark:bg-neutral-900/0 md:left-16">
     <div
-  class="flex h-16 w-custom-width content-center items-center justify-between rounded-tl-3xl px-4 text-neutral-500 sm:px-6 lg:px-10 xl:px-12">
-  <a href="/" class="group  z-20 flex items-center space-x-2">
-    <img id="logo-seduhrasa" src="/images/favicon.png" class="h-8 w-auto" alt="logo-seduhrasa" />
-    <h1 class="hidden font-dosis text-2xl font-bold hover:text-neutral-950 dark:hover:text-neutral-400 md:flex">
+  class="fade opacity-0 transition-opacity ease-in-out duration-[4000ms] flex h-16 w-custom-width content-center items-center justify-between rounded-tl-3xl px-4 text-neutral-500 sm:px-6 lg:px-10 xl:px-12">
+  <a href="/"
+    class="fade opacity-0 transition-opacity ease-in-out duration-[4000ms]  group  z-20 flex items-center space-x-2">
+    <img href="/" id="logo-seduhrasa" src="/images/favicon.png" class="h-8 w-auto" alt="logo-seduhrasa" />
+    <h1 href="/"
+      class="hidden font-dosis text-2xl font-bold hover:text-neutral-950 dark:hover:text-neutral-400 md:flex">
       SeduhRasa
     </h1>
   </a>
@@ -277,7 +243,8 @@
       class="group flex h-full w-full cursor-pointer flex-col items-start justify-center px-1 text-center sm:px-2 md:px-4">
       <div class="flex transition-all duration-1000 group-hover:text-yellow-600 dark:group-hover:text-yellow-500"
         title="dark_mode">
-        <span id="text_darkmode" class="material-symbols-rounded flex text-3xl">dark_mode</span>
+        <span id="text_darkmode"
+          class="material-symbols-rounded flex text-3xl fade opacity-0 transition-opacity ease-in-out duration-[4000ms] ">dark_mode</span>
       </div>
     </li>
        
@@ -347,9 +314,10 @@
     <div class="bar-of-progress z-1500" id="progress-bar">
       <div class="glow"></div>
     </div>
-    <div class="fixed left-0 top-0 flex h-full w-12 flex-col items-center justify-center md:w-16">
+    <div
+  class="fade opacity-0 transition-opacity ease-in-out duration-[4000ms] fixed left-0 top-0 flex h-full w-12 flex-col items-center justify-center md:w-16">
   <nav
-    class="flex flex-col divide-y divide-neutral-400 dark:divide-neutral-800 transition-colors duration-1000  justify-center items-center">
+    class="flex flex-col divide-y divide-neutral-400 dark:divide-neutral-800 transition-colors  duration-1000  justify-center items-center">
     <ul class="flex flex-col gap-y-4 py-8">
       
       <li class="group flex items-center justify-center">
@@ -447,7 +415,7 @@
     
     
     
-    <a href="/products/cooldrink/cool-5/" title="Avocado Juice"
+    <a href="/products/cooldrink/avocadojuice/" title="Avocado Juice"
         class="flex cursor-pointer h-[500px] w-full flex-col items-center overflow-hidden rounded-xl backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
         <div class="relative h-full w-full overflow-hidden">
             
@@ -501,7 +469,7 @@
                     
                     <div
                         class="group flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
-                        <a href="/products/cooldrink/cool-5/"
+                        <a href="/products/cooldrink/avocadojuice/"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             
                             <img src="/images/avocado.webp" alt="First image"
@@ -510,7 +478,7 @@
                         </a>
                         <div class="flex flex-col w-full items-start">
                             <h2 class="text-lg text-neutral-500">
-                                <a href="/products/cooldrink/cool-5/"
+                                <a href="/products/cooldrink/avocadojuice/"
                                     class="group-hover:text-yellow-600 dark:group-hover:text-yellow-500">Avocado Juice</a>
                             </h2>
                             <p class="text-green-500">Available</p>
@@ -521,16 +489,23 @@
                             
 
                             
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20avocado-juice%20https://wahidhasyim02.github.io\/products\/cooldrink\/cool-5\/';"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                Buy
-                                <p class="font-bold">$19</p>
-                            </button>
+                            
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/cooldrink/avocadojuice/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
+
+                            
 
                             
                             
-                            <div class="absolute -top-2 right-2 flex items-center justify-center text-red-700">
+                            <div class="absolute -top-2 right-2 flex items-center justify-center text-pink-700">
                                 <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="6em" height="6em"
                                     viewBox="0 0 24 24">
                                     <path fill="currentColor"
@@ -548,7 +523,7 @@
                     
                     <div
                         class="group flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
-                        <a href="/products/cooldrink/cool-4/"
+                        <a href="/products/cooldrink/icecincau/"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             
                             <img src="/images/cincau.webp" alt="First image"
@@ -557,7 +532,7 @@
                         </a>
                         <div class="flex flex-col w-full items-start">
                             <h2 class="text-lg text-neutral-500">
-                                <a href="/products/cooldrink/cool-4/"
+                                <a href="/products/cooldrink/icecincau/"
                                     class="group-hover:text-yellow-600 dark:group-hover:text-yellow-500">Ice Cincau</a>
                             </h2>
                             <p class="text-green-500">Available</p>
@@ -568,16 +543,23 @@
                             
 
                             
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20ice-cincau%20https://wahidhasyim02.github.io\/products\/cooldrink\/cool-4\/';"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                Buy
-                                <p class="font-bold">$18</p>
-                            </button>
+                            
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/cooldrink/icecincau/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
+
+                            
 
                             
                             
-                            <div class="absolute -top-2 right-2 flex items-center justify-center text-red-700">
+                            <div class="absolute -top-2 right-2 flex items-center justify-center text-pink-700">
                                 <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="6em" height="6em"
                                     viewBox="0 0 24 24">
                                     <path fill="currentColor"
@@ -615,16 +597,23 @@
                             
 
                             
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20lemon-ice%20https://wahidhasyim02.github.io\/products\/cooldrink\/lemon-ice\/';"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                Buy
-                                <p class="font-bold">$20.39</p>
-                            </button>
+                            
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/cooldrink/lemon-ice/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
+
+                            
 
                             
                             
-                            <div class="absolute -top-2 right-2 flex items-center justify-center text-red-700">
+                            <div class="absolute -top-2 right-2 flex items-center justify-center text-pink-700">
                                 <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="6em" height="6em"
                                     viewBox="0 0 24 24">
                                     <path fill="currentColor"
@@ -662,16 +651,23 @@
                             
 
                             
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20ketoprak%20https://wahidhasyim02.github.io\/products\/food\/ketoprak\/';"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                Buy
-                                <p class="font-bold">$14.9</p>
-                            </button>
+                            
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/food/ketoprak/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
+
+                            
 
                             
                             
-                            <div class="absolute -top-2 right-2 flex items-center justify-center text-red-700">
+                            <div class="absolute -top-2 right-2 flex items-center justify-center text-pink-700">
                                 <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="6em" height="6em"
                                     viewBox="0 0 24 24">
                                     <path fill="currentColor"
@@ -689,7 +685,7 @@
                     
                     <div
                         class="group flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
-                        <a href="/products/hotdrink/hot-3/"
+                        <a href="/products/hotdrink/greentea/"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             
                             <img src="/images/greentea.webp" alt="First image"
@@ -698,7 +694,7 @@
                         </a>
                         <div class="flex flex-col w-full items-start">
                             <h2 class="text-lg text-neutral-500">
-                                <a href="/products/hotdrink/hot-3/"
+                                <a href="/products/hotdrink/greentea/"
                                     class="group-hover:text-yellow-600 dark:group-hover:text-yellow-500">Green Tea</a>
                             </h2>
                             <p class="text-green-500">Available</p>
@@ -709,16 +705,23 @@
                             
 
                             
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20green-tea%20https://wahidhasyim02.github.io\/products\/hotdrink\/hot-3\/';"
-                                class="group flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                Buy
-                                <p class="font-bold">$23.9</p>
-                            </button>
+                            
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/hotdrink/greentea/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
+
+                            
 
                             
                             
-                            <div class="absolute -top-2 right-2 flex items-center justify-center text-red-700">
+                            <div class="absolute -top-2 right-2 flex items-center justify-center text-pink-700">
                                 <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="6em" height="6em"
                                     viewBox="0 0 24 24">
                                     <path fill="currentColor"
@@ -771,7 +774,7 @@
                     
                     <div
                         class="group order-first flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
-                        <a href="/products/hotdrink/hot-5/"
+                        <a href="/products/hotdrink/blacktea/"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             
                             <img src="/images/blacktea.webp" alt="First image"
@@ -780,7 +783,7 @@
                         </a>
                         <div class="flex flex-col w-full items-start">
                             <h2 class="text-lg text-neutral-500">
-                                <a href="/products/hotdrink/hot-5/"
+                                <a href="/products/hotdrink/blacktea/"
                                     class="group-hover:text-yellow-600 dark:group-hover:text-yellow-500">Black Tea</a>
                             </h2>
                             <p class="text-green-500">Available</p>
@@ -791,14 +794,20 @@
 
                             
 
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20black-tea%20https://wahidhasyim02.github.io\/products\/hotdrink\/hot-5\/';"
-                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                Buy
-                                <p class="font-bold">
-                                    $18.9
-                                </p>
-                            </button>
+
+                            
+
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/hotdrink/blacktea/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
+
 
 
                             
@@ -815,7 +824,7 @@
                     
                     <div
                         class="group order-first flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
-                        <a href="/products/hotdrink/hot-3/"
+                        <a href="/products/hotdrink/greentea/"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             
                             <img src="/images/greentea.webp" alt="First image"
@@ -824,7 +833,7 @@
                         </a>
                         <div class="flex flex-col w-full items-start">
                             <h2 class="text-lg text-neutral-500">
-                                <a href="/products/hotdrink/hot-3/"
+                                <a href="/products/hotdrink/greentea/"
                                     class="group-hover:text-yellow-600 dark:group-hover:text-yellow-500">Green Tea</a>
                             </h2>
                             <p class="text-green-500">Available</p>
@@ -835,18 +844,24 @@
 
                             
 
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20green-tea%20https://wahidhasyim02.github.io\/products\/hotdrink\/hot-3\/';"
-                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                Buy
-                                <p class="font-bold">
-                                    $23.9
-                                </p>
-                            </button>
+
+                            
+
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/hotdrink/greentea/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
+
 
 
                             
-                            <div class="absolute -top-2 right-2 flex items-center justify-center text-red-700">
+                            <div class="absolute -top-2 right-2 flex items-center justify-center text-pink-700">
                                 <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="6em" height="6em"
                                     viewBox="0 0 24 24">
                                     <path fill="currentColor"
@@ -880,7 +895,7 @@
                             <h2 class="text-lg text-neutral-500">
                                 <a href="/products/hotdrink/americano/">Americano</a>
                             </h2>
-                            <p class="text-red-500">Unavailable</p>
+                            <p class="text-pink-500">Unavailable</p>
 
                             
                             <p class="invisible">Placeholder text</p>
@@ -888,15 +903,16 @@
 
                             
 
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20americano%20https://wahidhasyim02.github.io\/products\/hotdrink\/americano\/';"
-                                class="group  flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed"
-                                disabled>
-                                Buy
-                                <p class="font-bold">
-                                    $23.9
-                                </p>
-                            </button>
+
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/hotdrink/americano/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
 
 
                             
@@ -913,7 +929,7 @@
                     
                     <div
                         class="group order-none flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
-                        <a href="/products/hotdrink/hot-4/"
+                        <a href="/products/hotdrink/wedangjahe/"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             
                             <img src="/images/jahe.webp" alt="First image"
@@ -922,7 +938,7 @@
                         </a>
                         <div class="flex flex-col w-full items-start">
                             <h2 class="text-lg text-neutral-500">
-                                <a href="/products/hotdrink/hot-4/"
+                                <a href="/products/hotdrink/wedangjahe/"
                                     class="group-hover:text-yellow-600 dark:group-hover:text-yellow-500">Wedang Jahe</a>
                             </h2>
                             <p class="text-yellow-500">Pre-Order</p>
@@ -933,14 +949,18 @@
 
                             
 
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20wedang-jahe%20https://wahidhasyim02.github.io\/products\/hotdrink\/hot-4\/';"
-                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                Pre-Order
-                                <p class="font-bold">
-                                    $23.9
-                                </p>
-                            </button>
+                            
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/hotdrink/wedangjahe/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
+
 
 
                             
@@ -957,7 +977,7 @@
                     
                     <div
                         class="group order-last flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
-                        <a href="/products/hotdrink/hot-1/"
+                        <a href="/products/hotdrink/capucino/"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             
                             <img src="/images/capucino.webp" alt="First image"
@@ -966,9 +986,9 @@
                         </a>
                         <div class="flex flex-col w-full items-start">
                             <h2 class="text-lg text-neutral-500">
-                                <a href="/products/hotdrink/hot-1/">Capucino</a>
+                                <a href="/products/hotdrink/capucino/">Capucino</a>
                             </h2>
-                            <p class="text-red-500">Unavailable</p>
+                            <p class="text-pink-500">Unavailable</p>
 
                             
                             <p class="invisible">Placeholder text</p>
@@ -976,15 +996,16 @@
 
                             
 
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20capucino%20https://wahidhasyim02.github.io\/products\/hotdrink\/hot-1\/';"
-                                class="group  flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed"
-                                disabled>
-                                Buy
-                                <p class="font-bold">
-                                    $20.39
-                                </p>
-                            </button>
+
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/hotdrink/capucino/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
 
 
                             
@@ -1036,7 +1057,7 @@
                     
                     <div
                         class="group order-first flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
-                        <a href="/products/cooldrink/cool-5/"
+                        <a href="/products/cooldrink/avocadojuice/"
                             class="relative h-60  w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             
                             <img src="/images/avocado.webp" alt="First image"
@@ -1045,7 +1066,7 @@
                         </a>
                         <div class="flex flex-col w-full items-start">
                             <h2 class="text-lg text-neutral-500">
-                                <a href="/products/cooldrink/cool-5/"
+                                <a href="/products/cooldrink/avocadojuice/"
                                     class="group-hover:text-yellow-600 dark:group-hover:text-yellow-500">Avocado Juice</a>
                             </h2>
                             <p class="text-green-500">Available</p>
@@ -1056,18 +1077,23 @@
 
                             
 
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20avocado-juice%20https://wahidhasyim02.github.io\/products\/cooldrink\/cool-5\/';"
-                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                Buy
-                                <p class="font-bold">
-                                    $19
-                                </p>
-                            </button>
+
+
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/cooldrink/avocadojuice/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
+
 
 
                             
-                            <div class="absolute -top-2 right-2 flex items-center justify-center text-red-700">
+                            <div class="absolute -top-2 right-2 flex items-center justify-center text-pink-700">
                                 <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="6em" height="6em"
                                     viewBox="0 0 24 24">
                                     <path fill="currentColor"
@@ -1088,7 +1114,7 @@
                     
                     <div
                         class="group order-first flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
-                        <a href="/products/cooldrink/cool-4/"
+                        <a href="/products/cooldrink/icecincau/"
                             class="relative h-60  w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             
                             <img src="/images/cincau.webp" alt="First image"
@@ -1097,7 +1123,7 @@
                         </a>
                         <div class="flex flex-col w-full items-start">
                             <h2 class="text-lg text-neutral-500">
-                                <a href="/products/cooldrink/cool-4/"
+                                <a href="/products/cooldrink/icecincau/"
                                     class="group-hover:text-yellow-600 dark:group-hover:text-yellow-500">Ice Cincau</a>
                             </h2>
                             <p class="text-green-500">Available</p>
@@ -1108,18 +1134,23 @@
 
                             
 
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20ice-cincau%20https://wahidhasyim02.github.io\/products\/cooldrink\/cool-4\/';"
-                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                Buy
-                                <p class="font-bold">
-                                    $18
-                                </p>
-                            </button>
+
+
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/cooldrink/icecincau/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
+
 
 
                             
-                            <div class="absolute -top-2 right-2 flex items-center justify-center text-red-700">
+                            <div class="absolute -top-2 right-2 flex items-center justify-center text-pink-700">
                                 <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="6em" height="6em"
                                     viewBox="0 0 24 24">
                                     <path fill="currentColor"
@@ -1140,7 +1171,7 @@
                     
                     <div
                         class="group order-none flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
-                        <a href="/products/cooldrink/cool-3/"
+                        <a href="/products/cooldrink/icefruit/"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             
                             <img src="/images/esbuah.webp" alt="First image"
@@ -1149,7 +1180,7 @@
                         </a>
                         <div class="flex flex-col w-full items-start">
                             <h2 class="text-lg text-neutral-500">
-                                <a href="/products/cooldrink/cool-3/"
+                                <a href="/products/cooldrink/icefruit/"
                                     class="group-hover:text-yellow-600 dark:group-hover:text-yellow-500">Ice Fruit</a>
                             </h2>
                             <p class="text-yellow-500">Pre-Order</p>
@@ -1160,14 +1191,16 @@
 
                             
 
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20ice-fruit%20https://wahidhasyim02.github.io\/products\/cooldrink\/cool-3\/';"
-                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                Pre-Order
-                                <p class="font-bold">
-                                    $21
-                                </p>
-                            </button>
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/cooldrink/icefruit/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
 
 
                             
@@ -1202,18 +1235,23 @@
 
                             
 
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20lemon-ice%20https://wahidhasyim02.github.io\/products\/cooldrink\/lemon-ice\/';"
-                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                Buy
-                                <p class="font-bold">
-                                    $20.39
-                                </p>
-                            </button>
+
+
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/cooldrink/lemon-ice/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
+
 
 
                             
-                            <div class="absolute -top-2 right-2 flex items-center justify-center text-red-700">
+                            <div class="absolute -top-2 right-2 flex items-center justify-center text-pink-700">
                                 <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="6em" height="6em"
                                     viewBox="0 0 24 24">
                                     <path fill="currentColor"
@@ -1234,7 +1272,7 @@
                     
                     <div
                         class="group order-last flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
-                        <a href="/products/cooldrink/cool-2/"
+                        <a href="/products/cooldrink/watermelonice/"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             
                             <img src="/images/watermelon.webp" alt="First image"
@@ -1243,9 +1281,9 @@
                         </a>
                         <div class="flex flex-col w-full items-start">
                             <h2 class="text-lg text-neutral-500">
-                                <a href="/products/cooldrink/cool-2/">Watermelon Ice</a>
+                                <a href="/products/cooldrink/watermelonice/">Watermelon Ice</a>
                             </h2>
-                            <p class="text-red-500">Unavailable</p>
+                            <p class="text-pink-500">Unavailable</p>
 
                             
                             <p>Free shipping available</p>
@@ -1253,15 +1291,16 @@
 
                             
 
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20watermelon-ice%20https://wahidhasyim02.github.io\/products\/cooldrink\/cool-2\/';"
-                                class="group  flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed"
-                                disabled>
-                                Buy
-                                <p class="font-bold">
-                                    $21
-                                </p>
-                            </button>
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/cooldrink/watermelonice/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
 
 
                             
@@ -1309,7 +1348,7 @@
                     
                     <div
                         class="group order-none flex-shrink-0 w-full sm:w-[250px] snap-center flex flex-col items-start justify-start rounded-xl p-2 ring-1 ring-neutral-300 backdrop-blur-md duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
-                        <a href="/products/food/mie/"
+                        <a href="/products/food/miegacoan/"
                             class="relative h-60 w-full overflow-hidden opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100">
                             
                             <img src="/images/gacoan.webp" alt="First image"
@@ -1318,7 +1357,7 @@
                         </a>
                         <div class="flex flex-col w-full items-start">
                             <h2 class="text-lg text-neutral-500">
-                                <a href="/products/food/mie/"
+                                <a href="/products/food/miegacoan/"
                                     class="group-hover:text-yellow-600 dark:group-hover:text-yellow-500">Mie Gacoan</a>
                             </h2>
                             <p class="text-yellow-500">Pre-Order</p>
@@ -1329,14 +1368,16 @@
 
                             
 
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20mie-gacoan%20https://wahidhasyim02.github.io\/products\/food\/mie\/';"
-                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                Pre-Order
-                                <p class="font-bold">
-                                    $23.9
-                                </p>
-                            </button>
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/food/miegacoan/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
 
 
                             
@@ -1362,7 +1403,7 @@
                             <h2 class="text-lg text-neutral-500">
                                 <a href="/products/food/indomie/">Indomie Goreng</a>
                             </h2>
-                            <p class="text-red-500">Unavailable</p>
+                            <p class="text-pink-500">Unavailable</p>
 
                             
                             <p>Free shipping available</p>
@@ -1370,15 +1411,16 @@
 
                             
 
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20indomie-goreng%20https://wahidhasyim02.github.io\/products\/food\/indomie\/';"
-                                class="group  flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg  dark:bg-neutral-800 cursor-not-allowed"
-                                disabled>
-                                Buy
-                                <p class="font-bold">
-                                    $23.9
-                                </p>
-                            </button>
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/food/indomie/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
 
 
                             
@@ -1424,18 +1466,20 @@
 
                             
 
-                            <button
-                                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20ketoprak%20https://wahidhasyim02.github.io\/products\/food\/ketoprak\/';"
-                                class="group  flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
-                                Buy
-                                <p class="font-bold">
-                                    $14.9
-                                </p>
-                            </button>
+                            <div class="w-full flex flex-col gap-2 mt-2">
+                                <a href="/products/food/ketoprak/" class="group flex w-full">
+                                    <button
+                                        class=" flex w-full items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                                        Product Details
+                                    </button>
+                                </a>
+                            </div>
+
+
 
 
                             
-                            <div class="absolute -top-2 right-2 flex items-center justify-center text-red-700">
+                            <div class="absolute -top-2 right-2 flex items-center justify-center text-pink-700">
                                 <svg class="relative" xmlns="http://www.w3.org/2000/svg" width="6em" height="6em"
                                     viewBox="0 0 24 24">
                                     <path fill="currentColor"
@@ -1460,6 +1504,9 @@
         </div>
         
     </div>
+
+
+
 
 
 </div>
@@ -1623,6 +1670,65 @@
   window.addEventListener('scroll', handleScroll);
 </script>
 
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    
+    const path = window.location.pathname;
+
+    
+    const cooldrinkDiv = document.querySelector('.cooldrink');
+    const foodDiv = document.querySelector('.food');
+    const hotdrinkDiv = document.querySelector('.hotdrink');
+    const cooldrinknoDiv = document.querySelector('.cooldrinkno');
+    const foodnoDiv = document.querySelector('.foodno');
+    const hotdrinknoDiv = document.querySelector('.hotdrinkno');
+    const promonoDiv = document.querySelector('.promono');
+    const promoDiv = document.querySelector('.promohide');
+    
+    if (path.includes('/products/hotdrink/')) {
+      cooldrinkDiv.classList.add('hidden');
+      foodDiv.classList.add('hidden');
+      promoDiv.classList.add('hidden');
+      hotdrinknoDiv.classList.add('hidden');
+      hotdrinkDiv.classList.remove('hidden');
+    } else if (path.includes('/products/cooldrink/')) {
+      hotdrinkDiv.classList.add('hidden');
+      foodDiv.classList.add('hidden');
+      promoDiv.classList.add('hidden');
+      cooldrinknoDiv.classList.add('hidden');
+      cooldrinkDiv.classList.remove('hidden');
+    } else if (path.includes('/products/food/')) {
+      cooldrinkDiv.classList.add('hidden');
+      hotdrinkDiv.classList.add('hidden');
+      promoDiv.classList.add('hidden');
+      foodnoDiv.classList.add('hidden');
+      foodDiv.classList.remove('hidden');
+    } else if (path.includes('/products/promotions/')) {
+      cooldrinkDiv.classList.add('hidden');
+      hotdrinkDiv.classList.add('hidden');
+      foodDiv.classList.add('hidden');
+      promonoDiv.classList.add('hidden');
+      promoDiv.classList.remove('hidden');
+      promoDiv.classList.add('flex');
+    } else if (path.includes('/products/')) {
+      cooldrinkDiv.classList.remove('hidden');
+      foodDiv.classList.remove('hidden');
+      hotdrinkDiv.classList.remove('hidden');
+      cooldrinkDiv.classList.add('flex');
+      foodDiv.classList.add('flex');
+      hotdrinkDiv.classList.add('flex');
+      cooldrinknoDiv.classList.remove('hidden');
+      foodnoDiv.classList.remove('hidden');
+      hotdrinknoDiv.classList.remove('hidden');
+      cooldrinknoDiv.classList.add('flex');
+      foodnoDiv.classList.add('flex');
+      hotdrinknoDiv.classList.add('flex');
+      promoDiv.classList.add('hidden');
+    }
+  });
+</script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     document.querySelector('.linkwa').addEventListener('click', function () {
@@ -1636,6 +1742,122 @@
       window.location.href = 'https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20cool-drinks%20https://wahidhasyim02.github.io\/products\/cooldrink\/';
     });
   });
+</script>
+
+
+<script>
+  document.getElementById('paymentMethod').addEventListener('change', function () {
+    var selectedValue = this.value;
+
+    
+    document.getElementById('viabank').classList.add('hidden');
+    document.getElementById('viacard').classList.add('hidden');
+    document.getElementById('viaewallet').classList.add('hidden');
+
+    
+    if (selectedValue === 'bank') {
+      document.getElementById('viabank').classList.remove('hidden');
+    } else if (selectedValue === 'credit-card') {
+      document.getElementById('viacard').classList.remove('hidden');
+    } else if (selectedValue === 'e-wallet') {
+      document.getElementById('viaewallet').classList.remove('hidden');
+    }
+  });
+</script>
+
+<script>
+  
+  document.querySelectorAll('.btn-buy').forEach(function (button) {
+    button.addEventListener('click', function () {
+      
+      document.getElementById('paymentPopup').classList.remove('hidden');
+      document.getElementById('paymentPopup').classList.add('flex');
+    });
+  });
+
+  
+  document.getElementById('btn-cancelpay').addEventListener('click', function () {
+    document.getElementById('paymentPopup').classList.remove('flex');
+    document.getElementById('paymentPopup').classList.add('hidden');
+  });
+
+  
+  document.getElementById('btn-pay').addEventListener('click', function () {
+    var paymentMethod = document.getElementById('paymentMethod').value;
+    var name = document.getElementById('name').value;
+    var phone = document.getElementById('phone').value;
+    var address = document.getElementById('address').value;
+    var url = document.getElementById('url').innerText; 
+
+    if (!paymentMethod || !name || !phone || !address) {
+      alert('Please fill in all the details');
+      return;
+    }
+
+    
+    var mailtoLink = `mailto:wahidhasyim46@gmail.com?subject=Payment%20Confirmation&body=Payment%20Method:%20${paymentMethod}%0AName:%20${name}%0APhone:%20${phone}%0AAddress:%20${address}%0AProduct%20URL:%20${url}%0A%0A*Please attach proof of payment in your email.*`;
+
+    window.location.href = mailtoLink;
+  });
+</script>
+
+
+
+<script>
+  
+  document.querySelectorAll('.btn-buy').forEach(function (button) {
+    button.addEventListener('click', function () {
+      
+      document.getElementById('paymentPopup').classList.remove('hidden');
+      document.getElementById('paymentPopup').classList.add('flex');
+    });
+  });
+
+  
+  document.getElementById('btn-cancelpay').addEventListener('click', function () {
+    document.getElementById('paymentPopup').classList.remove('flex');
+    document.getElementById('paymentPopup').classList.add('hidden');
+  });
+</script>
+
+
+<script>
+  
+  document.getElementById('phone').addEventListener('input', function (e) {
+    this.value = this.value.replace(/[^0-9]/g, ''); 
+  });
+
+  
+  document.getElementById('btn-pay').addEventListener('click', function (e) {
+    var phone = document.getElementById('phone').value;
+    var errorMessage = document.getElementById('phone-error');
+
+    
+    if (!/^\d+$/.test(phone)) {
+      errorMessage.classList.remove('hidden'); 
+      e.preventDefault(); 
+    } else {
+      errorMessage.classList.add('hidden'); 
+    }
+  });
+</script>
+
+<script>
+  function copyToClipboard(id) {
+    
+    const number = document.getElementById(id).innerText;
+
+    
+    const tempInput = document.createElement('input');
+    tempInput.value = number;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+
+    
+    alert('Nomor disalin: ' + number);
+  }
 </script>
   </footer>
 

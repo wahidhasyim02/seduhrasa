@@ -85,11 +85,33 @@
     function setTheme(isDarkMode) {
       if (isDarkMode) {
         document.documentElement.classList.add("dark");
-        textDarkMode.textContent = "light_mode";
+
+        
+        textDarkMode.classList.add("opacity-0");
+
+        setTimeout(() => {
+          
+          textDarkMode.textContent = "light_mode";
+
+          
+          textDarkMode.classList.remove("opacity-0");
+        }, 500); 
       } else {
         document.documentElement.classList.remove("dark");
-        textDarkMode.textContent = "dark_mode";
+
+        
+        textDarkMode.classList.add("opacity-0");
+
+        setTimeout(() => {
+          
+          textDarkMode.textContent = "dark_mode";
+
+          
+          textDarkMode.classList.remove("opacity-0");
+        }, 500); 
       }
+
+
     }
 
     
@@ -121,7 +143,7 @@
     setTimeout(startProgressBar, 0);
 
     
-    const elements = document.querySelectorAll(".fadeup");
+    const elements = document.querySelectorAll(".fade");
     elements.forEach((element) => {
       element.classList.remove("opacity-0");
       element.classList.remove("translate-y-10");
@@ -137,64 +159,6 @@
 
 
 </script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    
-    const path = window.location.pathname;
-
-    
-    const cooldrinkDiv = document.querySelector('.cooldrink');
-    const foodDiv = document.querySelector('.food');
-    const hotdrinkDiv = document.querySelector('.hotdrink');
-    const cooldrinknoDiv = document.querySelector('.cooldrinkno');
-    const foodnoDiv = document.querySelector('.foodno');
-    const hotdrinknoDiv = document.querySelector('.hotdrinkno');
-    const promonoDiv = document.querySelector('.promono');
-    const promoDiv = document.querySelector('.promohide');
-    
-    if (path.includes('/products/hotdrink/')) {
-      cooldrinkDiv.classList.add('hidden');
-      foodDiv.classList.add('hidden');
-      promoDiv.classList.add('hidden');
-      hotdrinknoDiv.classList.add('hidden');
-      hotdrinkDiv.classList.remove('hidden');
-    } else if (path.includes('/products/cooldrink/')) {
-      hotdrinkDiv.classList.add('hidden');
-      foodDiv.classList.add('hidden');
-      promoDiv.classList.add('hidden');
-      cooldrinknoDiv.classList.add('hidden');
-      cooldrinkDiv.classList.remove('hidden');
-    } else if (path.includes('/products/food/')) {
-      cooldrinkDiv.classList.add('hidden');
-      hotdrinkDiv.classList.add('hidden');
-      promoDiv.classList.add('hidden');
-      foodnoDiv.classList.add('hidden');
-      foodDiv.classList.remove('hidden');
-    } else if (path.includes('/products/promotions/')) {
-      cooldrinkDiv.classList.add('hidden');
-      hotdrinkDiv.classList.add('hidden');
-      foodDiv.classList.add('hidden');
-      promonoDiv.classList.add('hidden');
-      promoDiv.classList.remove('hidden');
-      promoDiv.classList.add('flex');
-    } else if (path.includes('/products/')) {
-      cooldrinkDiv.classList.remove('hidden');
-      foodDiv.classList.remove('hidden');
-      hotdrinkDiv.classList.remove('hidden');
-      cooldrinkDiv.classList.add('flex');
-      foodDiv.classList.add('flex');
-      hotdrinkDiv.classList.add('flex');
-      cooldrinknoDiv.classList.remove('hidden');
-      foodnoDiv.classList.remove('hidden');
-      hotdrinknoDiv.classList.remove('hidden');
-      cooldrinknoDiv.classList.add('flex');
-      foodnoDiv.classList.add('flex');
-      hotdrinknoDiv.classList.add('flex');
-      promoDiv.classList.add('hidden');
-    }
-  });
-</script>
 </head>
 
 <body
@@ -202,10 +166,12 @@
   <header id="main-header"
     class="fixed left-12 right-0 top-0 z-1000 w-full rounded-tl-3xl bg-neutral-200/0 transition-colors duration-1000 dark:bg-neutral-900/0 md:left-16">
     <div
-  class="flex h-16 w-custom-width content-center items-center justify-between rounded-tl-3xl px-4 text-neutral-500 sm:px-6 lg:px-10 xl:px-12">
-  <a href="/" class="group  z-20 flex items-center space-x-2">
-    <img id="logo-seduhrasa" src="/images/favicon.png" class="h-8 w-auto" alt="logo-seduhrasa" />
-    <h1 class="hidden font-dosis text-2xl font-bold hover:text-neutral-950 dark:hover:text-neutral-400 md:flex">
+  class="fade opacity-0 transition-opacity ease-in-out duration-[4000ms] flex h-16 w-custom-width content-center items-center justify-between rounded-tl-3xl px-4 text-neutral-500 sm:px-6 lg:px-10 xl:px-12">
+  <a href="/"
+    class="fade opacity-0 transition-opacity ease-in-out duration-[4000ms]  group  z-20 flex items-center space-x-2">
+    <img href="/" id="logo-seduhrasa" src="/images/favicon.png" class="h-8 w-auto" alt="logo-seduhrasa" />
+    <h1 href="/"
+      class="hidden font-dosis text-2xl font-bold hover:text-neutral-950 dark:hover:text-neutral-400 md:flex">
       SeduhRasa
     </h1>
   </a>
@@ -277,7 +243,8 @@
       class="group flex h-full w-full cursor-pointer flex-col items-start justify-center px-1 text-center sm:px-2 md:px-4">
       <div class="flex transition-all duration-1000 group-hover:text-yellow-600 dark:group-hover:text-yellow-500"
         title="dark_mode">
-        <span id="text_darkmode" class="material-symbols-rounded flex text-3xl">dark_mode</span>
+        <span id="text_darkmode"
+          class="material-symbols-rounded flex text-3xl fade opacity-0 transition-opacity ease-in-out duration-[4000ms] ">dark_mode</span>
       </div>
     </li>
        
@@ -347,9 +314,10 @@
     <div class="bar-of-progress z-1500" id="progress-bar">
       <div class="glow"></div>
     </div>
-    <div class="fixed left-0 top-0 flex h-full w-12 flex-col items-center justify-center md:w-16">
+    <div
+  class="fade opacity-0 transition-opacity ease-in-out duration-[4000ms] fixed left-0 top-0 flex h-full w-12 flex-col items-center justify-center md:w-16">
   <nav
-    class="flex flex-col divide-y divide-neutral-400 dark:divide-neutral-800 transition-colors duration-1000  justify-center items-center">
+    class="flex flex-col divide-y divide-neutral-400 dark:divide-neutral-800 transition-colors  duration-1000  justify-center items-center">
     <ul class="flex flex-col gap-y-4 py-8">
       
       <li class="group flex items-center justify-center">
@@ -452,42 +420,58 @@
     class="flex h-fit w-full flex-col items-center justify-start space-y-6 bg-neutral-200 px-4 pb-12 transition-colors duration-1000 dark:bg-neutral-900 sm:px-6 md:space-y-6 lg:px-10 xl:px-12">
 
 
-    <div
-        class="flex z-10 h-[450px] w-full flex-col sm:flex-row items-start overflow-hidden rounded-xl backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
-        
-        <div class="h-full w-full sm:w-[60%] md:w-[70%] group">
 
+    <div
+        class="flex z-10 h-full sm:h-[450px] w-full flex-col sm:flex-row items-start overflow-hidden rounded-xl backdrop-blur-md odd:bg-white/10 even:bg-white/20 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30">
+
+
+
+
+
+
+        <div class="h-[50%] sm:h-full w-full sm:w-[60%] md:w-[70%] group">
+             
+            <img src="/images/indomie.webp" alt="Indomie Goreng" class="h-full sm:h-full w-full  object-cover grayscale" />
             
-            <img src="/images/indomie.webp" alt="Indomie Goreng" class="h-full w-full rounded-l-md object-cover grayscale" />
             
             <div
-                class="absolute bottom-[400px] sm:bottom-0 h-full group-hover:h-30% w-full sm:w-[60%] md:w-[70%]  bg-gradient-to-b from-black/0 to-black group-hover:opacity-70 transition-all duration-700">
+                class="absolute sm:bottom-0 h-full group-hover:h-30% w-full sm:w-[60%] md:w-[70%]  bg-gradient-to-b from-black/0 to-black group-hover:opacity-50 transition-all duration-700">
 
             </div>
             <h1
-                class="border-l absolute bottom-10 left-4 sm:left-10 border-yellow-500 pl-2 text-4xl text-left font-semibold text-neutral-100 w-full  text-shadow-md duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
+                class="border-l hidden sm:flex absolute sm:bottom-6 sm:left-10 border-yellow-500 pl-2 text-4xl text-left font-semibold text-neutral-100 w-full  text-shadow-md duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
                 Indomie Goreng
             </h1>
         </div>
         <div
-            class="product-info w-full sm:w-[40%] md:w-[30%] h-full z-10 p-3 space-y-2 bg-white dark:bg-neutral-800/20">
+            class="product-info w-full sm:w-[40%] md:w-[30%] h-full z-10 p-3 space-y-2 bg-white dark:bg-neutral-800/90">
 
+            <h1
+                class="border-l flex sm:hidden border-yellow-500 pl-2 text-3xl text-left font-semibold w-full  text-shadow-md duration-[100ms] ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-1000 group-hover:ease-in">
+                Indomie Goreng
+            </h1>
             <h1 class="text-4xl font-bold">$23.9</h1>
-            <p class="px-1 py-0 bg-red-200 text-red-600 font-bold w-fit rounded">20%</p>
-
-            <p
-                class="text-red-500">Unavailable</p> 
+            <p class="px-1 py-0 bg-pink-200 text-pink-600 font-bold w-fit rounded">20%</p>
+            
+            <p class="text-pink-500">Unavailable</p>
+            
             <p><strong>Description:</strong> <p>This is the full content of Product Item 2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum mci, autem
 placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
 </p>
+
+
+            
             <button
-                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-400 dark:text-neutral-700 shadow-lg dark:bg-neutral-800 cursor-not-allowed opacity-50"
+                onclick="window.location.href='https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20indomie-goreng%20https://wahidhasyim02.github.io\/products\/food\/indomie\/';"
+                class="group flex w-full items-center justify-between rounded-md bg-neutral-500 px-4 py-2 text-center text-lg text-neutral-200 shadow-lg dark:bg-neutral-600 cursor-not-allowed"
                 disabled>
-                Buy
+                Unavailable
                 <p class="font-bold">
                     $23.9
                 </p>
             </button>
+            
+
 
             <div class="hidden">
 <div>
@@ -502,9 +486,149 @@ placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
 
 
         </div>
-        
+
+
+
     </div>
 
+
+    
+    <div id="paymentPopup" class="fixed z-1000 inset-0 mx-4 p-4 hidden justify-center items-center">
+        
+        <div
+            class="bg-white h-[90%] overflow-style-y overflow-y-auto overflow-x-hidden overscroll-auto dark:bg-neutral-800 p-8 rounded shadow-lg max-w-lg w-full">
+            
+            <h2 class="text-2xl font-bold mb-4">Confirm Your Payment</h2>
+
+            
+            <div class="mb-4">
+                <p><strong>Product: </strong>Indomie Goreng</p>
+                <p><strong>Url: </strong><span id="url">https://wahidhasyim02.github.io/products/food/indomie/</span></p>
+                <p><strong>Quantity: </strong>1</p>
+                <p><strong>Total Price: </strong>$23.9</p>
+            </div>
+            <div class="flex flex-col gap-2">
+                
+                <label class="relative block">
+                    <span class="sr-only">Payment Methods</span>
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <span class="material-symbols-rounded">payments</span>
+                    </span>
+                    <select id="paymentMethod"
+                        class="block w-full rounded-md border border-neutral-400 bg-neutral-100 py-2 pl-10 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800">
+                        <option value="">Select Payment Method</option>
+                        <option value="bank">Bank Transfer</option>
+                        <option value="credit-card">Credit Card</option>
+                        <option value="e-wallet">E-Wallet</option>
+                    </select>
+                </label>
+
+                <div id="viabank"
+                    class="hidden w-full rounded-md border border-neutral-400 bg-neutral-200 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-700/30">
+                    <p class="text-sm mb-2">Pembayaran hanya akan dikonfirmasi di hari <strong>Senin-Jum'at</strong> jam
+                        <strong>08.00-16.00</strong>
+                    </p>
+                    <div class="h-8 p-1 bg-cover rounded-md  overflow-hidden">
+                        <img src="/images/bca.png" class="h-full object-cover" alt="">
+                    </div>
+                    <div
+                        class="flex items-center space-x-2 px-3 py-1 justify-between w-full rounded-md border border-neutral-400 dark:border-neutral-700">
+                        <h3 id="rekening-number" class="text-2xl font-semibold">000 000 001</h3>
+                        <button onclick="copyToClipboard('rekening-number')"
+                            class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Salin</button>
+                    </div>
+                    <h3>a.n. WAHID HASYIM</h3>
+                </div>
+
+                <div id="viacard"
+                    class="hidden w-full rounded-md border border-neutral-400 bg-neutral-200 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-700/30">
+                    <p class="text-sm mb-2">Pembayaran hanya akan dikonfirmasi di hari <strong>Senin-Jum'at</strong> jam
+                        <strong>08.00-16.00</strong>
+                    </p>
+                    <div class="h-8 p-1 bg-cover rounded-md  overflow-hidden">
+                        <img src="/images/card.png" class="h-full object-cover" alt="">
+                    </div>
+                    <div
+                        class="flex items-center space-x-2 px-3 py-1 justify-between w-full rounded-md border border-neutral-400 dark:border-neutral-700">
+                        <h3 id="credit-card-number" class="text-2xl font-semibold">000 001 001</h3>
+                        <button onclick="copyToClipboard('credit-card-number')"
+                            class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Salin</button>
+                    </div>
+                    <h3>a.n. WAHID HASYIM</h3>
+                </div>
+
+                <div id="viaewallet"
+                    class="hidden w-full rounded-md border border-neutral-400 bg-neutral-200 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-700/30">
+                    <p class="text-sm mb-2">Pembayaran hanya akan dikonfirmasi di hari <strong>Senin-Jum'at</strong> jam
+                        <strong>08.00-16.00</strong>
+                    </p>
+                    <div class="h-8 p-1 bg-cover rounded-md  overflow-hidden">
+                        <img src="/images/gopay.png" class="h-full object-cover" alt="">
+                    </div>
+                    <div
+                        class="flex items-center space-x-2 px-3 py-1 justify-between w-full rounded-md border border-neutral-400 dark:border-neutral-700">
+                        <h3 id="e-wallet-number" class="text-2xl font-semibold">000 002 001</h3>
+                        <button onclick="copyToClipboard('e-wallet-number')"
+                            class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Salin</button>
+                    </div>
+                    <h3>a.n. WAHID HASYIM</h3>
+                </div>
+
+
+
+                
+                <label class="relative block ">
+                    <span class="sr-only">Name</span>
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <span class="material-symbols-rounded">person</span>
+                    </span>
+                    <input id="name"
+                        class="block w-full rounded-md border border-neutral-400  bg-neutral-100 py-2 pl-10 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800"
+                        placeholder="Enter your name" type="text" name="name" />
+                </label>
+                <label class="relative block ">
+                    <span class="sr-only">Phone</span>
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <span class="material-symbols-rounded">smartphone</span>
+                    </span>
+                    <input id="phone"
+                        class="block w-full rounded-md border border-neutral-400  bg-neutral-100 py-2 pl-10 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800"
+                        placeholder="Enter your phone number" type="tel" inputmode="numeric" pattern="[0-9]*"
+                        name="phone" />
+                </label>
+                <label class="relative block ">
+                    <span class="sr-only">Address</span>
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <span class="material-symbols-rounded">location_on</span>
+                    </span>
+                    <input id="address"
+                        class="block w-full rounded-md border border-neutral-400  bg-neutral-100 py-2 pl-10 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800"
+                        placeholder="Enter your address" type="text" name="address" />
+                </label>
+                
+                <label for="file" class="block text-sm font-medium text-pink-600 dark:text-pink-500">Please upload your
+                    payment proof
+                    (e.g., receipt, screenshot)</label>
+
+
+            </div>
+            
+            <div class="flex justify-end space-x-3 mt-6">
+
+                <button id="btn-cancelpay" class="group flex h-fit w-fit items-center justify-center rounded-md bg-neutral-500 px-4 py-2
+                    text-center text-lg text-white shadow-lg hover:bg-neutral-600 dark:bg-neutral-600
+                    dark:hover:bg-neutral-500">
+                    Cancel
+
+                </button>
+                <button id="btn-pay"
+                    class="group flex h-fit w-full sm:w-fit items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                    Confirm payment
+
+                </button>
+            </div>
+        </div>
+    </div>
 
 
     <div class="z-10">
@@ -669,6 +793,196 @@ placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
 
   
   window.addEventListener('scroll', handleScroll);
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    
+    const path = window.location.pathname;
+
+    
+    const cooldrinkDiv = document.querySelector('.cooldrink');
+    const foodDiv = document.querySelector('.food');
+    const hotdrinkDiv = document.querySelector('.hotdrink');
+    const cooldrinknoDiv = document.querySelector('.cooldrinkno');
+    const foodnoDiv = document.querySelector('.foodno');
+    const hotdrinknoDiv = document.querySelector('.hotdrinkno');
+    const promonoDiv = document.querySelector('.promono');
+    const promoDiv = document.querySelector('.promohide');
+    
+    if (path.includes('/products/hotdrink/')) {
+      cooldrinkDiv.classList.add('hidden');
+      foodDiv.classList.add('hidden');
+      promoDiv.classList.add('hidden');
+      hotdrinknoDiv.classList.add('hidden');
+      hotdrinkDiv.classList.remove('hidden');
+    } else if (path.includes('/products/cooldrink/')) {
+      hotdrinkDiv.classList.add('hidden');
+      foodDiv.classList.add('hidden');
+      promoDiv.classList.add('hidden');
+      cooldrinknoDiv.classList.add('hidden');
+      cooldrinkDiv.classList.remove('hidden');
+    } else if (path.includes('/products/food/')) {
+      cooldrinkDiv.classList.add('hidden');
+      hotdrinkDiv.classList.add('hidden');
+      promoDiv.classList.add('hidden');
+      foodnoDiv.classList.add('hidden');
+      foodDiv.classList.remove('hidden');
+    } else if (path.includes('/products/promotions/')) {
+      cooldrinkDiv.classList.add('hidden');
+      hotdrinkDiv.classList.add('hidden');
+      foodDiv.classList.add('hidden');
+      promonoDiv.classList.add('hidden');
+      promoDiv.classList.remove('hidden');
+      promoDiv.classList.add('flex');
+    } else if (path.includes('/products/')) {
+      cooldrinkDiv.classList.remove('hidden');
+      foodDiv.classList.remove('hidden');
+      hotdrinkDiv.classList.remove('hidden');
+      cooldrinkDiv.classList.add('flex');
+      foodDiv.classList.add('flex');
+      hotdrinkDiv.classList.add('flex');
+      cooldrinknoDiv.classList.remove('hidden');
+      foodnoDiv.classList.remove('hidden');
+      hotdrinknoDiv.classList.remove('hidden');
+      cooldrinknoDiv.classList.add('flex');
+      foodnoDiv.classList.add('flex');
+      hotdrinknoDiv.classList.add('flex');
+      promoDiv.classList.add('hidden');
+    }
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector('.linkwa').addEventListener('click', function () {
+      window.open('https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20indomie-goreng%20https://wahidhasyim02.github.io\/products\/food\/indomie\/');
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById('btn-wa').addEventListener('click', function () {
+      window.location.href = 'https://wa.me/62895605958708?text=Hello,%20I%20am%20interested%20in%20your%20product%20indomie-goreng%20https://wahidhasyim02.github.io\/products\/food\/indomie\/';
+    });
+  });
+</script>
+
+
+<script>
+  document.getElementById('paymentMethod').addEventListener('change', function () {
+    var selectedValue = this.value;
+
+    
+    document.getElementById('viabank').classList.add('hidden');
+    document.getElementById('viacard').classList.add('hidden');
+    document.getElementById('viaewallet').classList.add('hidden');
+
+    
+    if (selectedValue === 'bank') {
+      document.getElementById('viabank').classList.remove('hidden');
+    } else if (selectedValue === 'credit-card') {
+      document.getElementById('viacard').classList.remove('hidden');
+    } else if (selectedValue === 'e-wallet') {
+      document.getElementById('viaewallet').classList.remove('hidden');
+    }
+  });
+</script>
+
+<script>
+  
+  document.querySelectorAll('.btn-buy').forEach(function (button) {
+    button.addEventListener('click', function () {
+      
+      document.getElementById('paymentPopup').classList.remove('hidden');
+      document.getElementById('paymentPopup').classList.add('flex');
+    });
+  });
+
+  
+  document.getElementById('btn-cancelpay').addEventListener('click', function () {
+    document.getElementById('paymentPopup').classList.remove('flex');
+    document.getElementById('paymentPopup').classList.add('hidden');
+  });
+
+  
+  document.getElementById('btn-pay').addEventListener('click', function () {
+    var paymentMethod = document.getElementById('paymentMethod').value;
+    var name = document.getElementById('name').value;
+    var phone = document.getElementById('phone').value;
+    var address = document.getElementById('address').value;
+    var url = document.getElementById('url').innerText; 
+
+    if (!paymentMethod || !name || !phone || !address) {
+      alert('Please fill in all the details');
+      return;
+    }
+
+    
+    var mailtoLink = `mailto:wahidhasyim46@gmail.com?subject=Payment%20Confirmation&body=Payment%20Method:%20${paymentMethod}%0AName:%20${name}%0APhone:%20${phone}%0AAddress:%20${address}%0AProduct%20URL:%20${url}%0A%0A*Please attach proof of payment in your email.*`;
+
+    window.location.href = mailtoLink;
+  });
+</script>
+
+
+
+<script>
+  
+  document.querySelectorAll('.btn-buy').forEach(function (button) {
+    button.addEventListener('click', function () {
+      
+      document.getElementById('paymentPopup').classList.remove('hidden');
+      document.getElementById('paymentPopup').classList.add('flex');
+    });
+  });
+
+  
+  document.getElementById('btn-cancelpay').addEventListener('click', function () {
+    document.getElementById('paymentPopup').classList.remove('flex');
+    document.getElementById('paymentPopup').classList.add('hidden');
+  });
+</script>
+
+
+<script>
+  
+  document.getElementById('phone').addEventListener('input', function (e) {
+    this.value = this.value.replace(/[^0-9]/g, ''); 
+  });
+
+  
+  document.getElementById('btn-pay').addEventListener('click', function (e) {
+    var phone = document.getElementById('phone').value;
+    var errorMessage = document.getElementById('phone-error');
+
+    
+    if (!/^\d+$/.test(phone)) {
+      errorMessage.classList.remove('hidden'); 
+      e.preventDefault(); 
+    } else {
+      errorMessage.classList.add('hidden'); 
+    }
+  });
+</script>
+
+<script>
+  function copyToClipboard(id) {
+    
+    const number = document.getElementById(id).innerText;
+
+    
+    const tempInput = document.createElement('input');
+    tempInput.value = number;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+
+    
+    alert('Nomor disalin: ' + number);
+  }
 </script>
   </footer>
 

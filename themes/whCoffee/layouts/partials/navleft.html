@@ -1,6 +1,7 @@
-<div class="fixed left-0 top-0 flex h-full w-12 flex-col items-center justify-center md:w-16">
+<div
+  class="fade opacity-0 transition-opacity ease-in-out duration-[4000ms] fixed left-0 top-0 flex h-full w-12 flex-col items-center justify-center md:w-16">
   <nav
-    class="flex flex-col divide-y divide-neutral-400 dark:divide-neutral-800 transition-colors duration-1000  justify-center items-center">
+    class="flex flex-col divide-y divide-neutral-400 dark:divide-neutral-800 transition-colors  duration-1000  justify-center items-center">
     <ul class="flex flex-col gap-y-4 py-8">
       {{ range .Site.Menus.left }}
       <li class="group flex items-center justify-center">

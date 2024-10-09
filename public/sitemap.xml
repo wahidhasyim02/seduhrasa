@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/products/hotdrink/hot-5/</loc>
+    <loc>http://localhost:1313/products/hotdrink/blacktea/</loc>
     <lastmod>2024-09-28T10:00:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
@@ -35,7 +35,7 @@
     <loc>http://localhost:1313/location/</loc>
     <lastmod>2024-09-07T10:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/products/cooldrink/cool-5/</loc>
+    <loc>http://localhost:1313/products/cooldrink/avocadojuice/</loc>
     <lastmod>2024-08-30T10:00:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/products/cooldrink/</loc>
@@ -62,10 +62,10 @@
     <loc>http://localhost:1313/products/food/mie/</loc>
     <lastmod>2024-08-30T10:00:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/products/cooldrink/cool-4/</loc>
+    <loc>http://localhost:1313/products/cooldrink/icecincau/</loc>
     <lastmod>2024-08-29T10:00:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/products/cooldrink/cool-3/</loc>
+    <loc>http://localhost:1313/products/cooldrink/icefruit/</loc>
     <lastmod>2024-08-29T10:00:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/products/cooldrink/lemon-ice/</loc>
@@ -80,10 +80,10 @@
     <loc>http://localhost:1313/products/food/ketoprak/</loc>
     <lastmod>2024-08-24T10:00:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/products/cooldrink/cool-2/</loc>
+    <loc>http://localhost:1313/products/cooldrink/watermelonice/</loc>
     <lastmod>2024-08-24T10:00:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/products/hotdrink/hot-3/</loc>
+    <loc>http://localhost:1313/products/hotdrink/greentea/</loc>
     <lastmod>2024-08-22T10:00:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/americano/</loc>
@@ -95,7 +95,7 @@
     <loc>http://localhost:1313/tags/coffee/</loc>
     <lastmod>2024-08-20T10:00:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/products/hotdrink/hot-4/</loc>
+    <loc>http://localhost:1313/products/hotdrink/wedangjahe/</loc>
     <lastmod>2024-07-18T10:00:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/testimonials/testi-7/</loc>
@@ -143,7 +143,7 @@
     <loc>http://localhost:1313/tags/capucino/</loc>
     <lastmod>2023-07-19T10:00:00+07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/products/hotdrink/hot-1/</loc>
+    <loc>http://localhost:1313/products/hotdrink/capucino/</loc>
     <lastmod>2023-07-19T10:00:00+07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/news/post-2/</loc>
