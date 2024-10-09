@@ -534,54 +534,59 @@ placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
                 </label>
 
                 <div id="viabank"
-                    class="hidden w-full rounded-md border border-neutral-400 bg-neutral-200 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-700/30">
+                    class="hidden w-full rounded-md border-neutral-400 bg-neutral-200 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-700/30">
                     <p class="text-sm mb-2">Pembayaran hanya akan dikonfirmasi di hari <strong>Senin-Jum'at</strong> jam
                         <strong>08.00-16.00</strong>
                     </p>
-                    <div class="h-8 p-1 bg-cover rounded-md  overflow-hidden">
+                    <div
+                        class="h-8 p-1 bg-cover items-center justify-center flex sm:items-start sm:justify-start rounded-md  overflow-hidden">
                         <img src="/images/bca.png" class="h-full object-cover" alt="">
                     </div>
                     <div
-                        class="flex items-center space-x-2 px-3 py-1 justify-between w-full rounded-md border border-neutral-400 dark:border-neutral-700">
-                        <h3 id="rekening-number" class="text-2xl font-semibold">000 000 001</h3>
+                        class="flex flex-col items-center justify-center sm:flex-row sm:items-start sm:space-x-2 px-3 py-1 sm:justify-between w-full rounded-md border border-neutral-400 dark:border-neutral-700">
+                        <h3 id="rekening-number" class="text-2xl text-center sm:text-start w-full font-semibold">
+                            000 001 001</h3>
                         <button onclick="copyToClipboard('rekening-number')"
                             class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Salin</button>
                     </div>
-                    <h3>a.n. WAHID HASYIM</h3>
+                    <h3 class="text-center sm:text-start">a.n. WAHID HASYIM</h3>
                 </div>
-
                 <div id="viacard"
-                    class="hidden w-full rounded-md border border-neutral-400 bg-neutral-200 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-700/30">
+                    class="hidden w-full rounded-md border-neutral-400 bg-neutral-200 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-700/30">
                     <p class="text-sm mb-2">Pembayaran hanya akan dikonfirmasi di hari <strong>Senin-Jum'at</strong> jam
                         <strong>08.00-16.00</strong>
                     </p>
-                    <div class="h-8 p-1 bg-cover rounded-md  overflow-hidden">
+                    <div
+                        class="h-8 p-1 bg-cover items-center justify-center flex sm:items-start sm:justify-start rounded-md  overflow-hidden">
                         <img src="/images/card.png" class="h-full object-cover" alt="">
                     </div>
                     <div
-                        class="flex items-center space-x-2 px-3 py-1 justify-between w-full rounded-md border border-neutral-400 dark:border-neutral-700">
-                        <h3 id="credit-card-number" class="text-2xl font-semibold">000 001 001</h3>
+                        class="flex flex-col items-center justify-center sm:flex-row sm:items-start sm:space-x-2 px-3 py-1 sm:justify-between w-full rounded-md border border-neutral-400 dark:border-neutral-700">
+                        <h3 id="credit-card-number" class="text-2xl text-center sm:text-start w-full font-semibold">
+                            000 001 002</h3>
                         <button onclick="copyToClipboard('credit-card-number')"
                             class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Salin</button>
                     </div>
-                    <h3>a.n. WAHID HASYIM</h3>
+                    <h3 class="text-center sm:text-start">a.n. WAHID HASYIM</h3>
                 </div>
 
                 <div id="viaewallet"
-                    class="hidden w-full rounded-md border border-neutral-400 bg-neutral-200 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-700/30">
+                    class="hidden w-full rounded-md border-neutral-400 bg-neutral-200 p-4 shadow-sm dark:border-neutral-700 dark:bg-neutral-700/30">
                     <p class="text-sm mb-2">Pembayaran hanya akan dikonfirmasi di hari <strong>Senin-Jum'at</strong> jam
                         <strong>08.00-16.00</strong>
                     </p>
-                    <div class="h-8 p-1 bg-cover rounded-md  overflow-hidden">
+                    <div
+                        class="h-8 p-1 bg-cover items-center justify-center flex sm:items-start sm:justify-start rounded-md  overflow-hidden">
                         <img src="/images/gopay.png" class="h-full object-cover" alt="">
                     </div>
                     <div
-                        class="flex items-center space-x-2 px-3 py-1 justify-between w-full rounded-md border border-neutral-400 dark:border-neutral-700">
-                        <h3 id="e-wallet-number" class="text-2xl font-semibold">000 002 001</h3>
+                        class="flex flex-col items-center justify-center sm:flex-row sm:items-start sm:space-x-2 px-3 py-1 sm:justify-between w-full rounded-md border border-neutral-400 dark:border-neutral-700">
+                        <h3 id="e-wallet-number" class="text-2xl text-center sm:text-start w-full font-semibold">
+                            000 001 003</h3>
                         <button onclick="copyToClipboard('e-wallet-number')"
                             class="bg-blue-500 text-white py-1 px-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Salin</button>
                     </div>
-                    <h3>a.n. WAHID HASYIM</h3>
+                    <h3 class="text-center sm:text-start">a.n. WAHID HASYIM</h3>
                 </div>
 
 
@@ -881,7 +886,6 @@ placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
 </script>
 
 
-
 <script>
   
   document.querySelectorAll('.btn-buy').forEach(function (button) {
@@ -906,17 +910,41 @@ placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
     var address = document.getElementById('address').value;
     var url = document.getElementById('url').innerText; 
 
+    
     if (!paymentMethod || !name || !phone || !address) {
       alert('Please fill in all the details');
       return;
     }
 
     
+    var payButton = document.getElementById('btn-pay');
+    payButton.disabled = true;
+
+    payButton.classList.remove('bg-yellow-500', 'dark:bg-yellow-600', 'text-neutral-950', 'hover:bg-yellow-600', 'hover:text-neutral-950', 'dark:hover:bg-yellow-500');
+    payButton.classList.add('bg-neutral-500', 'dark:bg-neutral-600', 'text-neutral-200', 'hover:bg-neutral-500', 'dark:hover:bg-neutral-600', 'hover:text-neutral-200', 'cursor-not-allowed');
+
+    
     var mailtoLink = `mailto:wahidhasyim46@gmail.com?subject=Payment%20Confirmation&body=Payment%20Method:%20${paymentMethod}%0AName:%20${name}%0APhone:%20${phone}%0AAddress:%20${address}%0AProduct%20URL:%20${url}%0A%0A*Please attach proof of payment in your email.*`;
 
-    window.location.href = mailtoLink;
+    
+    setTimeout(function () {
+      
+      window.location.href = mailtoLink;
+
+      
+      document.getElementById('paymentPopup').classList.remove('flex');
+      document.getElementById('paymentPopup').classList.add('hidden');
+
+      
+
+      payButton.disabled = false;
+      payButton.classList.remove('bg-neutral-500', 'dark:bg-neutral-600', 'text-neutral-200', 'hover:bg-neutral-500', 'dark:hover:bg-neutral-600', 'hover:text-neutral-200', 'cursor-not-allowed');
+      payButton.classList.add('bg-yellow-500', 'dark:bg-yellow-600', 'text-neutral-950', 'hover:bg-yellow-600', 'hover:text-neutral-950', 'dark:hover:bg-yellow-500');
+
+    }, 2000); 
   });
 </script>
+
 
 
 
