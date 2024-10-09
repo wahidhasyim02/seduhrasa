@@ -393,7 +393,7 @@
     </ul>
 
 
-    <ul class="flex flex-col gap-y-4 py-8">
+    <ul class="hidden flex-col gap-y-4 py-8">
       
       <li class="group flex items-center justify-center">
         <a href="/" title="Setting">
@@ -454,7 +454,7 @@ tells a story.</p>
         
         <div
             class="group h-52 w-full overflow-hidden rounded-md bg-cover p-2 ring-1 ring-neutral-300 duration-1000 odd:bg-white/20 even:odd:bg-white/30 hover:ring-1 hover:ring-yellow-400 hover:delay-100 dark:ring-neutral-800 dark:odd:bg-neutral-800/20 dark:even:bg-neutral-800/30 hover:dark:ring-yellow-400">
-            <a href="/products/food/mie/">
+            <a href="/products/food/miegacoan/">
                 <img src="/images/gacoan.webp"
                     class="h-full w-full overflow-hidden rounded-md object-cover opacity-100 transition-opacity duration-1000 md:opacity-80 md:dark:opacity-70 group-hover:opacity-100"
                     alt="Mie Gacoan" />
@@ -826,26 +826,6 @@ tells a story.</p>
 </script>
 
 
-<script>
-  document.getElementById('paymentMethod').addEventListener('change', function () {
-    var selectedValue = this.value;
-
-    
-    document.getElementById('viabank').classList.add('hidden');
-    document.getElementById('viacard').classList.add('hidden');
-    document.getElementById('viaewallet').classList.add('hidden');
-
-    
-    if (selectedValue === 'bank') {
-      document.getElementById('viabank').classList.remove('hidden');
-    } else if (selectedValue === 'credit-card') {
-      document.getElementById('viacard').classList.remove('hidden');
-    } else if (selectedValue === 'e-wallet') {
-      document.getElementById('viaewallet').classList.remove('hidden');
-    }
-  });
-</script>
-
 
 <script>
   
@@ -869,8 +849,7 @@ tells a story.</p>
     var name = document.getElementById('name').value;
     var phone = document.getElementById('phone').value;
     var address = document.getElementById('address').value;
-    
-    
+    var url = document.getElementById('url').innerText; 
 
     if (!paymentMethod || !name || !phone || !address) {
       alert('Please fill in all the details');
@@ -878,7 +857,7 @@ tells a story.</p>
     }
 
     
-    var mailtoLink = `mailto:wahidhasyim46@gmail.com?subject=Payment%20Confirmation&body=Payment%20Method:%20${paymentMethod}%0AName:%20${name}%0APhone:%20${phone}%0AAddress:%20${address}%0A%0A*Please attach proof of payment in your email.*`;
+    var mailtoLink = `mailto:wahidhasyim46@gmail.com?subject=Payment%20Confirmation&body=Payment%20Method:%20${paymentMethod}%0AName:%20${name}%0APhone:%20${phone}%0AAddress:%20${address}%0AProduct%20URL:%20${url}%0A%0A*Please attach proof of payment in your email.*`;
 
     window.location.href = mailtoLink;
   });
@@ -903,7 +882,6 @@ tells a story.</p>
   });
 </script>
 
-
 <script>
   
   document.getElementById('phone').addEventListener('input', function (e) {
@@ -913,17 +891,42 @@ tells a story.</p>
   
   document.getElementById('btn-pay').addEventListener('click', function (e) {
     var phone = document.getElementById('phone').value;
+    var name = document.getElementById('name').value; 
+    var address = document.getElementById('address').value; 
     var errorMessage = document.getElementById('phone-error');
+    var phoneInput = document.getElementById('phone');
+    var nameInput = document.getElementById('name'); 
+    var addressInput = document.getElementById('address'); 
+
+    
+    phoneInput.classList.remove("border-pink-600", "dark:border-pink-500", "placeholder:text-pink-500");
+    nameInput.classList.remove("border-pink-600", "dark:border-pink-500", "placeholder:text-pink-500");
+    addressInput.classList.remove("border-pink-600", "dark:border-pink-500", "placeholder:text-pink-500");
 
     
     if (!/^\d+$/.test(phone)) {
-      errorMessage.classList.remove('hidden'); 
+      phoneInput.classList.add("border-pink-600", "dark:border-pink-500", "placeholder:text-pink-500");
       e.preventDefault(); 
-    } else {
+    }
+
+    
+    if (name.trim() === '') {
+      nameInput.classList.add("border-pink-600", "dark:border-pink-500", "placeholder:text-pink-500");
+      e.preventDefault(); 
+    }
+
+    if (address.trim() === '') {
+      addressInput.classList.add("border-pink-600", "dark:border-pink-500", "placeholder:text-pink-500");
+      e.preventDefault(); 
+    }
+
+    
+    if (/^\d+$/.test(phone) && name.trim() !== '' && address.trim() !== '') {
       errorMessage.classList.add('hidden'); 
     }
   });
 </script>
+
 
 <script>
   function copyToClipboard(id) {
@@ -941,6 +944,35 @@ tells a story.</p>
     
     alert('Nomor disalin: ' + number);
   }
+</script>
+
+
+
+
+
+<script>
+  document.getElementById('paymentMethod').addEventListener('change', function () {
+    var selectedValue = this.value;
+    console.log(selectedValue); 
+
+    
+    document.getElementById('viabank').classList.add('hidden');
+    document.getElementById('viacard').classList.add('hidden');
+    document.getElementById('viaewallet').classList.add('hidden');
+
+    
+    if (selectedValue === 'Bank') {
+      document.getElementById('viabank').classList.remove('hidden');
+
+      document.getElementById('viabank').classList.add('block');
+    } else if (selectedValue === 'Credit-card') {
+      document.getElementById('viacard').classList.remove('hidden');
+      document.getElementById('viacard').classList.add('block');
+    } else if (selectedValue === 'E-wallet') {
+      document.getElementById('viaewallet').classList.remove('hidden');
+      document.getElementById('viaewallet').classList.add('block');
+    }
+  });
 </script>
   </footer>
 

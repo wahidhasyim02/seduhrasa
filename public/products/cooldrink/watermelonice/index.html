@@ -393,7 +393,7 @@
     </ul>
 
 
-    <ul class="flex flex-col gap-y-4 py-8">
+    <ul class="hidden flex-col gap-y-4 py-8">
       
       <li class="group flex items-center justify-center">
         <a href="/" title="Setting">
@@ -497,7 +497,7 @@ placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
 
 
     
-    <div id="paymentPopup" class="fixed z-1000 inset-0 mx-4 p-4 hidden justify-center items-center">
+    <div id="paymentPopup" class="fixed z-1000 inset-0 mx-4 p-4 justify-center items-center hidden">
         
         <div
             class="bg-white h-[90%] overflow-style-y overflow-y-auto overflow-x-hidden overscroll-auto dark:bg-neutral-800 p-8 rounded shadow-lg max-w-lg w-full">
@@ -505,9 +505,9 @@ placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
             <h2 class="text-2xl font-bold mb-4">Confirm Your Payment</h2>
 
             
-            <div class="mb-4">
+            <div class="mb-4 w-full">
                 <p><strong>Product: </strong>Watermelon Ice</p>
-                <p><strong>Url: </strong><span id="url">https://wahidhasyim02.github.io/products/cooldrink/watermelonice/</span></p>
+                <p><strong>Url: </strong><span class="break-words" id="url">https://wahidhasyim02.github.io/products/cooldrink/watermelonice/</span></p>
                 <p><strong>Quantity: </strong>1</p>
                 <p><strong>Total Price: </strong>$21</p>
             </div>
@@ -521,9 +521,9 @@ placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
                     <select id="paymentMethod"
                         class="block w-full rounded-md border border-neutral-400 bg-neutral-100 py-2 pl-10 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800">
                         <option value="">Select Payment Method</option>
-                        <option value="bank">Bank Transfer</option>
-                        <option value="credit-card">Credit Card</option>
-                        <option value="e-wallet">E-Wallet</option>
+                        <option value="Bank">Bank Transfer</option>
+                        <option value="Credit-card">Credit Card</option>
+                        <option value="E-wallet">E-Wallet</option>
                     </select>
                 </label>
 
@@ -599,6 +599,7 @@ placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
                         class="block w-full rounded-md border border-neutral-400  bg-neutral-100 py-2 pl-10 pr-3 shadow-sm placeholder:italic placeholder:text-neutral-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 dark:border-neutral-700 dark:bg-neutral-800"
                         placeholder="Enter your phone number" type="tel" inputmode="numeric" pattern="[0-9]*"
                         name="phone" />
+
                 </label>
                 <label class="relative block ">
                     <span class="sr-only">Address</span>
@@ -617,16 +618,16 @@ placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
 
             </div>
             
-            <div class="flex justify-end space-x-3 mt-6">
+            <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-end gap-y-3 sm:gap-x-3 mt-6">
 
-                <button id="btn-cancelpay" class="group flex h-fit w-fit items-center justify-center rounded-md bg-neutral-500 px-4 py-2
-                    text-center text-lg text-white shadow-lg hover:bg-neutral-600 dark:bg-neutral-600
-                    dark:hover:bg-neutral-500">
+                <button id="btn-cancelpay" class="group order-last sm:order-first flex h-fit w-full sm:w-fit items-center justify-center rounded-md bg-neutral-500 px-4 py-2
+                text-center text-lg text-white shadow-lg hover:bg-neutral-600 dark:bg-neutral-600
+                dark:hover:bg-neutral-500">
                     Cancel
 
                 </button>
                 <button id="btn-pay"
-                    class="group flex h-fit w-full sm:w-fit items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
+                    class="group order-first sm:order-last flex h-fit w-full sm:w-fit items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-center text-lg text-neutral-950 shadow-lg hover:bg-yellow-600 hover:text-neutral-950 dark:bg-yellow-600 dark:hover:bg-yellow-500">
                     Confirm payment
 
                 </button>
@@ -874,25 +875,6 @@ placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
 </script>
 
 
-<script>
-  document.getElementById('paymentMethod').addEventListener('change', function () {
-    var selectedValue = this.value;
-
-    
-    document.getElementById('viabank').classList.add('hidden');
-    document.getElementById('viacard').classList.add('hidden');
-    document.getElementById('viaewallet').classList.add('hidden');
-
-    
-    if (selectedValue === 'bank') {
-      document.getElementById('viabank').classList.remove('hidden');
-    } else if (selectedValue === 'credit-card') {
-      document.getElementById('viacard').classList.remove('hidden');
-    } else if (selectedValue === 'e-wallet') {
-      document.getElementById('viaewallet').classList.remove('hidden');
-    }
-  });
-</script>
 
 <script>
   
@@ -949,7 +931,6 @@ placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
   });
 </script>
 
-
 <script>
   
   document.getElementById('phone').addEventListener('input', function (e) {
@@ -959,17 +940,42 @@ placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
   
   document.getElementById('btn-pay').addEventListener('click', function (e) {
     var phone = document.getElementById('phone').value;
+    var name = document.getElementById('name').value; 
+    var address = document.getElementById('address').value; 
     var errorMessage = document.getElementById('phone-error');
+    var phoneInput = document.getElementById('phone');
+    var nameInput = document.getElementById('name'); 
+    var addressInput = document.getElementById('address'); 
+
+    
+    phoneInput.classList.remove("border-pink-600", "dark:border-pink-500", "placeholder:text-pink-500");
+    nameInput.classList.remove("border-pink-600", "dark:border-pink-500", "placeholder:text-pink-500");
+    addressInput.classList.remove("border-pink-600", "dark:border-pink-500", "placeholder:text-pink-500");
 
     
     if (!/^\d+$/.test(phone)) {
-      errorMessage.classList.remove('hidden'); 
+      phoneInput.classList.add("border-pink-600", "dark:border-pink-500", "placeholder:text-pink-500");
       e.preventDefault(); 
-    } else {
+    }
+
+    
+    if (name.trim() === '') {
+      nameInput.classList.add("border-pink-600", "dark:border-pink-500", "placeholder:text-pink-500");
+      e.preventDefault(); 
+    }
+
+    if (address.trim() === '') {
+      addressInput.classList.add("border-pink-600", "dark:border-pink-500", "placeholder:text-pink-500");
+      e.preventDefault(); 
+    }
+
+    
+    if (/^\d+$/.test(phone) && name.trim() !== '' && address.trim() !== '') {
       errorMessage.classList.add('hidden'); 
     }
   });
 </script>
+
 
 <script>
   function copyToClipboard(id) {
@@ -987,6 +993,35 @@ placeat? Officia odit quae nostrum excepturi iure, deserunt soluta in!</p>
     
     alert('Nomor disalin: ' + number);
   }
+</script>
+
+
+
+
+
+<script>
+  document.getElementById('paymentMethod').addEventListener('change', function () {
+    var selectedValue = this.value;
+    console.log(selectedValue); 
+
+    
+    document.getElementById('viabank').classList.add('hidden');
+    document.getElementById('viacard').classList.add('hidden');
+    document.getElementById('viaewallet').classList.add('hidden');
+
+    
+    if (selectedValue === 'Bank') {
+      document.getElementById('viabank').classList.remove('hidden');
+
+      document.getElementById('viabank').classList.add('block');
+    } else if (selectedValue === 'Credit-card') {
+      document.getElementById('viacard').classList.remove('hidden');
+      document.getElementById('viacard').classList.add('block');
+    } else if (selectedValue === 'E-wallet') {
+      document.getElementById('viaewallet').classList.remove('hidden');
+      document.getElementById('viaewallet').classList.add('block');
+    }
+  });
 </script>
   </footer>
 

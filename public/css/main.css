@@ -1332,6 +1332,10 @@ input[type="checkbox"]:checked:focus {
   row-gap: 5rem !important;
 }
 
+.gap-y-3 {
+  row-gap: 0.75rem !important;
+}
+
 .gap-y-4 {
   row-gap: 1rem !important;
 }
@@ -1472,6 +1476,10 @@ input[type="checkbox"]:checked:focus {
   white-space: nowrap !important;
 }
 
+.break-words {
+  overflow-wrap: break-word !important;
+}
+
 .rounded {
   border-radius: 0.25rem !important;
 }
@@ -1529,6 +1537,11 @@ input[type="checkbox"]:checked:focus {
 .border-neutral-400 {
   --tw-border-opacity: 1 !important;
   border-color: rgb(163 163 163 / var(--tw-border-opacity)) !important;
+}
+
+.border-pink-600 {
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(219 39 119 / var(--tw-border-opacity)) !important;
 }
 
 .border-yellow-500 {
@@ -2264,6 +2277,16 @@ input[type="checkbox"]:checked:focus {
   color: rgb(82 82 82 / var(--tw-text-opacity)) !important;
 }
 
+.placeholder\:text-pink-500::-moz-placeholder {
+  --tw-text-opacity: 1 !important;
+  color: rgb(236 72 153 / var(--tw-text-opacity)) !important;
+}
+
+.placeholder\:text-pink-500::placeholder {
+  --tw-text-opacity: 1 !important;
+  color: rgb(236 72 153 / var(--tw-text-opacity)) !important;
+}
+
 .odd\:bg-white\/10:nth-child(odd) {
   background-color: rgb(255 255 255 / 0.1) !important;
 }
@@ -2552,6 +2575,11 @@ input[type="checkbox"]:checked:focus {
   border-color: rgb(38 38 38 / var(--tw-border-opacity)) !important;
 }
 
+.dark\:border-pink-500:is(.dark *) {
+  --tw-border-opacity: 1 !important;
+  border-color: rgb(236 72 153 / var(--tw-border-opacity)) !important;
+}
+
 .dark\:bg-green-600:is(.dark *) {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(22 163 74 / var(--tw-bg-opacity)) !important;
@@ -2744,6 +2772,14 @@ input[type="checkbox"]:checked:focus {
     left: 2.5rem !important;
   }
 
+  .sm\:order-first {
+    order: -9999 !important;
+  }
+
+  .sm\:order-last {
+    order: 9999 !important;
+  }
+
   .sm\:ml-1 {
     margin-left: 0.25rem !important;
   }
@@ -2800,6 +2836,15 @@ input[type="checkbox"]:checked:focus {
 
   .sm\:flex-row {
     flex-direction: row !important;
+  }
+
+  .sm\:justify-end {
+    justify-content: flex-end !important;
+  }
+
+  .sm\:gap-x-3 {
+    -moz-column-gap: 0.75rem !important;
+         column-gap: 0.75rem !important;
   }
 
   .sm\:gap-x-4 {
