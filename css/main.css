@@ -2707,10 +2707,6 @@ input[type="checkbox"]:checked:focus {
   opacity: 0.4 !important;
 }
 
-.dark\:opacity-0:is(.dark *) {
-  opacity: 0 !important;
-}
-
 .dark\:ring-gray-700:is(.dark *) {
   --tw-ring-opacity: 1 !important;
   --tw-ring-color: rgb(55 65 81 / var(--tw-ring-opacity)) !important;
