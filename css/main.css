@@ -2820,10 +2820,6 @@ input[type="checkbox"]:checked:focus {
     bottom: 0px !important;
   }
 
-  .sm\:bottom-28 {
-    bottom: 7rem !important;
-  }
-
   .sm\:bottom-6 {
     bottom: 1.5rem !important;
   }
@@ -2966,10 +2962,6 @@ input[type="checkbox"]:checked:focus {
 }
 
 @media (min-width: 768px) {
-  .md\:bottom-24 {
-    bottom: 6rem !important;
-  }
-
   .md\:left-16 {
     left: 4rem !important;
   }
@@ -2978,16 +2970,8 @@ input[type="checkbox"]:checked:focus {
     top: 0.5rem !important;
   }
 
-  .md\:bottom-40 {
-    bottom: 10rem !important;
-  }
-
-  .md\:bottom-48 {
-    bottom: 12rem !important;
-  }
-
-  .md\:bottom-52 {
-    bottom: 13rem !important;
+  .md\:bottom-28 {
+    bottom: 7rem !important;
   }
 
   .md\:ml-0 {
