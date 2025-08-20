@@ -2962,16 +2962,16 @@ input[type="checkbox"]:checked:focus {
 }
 
 @media (min-width: 768px) {
+  .md\:bottom-28 {
+    bottom: 7rem !important;
+  }
+
   .md\:left-16 {
     left: 4rem !important;
   }
 
   .md\:top-2 {
     top: 0.5rem !important;
-  }
-
-  .md\:bottom-28 {
-    bottom: 7rem !important;
   }
 
   .md\:ml-0 {
